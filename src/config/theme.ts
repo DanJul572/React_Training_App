@@ -1,8 +1,10 @@
-import { createTheme } from "@mui/material";
+import { createTheme, PaletteMode } from "@mui/material";
+
+const colorMode: PaletteMode = (import.meta.env.VITE_THEME === 'dark' ? 'dark' : 'light') as PaletteMode;
 
 const theme = createTheme({
     palette: {
-        mode: 'light',
+        mode: colorMode,
         primary: {
             light: '#cfa3ff',
             main: '#831ef7',
