@@ -1,5 +1,5 @@
-import en from '../language/en.json';
-import id from '../language/id.json';
+import en from '../languages/en.json';
+import id from '../languages/id.json';
 
 const languageType: string = import.meta.env.VITE_LANGUAGE;
 
