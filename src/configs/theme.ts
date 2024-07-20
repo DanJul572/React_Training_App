@@ -1,6 +1,6 @@
 import { createTheme, PaletteMode } from "@mui/material";
 
-const colorMode: PaletteMode = (import.meta.env.VITE_THEME === 'dark' ? 'dark' : 'light') as PaletteMode;
+const colorMode: PaletteMode = (import.meta.env.VITE_THEME || 'light') as PaletteMode;
 
 const theme = createTheme({
     palette: {

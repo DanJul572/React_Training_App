@@ -25,12 +25,14 @@ const formatedColumns = (
             getActions: (data) => {
                 return [
                     <GridActionsCellItem
+                        data-testid="ztable_edit_button"
                         color="inherit"
                         icon={<Edit />}
                         label="Edit"
                         onClick={() => onEdit(data.id)}
                     />,
                     <GridActionsCellItem
+                        data-testid="ztable_delete_button"
                         color="inherit"
                         icon={<Delete />}
                         label="Delete"

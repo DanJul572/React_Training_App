@@ -21,7 +21,7 @@ const ZTable = (props: Props) => {
     const getRowId = (row: any) => row[props.id];
 
     return (
-        <div style={{ width: '100%', padding: 10 }}>
+        <div style={{ width: '100%', padding: 10 }} data-testid="ztable">
             <DataGrid
                 autoHeight={true}
                 autosizeOptions={table.autoSizeOption}
