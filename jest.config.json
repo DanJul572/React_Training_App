@@ -1,4 +1,10 @@
 {
+    "collectCoverageFrom": [
+        "<rootDir>/src/**/*.{ts,tsx}",
+        "!<rootDir>/src/**/*.d.ts",
+        "!<rootDir>/src/__test__/**",
+        "!<rootDir>/src/main.tsx"
+    ],
     "setupFilesAfterEnv": ["<rootDir>/src/__test__/setupTest.ts"],
     "testEnvironment": "jest-environment-jsdom",
     "moduleNameMapper": {
