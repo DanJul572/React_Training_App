@@ -1,7 +1,7 @@
 import Delete from '@mui/icons-material/Delete';
 import Edit from '@mui/icons-material/Edit';
 
-import { GridActionsCellItem } from '@mui/x-data-grid/components/cell/GridActionsCellItem';
+import { GridActionsCellItem } from '@mui/x-data-grid/components';
 import { GridColDef } from '@mui/x-data-grid/models/colDef/gridColDef';
 
 const formatedColumns = (
@@ -9,8 +9,14 @@ const formatedColumns = (
     onEdit: (id: any) => void,
     onDelete: (id: any) => void
 ): GridColDef[] => {
+    const mappingColumns: GridColDef[] = columns.map((column) => {
+        column.flex = 1;
+        column.disableColumnMenu = true;
+        return column;
+    });
+
     return [
-        ...columns,
+        ...mappingColumns,
         {
             field: 'actions',
             type: 'actions',

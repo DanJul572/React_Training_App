@@ -1,31 +1,11 @@
-import { DataGrid } from '@mui/x-data-grid/DataGrid/DataGrid';
-import { GridAutosizeOptions } from '@mui/x-data-grid/hooks/features/columnResize/gridColumnResizeApi';
-import { GridColDef } from '@mui/x-data-grid/models/colDef/gridColDef';
-import { GridInitialStateCommunity } from '@mui/x-data-grid/models/gridStateCommunity';
+import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
 
 import ToolBar from './Toolbar';
 import formatedColumns from './formatedColumns';
 
-type Props = {
-    columns: readonly GridColDef[];
-    id: string;
-    rows: any[];
-    onRowSelect: (data: any) => void;
-    onAdd: () => void;
-    onEdit: (data: any) => void;
-    onDelete: (data: any) => void;
-};
-
-const pageSize: number = 5;
-const initialState: GridInitialStateCommunity = {
-    pagination: {
-        paginationModel: { page: 0, pageSize: pageSize },
-    },
-};
-const autoSizeOption: GridAutosizeOptions = {
-    includeOutliers: true,
-};
+import { Props } from './types';
+import table from '../../configs/table';
 
 const ZTable = (props: Props) => {
     const columns = formatedColumns(
@@ -38,20 +18,30 @@ const ZTable = (props: Props) => {
         toolbar: () => <ToolBar onAdd={props.onAdd} />,
     };
 
+    const getRowId = (row: any) => row[props.id];
+
     return (
         <div style={{ width: '100%', padding: 10 }}>
             <DataGrid
                 autoHeight={true}
-                autosizeOptions={autoSizeOption}
+                autosizeOptions={table.autoSizeOption}
                 checkboxSelection={true}
                 columns={columns}
-                density="compact"
-                getRowId={(row) => row[props.id]}
-                initialState={initialState}
-                onRowSelectionModelChange={props.onRowSelect}
+                density={table.density}
+                filterDebounceMs={table.filterDebounceMs}
+                filterMode={table.gridMode}
+                getRowId={getRowId}
+                initialState={table.initialState}
+                onFilterModelChange={props.onFilter}
+                onPaginationModelChange={props.onChangePage}
+                onRowSelectionModelChange={props.onSelect}
+                onSortModelChange={props.onSort}
+                pageSizeOptions={table.pageSizeOptions}
+                paginationMode={table.gridMode}
+                rowCount={props.rows.length}
                 rows={props.rows}
                 slots={slots}
-                pageSizeOptions={[10]}
+                sortingMode={table.gridMode}
             />
         </div>
     );

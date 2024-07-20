@@ -1,10 +1,11 @@
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+
+import TableDemo from './demos/TableDemo';
 
 const App = () => {
     return (
         <Box data-testid="content">
-            <Typography>Hello</Typography>
+            <TableDemo />
         </Box>
     );
 };
