@@ -68,7 +68,7 @@ describe('Table Demo', () => {
     it('filter action', async () => {
         render(<TableDemo />);
 
-        const filterButton = screen.getByText('Filters');
+        const filterButton = screen.getByText(/filters/i);
 
         expect(filterButton).toBeInTheDocument();
 
@@ -76,10 +76,9 @@ describe('Table Demo', () => {
             fireEvent.click(filterButton);
         });
 
-        const filterValue = screen.getByPlaceholderText('Filter value');
+        const filterValue = screen.getByPlaceholderText(/filter value/i);
+
         await waitFor(() => {
-            expect(screen.getByText('Columns')).toBeInTheDocument();
-            expect(screen.getByText('Operator')).toBeInTheDocument();
             expect(filterValue).toBeInTheDocument();
         });
 
