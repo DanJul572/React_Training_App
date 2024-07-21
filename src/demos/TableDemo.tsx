@@ -8,8 +8,8 @@ import ZTable from '../components/table';
 
 type People = {
     id: number;
-    firstName: string;
-    lastName: string;
+    firstName?: string | null;
+    lastName?: string | null;
     age: number;
 };
 
@@ -44,8 +44,8 @@ const rows: People[] = [
     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 14 },
     { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 31 },
     { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 31 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 11 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: 23 },
+    { id: 4, lastName: null, firstName: 'Arya', age: 11 },
+    { id: 5, lastName: 'Targaryen', firstName: null, age: 23 },
     { id: 6, lastName: 'Melisandre', firstName: 'Yoin', age: 150 },
     { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
     { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
@@ -61,7 +61,7 @@ const onChangePage = (data: GridPaginationModel): void => {
 };
 
 const onDelete = (data: People): void => {
-    console.log('onFilter', data);
+    console.log('onDelete', data);
 };
 
 const onEdit = (data: People): void => {
