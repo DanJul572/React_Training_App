@@ -3,7 +3,7 @@ import { GridPaginationModel } from '@mui/x-data-grid/models/gridPaginationProps
 import { GridRowSelectionModel } from '@mui/x-data-grid/models/gridRowSelectionModel';
 import { GridSortModel } from '@mui/x-data-grid/models/gridSortModel';
 
-import ZTable from '../../components/table';
+import ZTable from '../../components/ZTable';
 
 import { People } from './types';
 import columns from './columns';
