@@ -1,10 +1,10 @@
 export type Option = {
     label: any;
-    value: any
+    value: any;
 }
 
 export type Props = {
-    options: Option[],
-    label: string,
-    onChange: (value: Option | null) => void
+    label: string;
+    name: string;
+    options: Option[];
 }
