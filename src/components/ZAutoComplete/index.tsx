@@ -1,11 +1,7 @@
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
-import { Props, Option } from './types';
-
-const isOptionEqualToValue = (options: Option, value: Option) => {
-    return options.value === value.value;
-};
+import { Props } from './types';
 
 const ZAutoComplete = (props: Props) => {
     return (
@@ -18,7 +14,6 @@ const ZAutoComplete = (props: Props) => {
                     name={props.name}
                 />
             )}
-            isOptionEqualToValue={isOptionEqualToValue}
         />
     );
 };

@@ -1,6 +1,6 @@
 export type Option = {
-    label: any;
-    value: any;
+    label: string;
+    value: string;
 }
 
 export type Props = {
