@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
 
@@ -21,7 +22,7 @@ const ZTable = (props: Props) => {
     const getRowId = (row: any) => row[props.id];
 
     return (
-        <div style={{ width: '100%', padding: 10 }} data-testid="ztable">
+        <Box sx={{ width: '100%', padding: 10 }} data-testid="ztable">
             <DataGrid
                 autoHeight={true}
                 autosizeOptions={table.autoSizeOption}
@@ -43,7 +44,7 @@ const ZTable = (props: Props) => {
                 slots={slots}
                 sortingMode={table.gridMode}
             />
-        </div>
+        </Box>
     );
 };
 
