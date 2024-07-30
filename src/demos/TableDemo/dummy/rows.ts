@@ -1,4 +1,4 @@
-import { People } from "./types";
+import { People } from "../types";
 
 const rows: People[] = [
     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 14 },

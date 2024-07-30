@@ -9,7 +9,7 @@ import {
     GridToolbarQuickFilter,
 } from '@mui/x-data-grid/components';
 
-import translator from '../../helpers/translator';
+import translator from '../../../helpers/translator';
 
 type Props = {
     onAdd: () => void;

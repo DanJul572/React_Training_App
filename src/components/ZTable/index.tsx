@@ -2,11 +2,11 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
 
-import ToolBar from './Toolbar';
-import formatedColumns from './formatedColumns';
-
 import { Props } from './types';
 import table from '../../configs/table';
+
+import formatedColumns from './components/formatedColumns';
+import ToolBar from './components/Toolbar';
 
 const ZTable = (props: Props) => {
     const columns = formatedColumns(
