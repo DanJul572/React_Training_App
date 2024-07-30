@@ -32,6 +32,7 @@ export default defineConfig({
                 '**/.{eslint,mocha,prettier}rc.{?(c|m)js,yml}',
                 '**/src/main.tsx',
                 '**src/**/types.ts',
+                '**src/types/**',
             ],
         },
     },
