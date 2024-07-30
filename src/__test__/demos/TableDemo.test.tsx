@@ -57,7 +57,7 @@ describe('Table Demo', () => {
     it('change page action', async () => {
         render(<TableDemo />);
 
-        const pageButton = screen.getByTitle('Go to next page');
+        const pageButton = screen.getByTestId('KeyboardArrowRightIcon');
 
         expect(pageButton).toBeInTheDocument();
 
@@ -66,14 +66,14 @@ describe('Table Demo', () => {
         });
 
         await waitFor(() => {
-            expect(pageButton).toHaveAttribute('tabindex', '-1');
+            expect(pageButton.parentElement).toBeDisabled();
         });
     });
 
     it('filter action', async () => {
         render(<TableDemo />);
 
-        const filterButton = screen.getByText(/filters/i);
+        const filterButton = screen.getByTestId('FilterListIcon');
 
         expect(filterButton).toBeInTheDocument();
 
