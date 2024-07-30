@@ -22,25 +22,30 @@ describe('Table Demo', () => {
     it('click row action', async () => {
         render(<TableDemo />);
 
-        const editButton = screen.getAllByTestId('ztable_edit_button');
-        const deleteButton = screen.getAllByTestId('ztable_delete_button');
+        const firstRow = screen.getByRole('row', {
+            name: /select row 1 jon snow 14 jon snow/i,
+        });
+
+        const editButton = within(firstRow).getByTestId('EditIcon');
+
+        const deleteButton = within(firstRow).getByTestId('DeleteIcon');
 
         expect(editButton).toBeDefined();
         expect(deleteButton).toBeDefined();
 
         await act(async () => {
-            fireEvent.click(editButton[0]);
+            fireEvent.click(editButton);
         });
 
         await act(async () => {
-            fireEvent.click(deleteButton[0]);
+            fireEvent.click(deleteButton);
         });
     });
 
     it('click add action', async () => {
         render(<TableDemo />);
 
-        const addButton = screen.getByText(/add record/i);
+        const addButton = screen.getByTestId('AddIcon');
 
         expect(addButton).toBeInTheDocument();
 

@@ -9,6 +9,8 @@ import {
     GridToolbarQuickFilter,
 } from '@mui/x-data-grid/components';
 
+import translator from '../../helpers/translator';
+
 type Props = {
     onAdd: () => void;
 };
@@ -17,17 +19,17 @@ const ToolBar = (props: Props) => {
     return (
         <Box display="flex" padding={2} justifyContent="space-between">
             <Box display="flex" gap={1}>
-                <Tooltip title="Add Record">
+                <Tooltip title={translator('add_record')}>
                     <Button
                         color="primary"
                         startIcon={<Add />}
                         size="small"
                         onClick={props.onAdd}
                     >
-                        Add Record
+                        {translator('add_record')}
                     </Button>
                 </Tooltip>
-                <GridToolbarColumnsButton />
+                <GridToolbarColumnsButton/>
                 <GridToolbarFilterButton />
             </Box>
             <GridToolbarQuickFilter />
