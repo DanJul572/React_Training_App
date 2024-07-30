@@ -8,11 +8,11 @@ import {
     within,
 } from '@testing-library/react';
 
-import TableDemo from '../../demos/TableDemo';
+import ZTableComponent from '../../demos/ZTableComponent';
 
 describe('Table Demo', () => {
     it('render component', async () => {
-        render(<TableDemo />);
+        render(<ZTableComponent />);
 
         const tableContainer = screen.getByTestId('ztable');
 
@@ -20,7 +20,7 @@ describe('Table Demo', () => {
     });
 
     it('click row action', async () => {
-        render(<TableDemo />);
+        render(<ZTableComponent />);
 
         const firstRow = screen.getByRole('row', {
             name: /select row 1 jon snow 14 jon snow/i,
@@ -43,7 +43,7 @@ describe('Table Demo', () => {
     });
 
     it('click add action', async () => {
-        render(<TableDemo />);
+        render(<ZTableComponent />);
 
         const addButton = screen.getByTestId('AddIcon');
 
@@ -55,7 +55,7 @@ describe('Table Demo', () => {
     });
 
     it('change page action', async () => {
-        render(<TableDemo />);
+        render(<ZTableComponent />);
 
         const pageButton = screen.getByTestId('KeyboardArrowRightIcon');
 
@@ -71,7 +71,7 @@ describe('Table Demo', () => {
     });
 
     it('filter action', async () => {
-        render(<TableDemo />);
+        render(<ZTableComponent />);
 
         const filterButton = screen.getByTestId('FilterListIcon');
 
@@ -103,7 +103,7 @@ describe('Table Demo', () => {
     });
 
     it('selection row', async () => {
-        render(<TableDemo />);
+        render(<ZTableComponent />);
 
         const firstRow = screen.getByRole('row', {
             name: /select row 1 jon snow 14 jon snow/i,
@@ -158,7 +158,7 @@ describe('Table Demo', () => {
     });
 
     it('soting action', async () => {
-        render(<TableDemo />);
+        render(<ZTableComponent />);
 
         const sortButton = screen.getAllByTestId('ArrowUpwardIcon');
 

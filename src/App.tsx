@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
 
-import TableDemo from './demos/TableDemo';
+import ZTableComponent from './demos/ZTableComponent';
 
 const App = () => {
     return (
         <Box data-testid="content">
-            <TableDemo />
+            <ZTableComponent />
         </Box>
     );
 };

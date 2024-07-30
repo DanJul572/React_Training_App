@@ -37,7 +37,7 @@ const onSort = (data: GridSortModel): void => {
     console.log('onSort', data);
 };
 
-const TableDemo = () => {
+const ZTableComponent = () => {
     return (
         <ZTable
             columns={columns}
@@ -54,4 +54,4 @@ const TableDemo = () => {
     );
 };
 
-export default TableDemo;
+export default ZTableComponent;
