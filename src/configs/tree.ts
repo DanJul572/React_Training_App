@@ -7,7 +7,7 @@ const tree: Menu[] = [
     },
     {
         id: '2',
-        label: 'Paren 2',
+        label: 'Parent 2',
         child: [
             {
                 id: '3',

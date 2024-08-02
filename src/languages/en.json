@@ -1,4 +1,6 @@
 {
     "add_record": "Add Record",
-    "hello": "Hello"
+    "hello": "Hello",
+    "logout": "Logout",
+    "my_account": "My Account"
 }

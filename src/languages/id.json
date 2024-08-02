@@ -1,4 +1,6 @@
 {
     "add_record": "Tambah Data",
-    "hello": "Halo"
+    "hello": "Halo",
+    "logout": "Keluar",
+    "my_account": "Akun Saya"
 }

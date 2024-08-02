@@ -1,6 +1,9 @@
 import Box from '@mui/material/Box';
 
-import theme from '../../../configs/theme';
+import theme from '../../../../configs/theme';
+
+import FadeMenu from './components/FadeMenu';
+import Logo from './components/Logo';
 
 const Topbar = () => {
     return (
@@ -12,12 +15,15 @@ const Topbar = () => {
                 ),
                 alignItems: 'center',
                 display: 'flex',
+                justifyContent: 'space-between',
                 width: '100vw',
                 height: '65px',
-                padding: '10px',
+                paddingBlock: '10px',
+                paddingInline: '20px',
             }}
         >
-            <span className="topbar">ZApp</span>
+            <Logo />
+            <FadeMenu />
         </Box>
     );
 };
