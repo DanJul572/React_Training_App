@@ -6,7 +6,6 @@ import Add from '@mui/icons-material/Add';
 import {
     GridToolbarColumnsButton,
     GridToolbarFilterButton,
-    GridToolbarQuickFilter,
 } from '@mui/x-data-grid/components';
 
 import translator from '../../../helpers/translator';
@@ -29,10 +28,9 @@ const ToolBar = (props: Props) => {
                         {translator('add_record')}
                     </Button>
                 </Tooltip>
-                <GridToolbarColumnsButton/>
+                <GridToolbarColumnsButton />
                 <GridToolbarFilterButton />
             </Box>
-            <GridToolbarQuickFilter />
         </Box>
     );
 };

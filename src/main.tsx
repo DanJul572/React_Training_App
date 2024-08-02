@@ -8,6 +8,8 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import './style.css';
+
 import App from './App.tsx';
 import theme from './configs/theme.ts';
 
