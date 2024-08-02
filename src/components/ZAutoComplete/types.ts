@@ -1,4 +1,4 @@
-import { Option } from "../../types/options";
+import { Option } from "../../types/option";
 
 export type Props = {
     label: string;

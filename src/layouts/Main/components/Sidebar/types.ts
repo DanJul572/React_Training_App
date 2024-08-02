@@ -1,8 +1,4 @@
-export type Menu = {
-    id: string;
-    label: string;
-    child?: Menu[]
-}
+import { Menu } from "../../../../types/menu";
 
 export type Props = {
     tree: Menu;

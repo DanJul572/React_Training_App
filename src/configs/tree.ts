@@ -1,5 +1,4 @@
-import { Menu } from "../layouts/Main/components/Sidebar/types";
-
+import { Menu } from "../types/menu";
 
 const tree: Menu[] = [
     {
