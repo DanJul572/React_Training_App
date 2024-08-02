@@ -31,4 +31,30 @@ describe('App', () => {
             expect(screen.getAllByTestId('FolderOpenIcon')).toBeDefined();
         });
     });
+
+    it('show and hide FadeAction', async () => {
+        render(<App />);
+
+        const fadeButton = screen.getByTestId('FadeMenuButton');
+
+        expect(fadeButton).toBeInTheDocument();
+
+        await act(async () => {
+            fireEvent.click(fadeButton);
+        });
+
+        const fadeMenu = screen.getByTestId('FadeMenu');
+
+        await waitFor(() => {
+            expect(fadeMenu).toBeInTheDocument();
+        });
+
+        await act(async () => {
+            fireEvent.click(screen.getByTestId('FadeItemMyAccount'));
+        });
+
+        await waitFor(() => {
+            expect(fadeMenu).not.toBeInTheDocument();
+        });
+    });
 });

@@ -23,6 +23,7 @@ const FadeMenu = () => {
     return (
         <Box>
             <Box
+                data-testid="FadeMenuButton"
                 id="fade-button"
                 aria-controls={open ? 'fade-menu' : undefined}
                 aria-haspopup="true"
@@ -53,6 +54,7 @@ const FadeMenu = () => {
                 </Avatar>
             </Box>
             <Menu
+                data-testid="FadeMenu"
                 id="fade-menu"
                 MenuListProps={{
                     'aria-labelledby': 'fade-button',
@@ -70,10 +72,13 @@ const FadeMenu = () => {
                     horizontal: 'right',
                 }}
             >
-                <MenuItem onClick={handleClose}>
+                <MenuItem
+                    data-testid="FadeItemMyAccount"
+                    onClick={handleClose}
+                >
                     {translator('my_account')}
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem data-testid="Logout" onClick={handleClose}>
                     {translator('logout')}
                 </MenuItem>
             </Menu>
