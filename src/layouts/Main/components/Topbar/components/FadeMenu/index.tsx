@@ -15,9 +15,11 @@ const FadeMenu = () => {
     const { anchorEl, handleClick, handleClose } = useFadeMenu();
 
     const open = Boolean(anchorEl);
+
     const avatarBackgroundColor = theme.palette.getContrastText(
         theme.palette.primary.main
     );
+
     const avatarTextColor = theme.palette.getContrastText(
         avatarBackgroundColor
     );
@@ -80,7 +82,10 @@ const FadeMenu = () => {
                 >
                     {translator('my_account')}
                 </MenuItem>
-                <MenuItem data-testid="Logout" onClick={handleClose}>
+                <MenuItem
+                    data-testid="FadeItemLogout"
+                    onClick={handleClose}
+                >
                     {translator('logout')}
                 </MenuItem>
             </Menu>
