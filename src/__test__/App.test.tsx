@@ -32,7 +32,7 @@ describe('App', () => {
         });
     });
 
-    it('show and hide FadeAction', async () => {
+    it('show and hide FadeMenu', async () => {
         render(<App />);
 
         const fadeButton = screen.getByTestId('FadeMenuButton');
