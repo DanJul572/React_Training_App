@@ -1,5 +1,11 @@
 import { expect, it, describe } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import {
+    act,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
+} from '@testing-library/react';
 
 import App from '../App';
 
@@ -8,5 +14,21 @@ describe('App', () => {
         render(<App />);
 
         expect(screen.getByTestId('content')).toBeInTheDocument();
+    });
+
+    it('coallapse nested menu', async () => {
+        render(<App />);
+
+        const nestedMenu = screen.getAllByTestId('FolderIcon');
+
+        expect(nestedMenu).toBeDefined();
+
+        await act(async () => {
+            fireEvent.click(nestedMenu[0]);
+        });
+
+        await waitFor(() => {
+            expect(screen.getAllByTestId('FolderOpenIcon')).toBeDefined();
+        });
     });
 });
