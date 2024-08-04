@@ -1,13 +1,13 @@
 import Box from '@mui/material/Box';
 
-import ZTableComponent from './demos/ZTableComponent';
 import Main from './layouts/Main';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
     return (
         <Main>
             <Box data-testid="content">
-                <ZTableComponent />
+                <Dashboard />
             </Box>
         </Main>
     );
