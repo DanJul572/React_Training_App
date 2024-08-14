@@ -14,8 +14,8 @@ const useFadeMenu = () => {
     return {
         anchorEl,
         handleClick,
-        handleClose
-    }
-}
+        handleClose,
+    };
+};
 
 export default useFadeMenu;

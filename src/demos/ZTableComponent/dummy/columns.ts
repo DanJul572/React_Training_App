@@ -1,4 +1,4 @@
-import { GridColDef } from "@mui/x-data-grid/models/colDef";
+import { GridColDef } from '@mui/x-data-grid/models/colDef';
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },

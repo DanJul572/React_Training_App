@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 
 import Main from './layouts/Main';
+
 const App = () => {
     return (
         <Main>

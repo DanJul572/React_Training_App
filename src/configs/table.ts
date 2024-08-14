@@ -1,7 +1,7 @@
-import { GridAutosizeOptions } from "@mui/x-data-grid/hooks/features/columnResize/gridColumnResizeApi";
-import { GridDensity } from "@mui/x-data-grid/models/gridDensity";
-import { GridFeatureMode } from "@mui/x-data-grid/models/gridFeatureMode";
-import { GridInitialStateCommunity } from "@mui/x-data-grid/models/gridStateCommunity";
+import { GridAutosizeOptions } from '@mui/x-data-grid/hooks/features/columnResize/gridColumnResizeApi';
+import { GridDensity } from '@mui/x-data-grid/models/gridDensity';
+import { GridFeatureMode } from '@mui/x-data-grid/models/gridFeatureMode';
+import { GridInitialStateCommunity } from '@mui/x-data-grid/models/gridStateCommunity';
 
 const pageSize: number = 5;
 const density: GridDensity = 'compact';
@@ -24,6 +24,6 @@ const table = {
     gridMode,
     initialState,
     pageSizeOptions,
-}
+};
 
 export default table;
