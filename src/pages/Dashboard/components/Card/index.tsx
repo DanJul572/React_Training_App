@@ -1,14 +1,8 @@
-import { ReactNode } from 'react';
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
-type Props = {
-    title: string;
-    content: string;
-    icon: ReactNode;
-};
+import { Props } from './types';
 
 const CardItem = (props: Props) => {
     return (

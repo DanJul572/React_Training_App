@@ -1,13 +1,11 @@
 import Box from '@mui/material/Box';
 
 import Main from './layouts/Main';
-import Dashboard from './pages/Dashboard';
-
 const App = () => {
     return (
         <Main>
             <Box data-testid="content">
-                <Dashboard />
+                <h1>Hello World!</h1>
             </Box>
         </Main>
     );
