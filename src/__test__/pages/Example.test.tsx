@@ -1,7 +1,7 @@
 import { expect, it, describe } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import Example from '../../pages/Example';
+import Example from '@/pages/Example';
 
 describe('Example Page', () => {
     it('render component', () => {

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { render, waitFor, screen } from '@testing-library/react';
 
-import { Option } from '../../types/option';
-import { Props } from '../../components/ZAutoComplete/types';
+import { Option } from '@/types/option';
+import { Props } from '@/components/ZAutoComplete/types';
 
-import ZAutoComplete from '../../components/ZAutoComplete';
+import ZAutoComplete from '@/components/ZAutoComplete';
 
 const options: Option[] = [
     {

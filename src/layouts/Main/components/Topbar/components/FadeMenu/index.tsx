@@ -8,8 +8,8 @@ import { Divider, Typography } from '@mui/material';
 
 import useFadeMenu from './useFadeMenu';
 
-import theme from '../../../../../../configs/theme';
-import translator from '../../../../../../helpers/translator';
+import theme from '@/configs/theme';
+import translator from '@/helpers/translator';
 
 const FadeMenu = () => {
     const { anchorEl, handleClick, handleClose } = useFadeMenu();

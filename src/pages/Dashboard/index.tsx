@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-import ZTableComponent from '../../demos/ZTableComponent';
+import ZTableComponent from '@/demos/ZTableComponent';
 
 import CardItem from './components/Card';
 

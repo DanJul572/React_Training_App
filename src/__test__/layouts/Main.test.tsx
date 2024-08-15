@@ -7,7 +7,7 @@ import {
     waitFor,
 } from '@testing-library/react';
 
-import Main from '../../layouts/Main';
+import Main from '@/layouts/Main';
 import { useNavigate } from 'react-router-dom';
 
 vitest.mock('react-router-dom', () => ({

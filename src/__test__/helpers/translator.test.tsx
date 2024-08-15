@@ -1,6 +1,6 @@
 import { expect, describe, it } from 'vitest';
 
-import translator from '../../helpers/translator';
+import translator from '@/helpers/translator';
 
 describe('theme', () => {
     it('render', () => {

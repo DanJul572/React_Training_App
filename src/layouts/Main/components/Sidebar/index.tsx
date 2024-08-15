@@ -2,8 +2,8 @@ import Box from '@mui/material/Box';
 
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 
-import theme from '../../../../configs/theme';
-import tree from '../../../../configs/tree';
+import theme from '@/configs/theme';
+import tree from '@/configs/tree';
 
 import CollapseIcon from './components/CollapseIcon';
 import EndIcon from './components/EndIcon';

@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 
-import theme from '../../../../configs/theme';
+import theme from '@/configs/theme';
 
 import FadeMenu from './components/FadeMenu';
 import Logo from './components/Logo';

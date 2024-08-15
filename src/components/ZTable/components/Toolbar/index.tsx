@@ -9,7 +9,7 @@ import {
     GridToolbarFilterButton,
 } from '@mui/x-data-grid/components';
 
-import translator from '../../../../helpers/translator';
+import translator from '@/helpers/translator';
 import { Props } from './types';
 
 const ToolBar = (props: Props) => {

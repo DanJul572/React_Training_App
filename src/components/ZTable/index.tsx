@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
 
 import { Props } from './types';
-import table from '../../configs/table';
+import table from '@/configs/table';
 
 import formatedColumns from './components/formatedColumns';
 import ToolBar from './components/Toolbar';

@@ -1,6 +1,6 @@
 import FolderOpen from '@mui/icons-material/FolderOpen';
 
-import theme from '../../../../../configs/theme';
+import theme from '@/configs/theme';
 
 const CollapseIcon = (props: React.PropsWithoutRef<typeof FolderOpen>) => {
     return (

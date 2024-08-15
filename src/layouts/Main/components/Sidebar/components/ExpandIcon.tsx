@@ -1,6 +1,6 @@
 import Folder from '@mui/icons-material/Folder';
 
-import theme from '../../../../../configs/theme';
+import theme from '@/configs/theme';
 
 const ExpandIcon = (props: React.PropsWithoutRef<typeof Folder>) => {
     return (

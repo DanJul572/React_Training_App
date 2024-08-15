@@ -23,7 +23,11 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
 
-        "types": ["@testing-library/jest-dom"]
+        "types": ["@testing-library/jest-dom"],
+
+        "paths": {
+            "@/*": ["./src/*"]
+        }
     },
-    "include": ["src"]
+    "include": ["src"],
 }

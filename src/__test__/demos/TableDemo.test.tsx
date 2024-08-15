@@ -8,7 +8,7 @@ import {
     within,
 } from '@testing-library/react';
 
-import ZTableComponent from '../../demos/ZTableComponent';
+import ZTableComponent from '@/demos/ZTableComponent';
 
 describe('Table Demo', () => {
     it('render component', async () => {
