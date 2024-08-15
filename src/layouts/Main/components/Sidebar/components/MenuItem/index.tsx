@@ -1,9 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-
 import { styled, alpha } from '@mui/material/styles';
 import { TreeItem, treeItemClasses } from '@mui/x-tree-view/TreeItem';
 
-import { Props } from '../types';
+import useMenuItem from './useMenuItem';
+import { Props } from './types';
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
     [`& .${treeItemClasses.content}`]: {
@@ -23,13 +22,7 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
 }));
 
 const MenuItem = (props: Props) => {
-    const navigate = useNavigate();
-
-    const handleClick = (url: string | undefined) => {
-        if (url) {
-            navigate(url);
-        }
-    };
+    const { handleClick } = useMenuItem();
 
     if (!props.tree.child) {
         return (

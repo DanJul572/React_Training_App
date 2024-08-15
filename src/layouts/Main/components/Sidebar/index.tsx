@@ -8,7 +8,6 @@ import tree from '../../../../configs/tree';
 import CollapseIcon from './components/CollapseIcon';
 import EndIcon from './components/EndIcon';
 import ExpandIcon from './components/ExpandIcon';
-
 import MenuItem from './components/MenuItem';
 
 const Sidebar = () => {
