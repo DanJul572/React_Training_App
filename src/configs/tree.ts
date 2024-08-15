@@ -3,35 +3,28 @@ import { Menu } from '../types/menu';
 const tree: Menu[] = [
     {
         id: '1',
-        label: 'Parent 1',
+        label: 'Dashboard',
+        url: '/dashboard',
     },
     {
         id: '2',
-        label: 'Parent 2',
-        child: [
-            {
-                id: '3',
-                label: 'Child 1',
-            },
-            {
-                id: '4',
-                label: 'Child 2',
-                child: [
-                    {
-                        id: '5',
-                        label: 'Grand Child 1',
-                    },
-                    {
-                        id: '6',
-                        label: 'Grand Child 1',
-                    },
-                ],
-            },
-        ],
+        label: 'Example',
+        url: '/example',
     },
     {
-        id: '7',
-        label: 'Parent 3',
+        id: '3',
+        label: 'Nested Menu',
+        child: [
+            {
+                id: '4',
+                label: 'Child Menu 1',
+                url: '/',
+            },
+            {
+                id: '5',
+                label: 'Child Menu 2',
+            },
+        ],
     },
 ];
 

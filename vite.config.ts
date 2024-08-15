@@ -33,6 +33,7 @@ export default defineConfig({
                 '**/src/main.tsx',
                 '**src/**/types.ts',
                 '**src/types/**',
+                '**src/Routes.tsx',
             ],
         },
     },

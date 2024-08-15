@@ -9,6 +9,7 @@ const Logo = () => {
                 fontSize: '25px',
                 fontWeight: 'bold',
             }}
+            data-testid="logo"
         >
             {name}
         </Typography>
