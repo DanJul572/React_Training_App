@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 import { Divider, Typography } from '@mui/material';
 
-import useFadeMenu from './useFadeMenu';
+import useFadeMenu from './hooks';
 
 import theme from '@/configs/theme';
 import translator from '@/helpers/translator';

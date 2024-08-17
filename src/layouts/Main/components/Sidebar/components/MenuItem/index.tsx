@@ -1,7 +1,8 @@
 import { styled, alpha } from '@mui/material/styles';
 import { TreeItem, treeItemClasses } from '@mui/x-tree-view/TreeItem';
 
-import useMenuItem from './useMenuItem';
+import useMenuItem from './hooks';
+
 import { Props } from './types';
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({

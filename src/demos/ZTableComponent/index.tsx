@@ -6,8 +6,9 @@ import { GridSortModel } from '@mui/x-data-grid/models/gridSortModel';
 import ZTable from '@/components/ZTable';
 
 import { People } from './types';
-import columns from './dummy/columns';
-import rows from './dummy/rows';
+
+import columns from './dummies/columns';
+import rows from './dummies/rows';
 
 const onAdd = (): void => {
     console.log('onAdd');
