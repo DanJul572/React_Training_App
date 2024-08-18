@@ -1,27 +1,25 @@
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
+import { GridRowIdGetter } from '@mui/x-data-grid/models';
 
 import { Props } from './types';
+
 import table from '@/configs/table';
 
-import formatedColumns from './components/formatedColumns';
+import Columns from './components/Columns';
 import ToolBar from './components/Toolbar';
 
 import { ZTableContainerStyle } from './styles';
 
 const ZTable = (props: Props) => {
-    const columns = formatedColumns(
-        props.columns,
-        props.onEdit,
-        props.onDelete
-    );
+    const columns = Columns(props.columns, props.onEdit, props.onDelete);
 
     const slots: Partial<GridSlotsComponent> = {
         toolbar: () => <ToolBar onAdd={props.onAdd} />,
     };
 
-    const getRowId = (row: any) => row[props.id];
+    const getRowId: GridRowIdGetter<any> = (row) => row[props.id];
 
     return (
         <Box sx={ZTableContainerStyle} data-testid="ztable">
