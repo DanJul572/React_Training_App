@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Example from './pages/Example';
 
 import App from './App';
+import CreateProduct from './pages/CreateProduct';
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,15 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: (
             <Main>
-                <Dashboard />,
+                <Dashboard />
+            </Main>
+        ),
+    },
+    {
+        path: '/create-product',
+        element: (
+            <Main>
+                <CreateProduct />
             </Main>
         ),
     },

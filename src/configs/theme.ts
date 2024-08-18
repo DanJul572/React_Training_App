@@ -26,6 +26,16 @@ const theme = createTheme({
                 },
             },
         },
+        MuiFormControl: {
+            defaultProps: {
+                fullWidth: true,
+            },
+        },
+        MuiInputLabel: {
+            defaultProps: {
+                shrink: true,
+            },
+        },
     },
 });
 

@@ -13,16 +13,12 @@ const tree: Menu[] = [
     },
     {
         id: '3',
-        label: 'Nested Menu',
+        label: 'Product',
         child: [
             {
                 id: '4',
-                label: 'Child Menu 1',
-                url: '/',
-            },
-            {
-                id: '5',
-                label: 'Child Menu 2',
+                label: 'Create Product',
+                url: '/create-product',
             },
         ],
     },
