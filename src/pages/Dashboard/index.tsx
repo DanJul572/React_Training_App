@@ -8,16 +8,12 @@ import CardItem from './components/Card';
 import People from '@mui/icons-material/Inventory';
 import Inventory from '@mui/icons-material/People';
 
+import { containerStyle } from './styles';
+
 const Dashboard = () => {
     return (
         <Box>
-            <Grid
-                container
-                spacing="10px"
-                sx={{
-                    marginBottom: '10px',
-                }}
-            >
+            <Grid container spacing="10px" sx={containerStyle}>
                 <Grid item xs={6}>
                     <CardItem
                         title="Users"

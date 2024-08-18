@@ -8,21 +8,14 @@ import { Divider, Typography } from '@mui/material';
 
 import useFadeMenu from './hooks';
 
-import theme from '@/configs/theme';
 import translator from '@/helpers/translator';
+
+import { avatarStyle, containerStyle, dividerStyle } from './styles';
 
 const FadeMenu = () => {
     const { anchorEl, handleClick, handleClose } = useFadeMenu();
 
     const open = Boolean(anchorEl);
-
-    const avatarBackgroundColor = theme.palette.getContrastText(
-        theme.palette.primary.main
-    );
-
-    const avatarTextColor = theme.palette.getContrastText(
-        avatarBackgroundColor
-    );
 
     return (
         <Box>
@@ -33,29 +26,11 @@ const FadeMenu = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                sx={{
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                }}
+                sx={containerStyle}
             >
                 <Typography>Dandi Juliandi</Typography>
-                <Divider
-                    orientation="vertical"
-                    sx={{
-                        backgroundColor: avatarBackgroundColor,
-                        height: '25px',
-                    }}
-                />
-                <Avatar
-                    sx={{
-                        backgroundColor: avatarBackgroundColor,
-                        color: avatarTextColor,
-                    }}
-                >
-                    D
-                </Avatar>
+                <Divider orientation="vertical" sx={dividerStyle} />
+                <Avatar sx={avatarStyle}>D</Avatar>
             </Box>
             <Menu
                 data-testid="FadeMenu"

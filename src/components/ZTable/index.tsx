@@ -8,6 +8,8 @@ import table from '@/configs/table';
 import formatedColumns from './components/formatedColumns';
 import ToolBar from './components/Toolbar';
 
+import { ZTableContainerStyle } from './styles';
+
 const ZTable = (props: Props) => {
     const columns = formatedColumns(
         props.columns,
@@ -22,7 +24,7 @@ const ZTable = (props: Props) => {
     const getRowId = (row: any) => row[props.id];
 
     return (
-        <Box sx={{ width: '100%' }} data-testid="ztable">
+        <Box sx={ZTableContainerStyle} data-testid="ztable">
             <DataGrid
                 autoHeight={true}
                 autosizeOptions={table.autoSizeOption}

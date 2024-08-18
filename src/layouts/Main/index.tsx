@@ -5,27 +5,19 @@ import Sidebar from './components/Sidebar';
 
 import { Props } from './types';
 
+import {
+    containerStyle,
+    contentStyle,
+    sidebarAndContentStyle,
+} from './styles';
+
 const Main = (props: Props) => {
     return (
-        <Box
-            sx={{
-                height: '100vh',
-                overflow: 'hidden',
-            }}
-        >
+        <Box sx={containerStyle}>
             <Topbar />
-            <Box
-                sx={{
-                    display: 'flex',
-                    height: 'calc(100vh - 65px)',
-                }}
-            >
+            <Box sx={sidebarAndContentStyle}>
                 <Sidebar />
-                <Box
-                    sx={{ overflowX: 'hidden', flex: 5, padding: '10px' }}
-                >
-                    {props.children}
-                </Box>
+                <Box sx={contentStyle}>{props.children}</Box>
             </Box>
         </Box>
     );
