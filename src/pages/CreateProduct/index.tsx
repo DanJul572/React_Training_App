@@ -10,19 +10,34 @@ import ImageField from './components/ImageField';
 import useCreateProduct from './hooks';
 
 const CreateProduct = () => {
-    const { handleSubmit, onSubmit, control } = useCreateProduct();
+    const { resetField, handleSubmit, onSubmit, control } =
+        useCreateProduct();
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} style={formStyle}>
             <Controller
                 name="label"
                 control={control}
-                render={LabelField}
+                render={({ field, fieldState, formState }) => (
+                    <LabelField
+                        field={field}
+                        resetField={resetField}
+                        fieldState={fieldState}
+                        formState={formState}
+                    />
+                )}
             />
             <Controller
                 name="image"
                 control={control}
-                render={ImageField}
+                render={({ field, fieldState, formState }) => (
+                    <ImageField
+                        field={field}
+                        resetField={resetField}
+                        fieldState={fieldState}
+                        formState={formState}
+                    />
+                )}
             />
             <Button type="submit">Submit</Button>
         </form>

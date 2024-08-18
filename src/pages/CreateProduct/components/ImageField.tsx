@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEventHandler, MouseEventHandler } from 'react';
 
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -9,10 +9,14 @@ import Upload from '@mui/icons-material/Upload';
 
 import { RenderField } from '../types';
 
-const ImageField = ({ field }: RenderField<'image'>) => {
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+const ImageField = ({ field, resetField }: RenderField<'image'>) => {
+    const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         const file = event.target.files?.[0];
         field.onChange(file);
+    };
+
+    const hanldeClear: MouseEventHandler<HTMLButtonElement> = () => {
+        resetField('image');
     };
 
     return (
@@ -29,17 +33,11 @@ const ImageField = ({ field }: RenderField<'image'>) => {
                             <input
                                 type="file"
                                 hidden={true}
-                                onChange={(e) => handleChange(e)}
+                                onChange={handleChange}
                             />
                         </IconButton>
                         {field.value?.name && (
-                            <IconButton
-                                onClick={() => {
-                                    field.onChange({
-                                        target: { files: [] },
-                                    });
-                                }}
-                            >
+                            <IconButton onClick={hanldeClear}>
                                 <Clear />
                             </IconButton>
                         )}

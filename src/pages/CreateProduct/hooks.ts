@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { ProductForm } from './types';
 
 const useCreateProduct = () => {
-    const { control, handleSubmit } = useForm<ProductForm>({
+    const { control, handleSubmit, resetField } = useForm<ProductForm>({
         defaultValues: {
             label: '',
             image: undefined,
@@ -18,6 +18,7 @@ const useCreateProduct = () => {
         control,
         onSubmit,
         handleSubmit,
+        resetField,
     };
 };
 
