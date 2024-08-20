@@ -2,11 +2,11 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
-import { Props } from './types';
+import { PropsType } from './types';
 
 import { containerStyle } from './styles';
 
-const CardItem = (props: Props) => {
+const CardItem = (props: PropsType) => {
     return (
         <Card sx={containerStyle}>
             <Box>

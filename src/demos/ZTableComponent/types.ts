@@ -1,4 +1,4 @@
-export type People = {
+export type PeopleType = {
     id: number;
     firstName?: string | null;
     lastName?: string | null;

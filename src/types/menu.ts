@@ -1,6 +1,6 @@
-export type Menu = {
+export type MenuType = {
     id: string;
     label: string;
-    child?: Menu[];
+    child?: MenuType[];
     url?: string;
 };

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Topbar from './components/Topbar';
 import Sidebar from './components/Sidebar';
 
-import { Props } from './types';
+import { PropsType } from './types';
 
 import {
     containerStyle,
@@ -11,7 +11,7 @@ import {
     sidebarAndContentStyle,
 } from './styles';
 
-const Main = (props: Props) => {
+const Main = (props: PropsType) => {
     return (
         <Box sx={containerStyle}>
             <Topbar />

@@ -1,5 +1,5 @@
-import { Menu } from '@/types/menu';
+import { MenuType } from '@/types/menu';
 
-export type Props = {
-    tree: Menu;
+export type PropsType = {
+    tree: MenuType;
 };

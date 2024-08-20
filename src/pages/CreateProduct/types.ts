@@ -5,7 +5,7 @@ import {
     UseFormStateReturn,
 } from 'react-hook-form';
 
-export type ProductForm = {
+export type ProductFormType = {
     label: string;
     description?: string;
     type: string;
@@ -13,9 +13,9 @@ export type ProductForm = {
     image?: File;
 };
 
-export type RenderField<T extends keyof ProductForm> = {
-    field: ControllerRenderProps<ProductForm, T>;
+export type RenderFieldType<T extends keyof ProductFormType> = {
+    field: ControllerRenderProps<ProductFormType, T>;
     fieldState: ControllerFieldState;
-    formState: UseFormStateReturn<ProductForm>;
-    resetField: UseFormResetField<ProductForm>;
+    formState: UseFormStateReturn<ProductFormType>;
+    resetField: UseFormResetField<ProductFormType>;
 };

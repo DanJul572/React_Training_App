@@ -3,7 +3,7 @@ import { TreeItem, treeItemClasses } from '@mui/x-tree-view/TreeItem';
 
 import useMenuItem from './hooks';
 
-import { Props } from './types';
+import { PropsType } from './types';
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
     [`& .${treeItemClasses.content}`]: {
@@ -22,7 +22,7 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
     },
 }));
 
-const MenuItem = (props: Props) => {
+const MenuItem = (props: PropsType) => {
     const { handleClick } = useMenuItem();
 
     if (!props.tree.child) {

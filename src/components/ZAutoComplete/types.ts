@@ -1,7 +1,7 @@
-import { Option } from '@/types/option';
+import { OptionType } from '@/types/option';
 
-export type Props = {
+export type PropsType = {
     label: string;
     name: string;
-    options: Option[];
+    options: OptionType[];
 };

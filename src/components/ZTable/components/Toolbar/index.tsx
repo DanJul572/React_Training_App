@@ -10,9 +10,10 @@ import {
 } from '@mui/x-data-grid/components';
 
 import translator from '@/helpers/translator';
-import { Props } from './types';
 
-const ToolBar = (props: Props) => {
+import { PropsType } from './types';
+
+const ToolBar = (props: PropsType) => {
     return (
         <Box display="flex" padding={2} justifyContent="space-between">
             <Box display="flex" gap={1}>

@@ -1,8 +1,8 @@
 import TextField from '@mui/material/TextField';
 
-import { RenderField } from '../types';
+import { RenderFieldType } from '../types';
 
-const LabelField = ({ field }: RenderField<'label'>) => {
+const LabelField = ({ field }: RenderFieldType<'label'>) => {
     return <TextField {...field} label="Label" />;
 };
 

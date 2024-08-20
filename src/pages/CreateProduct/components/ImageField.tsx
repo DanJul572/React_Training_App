@@ -7,9 +7,9 @@ import TextField from '@mui/material/TextField';
 import Clear from '@mui/icons-material/Clear';
 import Upload from '@mui/icons-material/Upload';
 
-import { RenderField } from '../types';
+import { RenderFieldType } from '../types';
 
-const ImageField = ({ field, resetField }: RenderField<'image'>) => {
+const ImageField = ({ field, resetField }: RenderFieldType<'image'>) => {
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         const file = event.target.files?.[0];
         field.onChange(file);

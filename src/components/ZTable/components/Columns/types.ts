@@ -1,6 +1,6 @@
 import { GridColDef } from '@mui/x-data-grid/models/colDef';
 
-export type Props = (
+export type PropsType = (
     columns: readonly GridColDef[],
     onEdit: (id: any) => void,
     onDelete: (id: any) => void

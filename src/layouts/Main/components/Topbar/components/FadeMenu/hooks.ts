@@ -1,13 +1,14 @@
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEventHandler } from 'react';
+import { OnCloseType } from './types';
 
 const useFadeMenu = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-    const handleClick = (event: MouseEvent<HTMLElement>) => {
+    const handleClick: MouseEventHandler<HTMLDivElement> = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const handleClose: OnCloseType = () => {
         setAnchorEl(null);
     };
 

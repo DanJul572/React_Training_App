@@ -1,6 +1,6 @@
-import { People } from '../types';
+import { PeopleType } from '../types';
 
-const rows: People[] = [
+const rows: PeopleType[] = [
     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 14 },
     { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 31 },
     { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 31 },

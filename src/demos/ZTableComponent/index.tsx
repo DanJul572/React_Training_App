@@ -5,7 +5,7 @@ import { GridSortModel } from '@mui/x-data-grid/models/gridSortModel';
 
 import ZTable from '@/components/ZTable';
 
-import { People } from './types';
+import { PeopleType } from './types';
 
 import columns from './dummies/columns';
 import rows from './dummies/rows';
@@ -18,11 +18,11 @@ const onChangePage = (data: GridPaginationModel): void => {
     console.log('onChagePage', data.page);
 };
 
-const onDelete = (data: People): void => {
+const onDelete = (data: PeopleType): void => {
     console.log('onDelete', data);
 };
 
-const onEdit = (data: People): void => {
+const onEdit = (data: PeopleType): void => {
     console.log('onEdit', data);
 };
 

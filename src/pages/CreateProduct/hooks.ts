@@ -1,16 +1,18 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { ProductForm } from './types';
+import { ProductFormType } from './types';
 
 const useCreateProduct = () => {
-    const { control, handleSubmit, resetField } = useForm<ProductForm>({
-        defaultValues: {
-            label: '',
-            image: undefined,
-        },
-    });
+    const { control, handleSubmit, resetField } = useForm<ProductFormType>(
+        {
+            defaultValues: {
+                label: '',
+                image: undefined,
+            },
+        }
+    );
 
-    const onSubmit: SubmitHandler<ProductForm> = (data) => {
+    const onSubmit: SubmitHandler<ProductFormType> = (data) => {
         console.log(data);
     };
 

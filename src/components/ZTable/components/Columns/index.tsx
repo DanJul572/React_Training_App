@@ -4,9 +4,9 @@ import Edit from '@mui/icons-material/Edit';
 import { GridActionsCellItem } from '@mui/x-data-grid/components';
 import { GridColDef } from '@mui/x-data-grid/models/colDef/gridColDef';
 
-import { Props } from './types';
+import { PropsType } from './types';
 
-const Columns: Props = (columns, onEdit, onDelete) => {
+const Columns: PropsType = (columns, onEdit, onDelete) => {
     const mappingColumns: GridColDef[] = columns.map((column) => {
         column.flex = 1;
         column.disableColumnMenu = true;

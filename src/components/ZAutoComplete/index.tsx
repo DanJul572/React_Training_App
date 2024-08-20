@@ -1,9 +1,9 @@
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
-import { Props } from './types';
+import { PropsType } from './types';
 
-const ZAutoComplete = (props: Props) => {
+const ZAutoComplete = (props: PropsType) => {
     return (
         <Autocomplete
             options={props.options}

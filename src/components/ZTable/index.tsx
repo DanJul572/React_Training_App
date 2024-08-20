@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
 import { GridRowIdGetter } from '@mui/x-data-grid/models';
 
-import { Props } from './types';
+import { PropsType } from './types';
 
 import table from '@/configs/table';
 
@@ -12,7 +12,7 @@ import ToolBar from './components/Toolbar';
 
 import { ZTableContainerStyle } from './styles';
 
-const ZTable = (props: Props) => {
+const ZTable = (props: PropsType) => {
     const columns = Columns(props.columns, props.onEdit, props.onDelete);
 
     const slots: Partial<GridSlotsComponent> = {

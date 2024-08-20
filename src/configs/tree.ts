@@ -1,6 +1,6 @@
-import { Menu } from '../types/menu';
+import { MenuType } from '@/types/menu';
 
-const tree: Menu[] = [
+const tree: MenuType[] = [
     {
         id: '1',
         label: 'Dashboard',
