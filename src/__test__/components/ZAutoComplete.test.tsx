@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { render, waitFor, screen } from '@testing-library/react';
 
-import { Option } from '@/types/option';
-import { Props } from '@/components/ZAutoComplete/types';
+import { OptionType } from '@/types/option';
+import { PropsType } from '@/components/ZAutoComplete/types';
 
 import ZAutoComplete from '@/components/ZAutoComplete';
 
-const options: Option[] = [
+const options: OptionType[] = [
     {
         label: 'Joe',
         value: '1',
@@ -17,7 +17,7 @@ const options: Option[] = [
     },
 ];
 
-const props: Props = {
+const props: PropsType = {
     label: 'People',
     name: 'people',
     options: options,
