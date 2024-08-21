@@ -1,11 +1,12 @@
-import { ChangeEventHandler, MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
 
 import { RenderFieldType } from '../../types';
+import { HandleChangeType } from './types';
 
-const useImageField = (props: RenderFieldType<'image'>) => {
-    const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+const useImageField = (props: RenderFieldType) => {
+    const handleChange: HandleChangeType = (event, field) => {
         const file = event.target.files?.[0];
-        props.field.onChange(file);
+        field.onChange(file);
     };
 
     const hanldeClear: MouseEventHandler<HTMLButtonElement> = () => {

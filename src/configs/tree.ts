@@ -8,15 +8,10 @@ const tree: MenuType[] = [
     },
     {
         id: '2',
-        label: 'Example',
-        url: '/example',
-    },
-    {
-        id: '3',
         label: 'Product',
         child: [
             {
-                id: '4',
+                id: '3',
                 label: 'Create Product',
                 url: '/create-product',
             },

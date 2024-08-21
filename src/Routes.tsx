@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from './layouts/Main';
 
 import Dashboard from './pages/Dashboard';
-import Example from './pages/Example';
 
 import App from './App';
 import CreateProduct from './pages/CreateProduct';
@@ -14,14 +13,6 @@ const router = createBrowserRouter([
         element: (
             <Main>
                 <App />
-            </Main>
-        ),
-    },
-    {
-        path: '/example',
-        element: (
-            <Main>
-                <Example />
             </Main>
         ),
     },

@@ -1,7 +1,9 @@
+import { ControllerRenderProps } from 'react-hook-form';
+
 import { OptionType } from '@/types/option';
-import { SyntheticEvent } from 'react';
+import { ProductFormType } from '../../types';
 
 export type handleChangeType = (
-    event: SyntheticEvent,
+    field: ControllerRenderProps<ProductFormType, 'type'>,
     value: OptionType | null
 ) => void;
