@@ -11,5 +11,4 @@ export const containerButtonStyle: CSSProperties = {
     marginTop: '10px',
     display: 'flex',
     justifyContent: 'flex-end',
-    backgroundColor: 'red',
 };
