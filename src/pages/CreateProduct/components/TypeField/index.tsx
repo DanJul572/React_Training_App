@@ -1,11 +1,9 @@
 import { Controller } from 'react-hook-form';
 
-import ZAutoComplete from '@/components/ZAutoComplete';
+import ZSelect from '@/components/ZSelect';
 
 import { RenderFieldType } from '../../types';
-
 import { typeOptions } from './enums';
-
 import useTypeField from './hooks';
 
 const TypeField = (props: RenderFieldType) => {
@@ -16,13 +14,12 @@ const TypeField = (props: RenderFieldType) => {
             name="type"
             control={props.control}
             render={({ field }) => (
-                <ZAutoComplete
+                <ZSelect
+                    options={typeOptions}
                     label="Type"
                     name="type"
-                    options={typeOptions}
-                    onChange={(_event, selected) =>
-                        handleChange(field, selected)
-                    }
+                    value={field.value}
+                    onChange={(e) => handleChange(field, e.target.value)}
                 />
             )}
         />
