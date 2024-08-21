@@ -2,7 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { render, waitFor, screen } from '@testing-library/react';
 
 import { OptionType } from '@/types/option';
-import { PropsType } from '@/components/ZAutoComplete/types';
+import {
+    handleChangeType,
+    PropsType,
+} from '@/components/ZAutoComplete/types';
 
 import ZAutoComplete from '@/components/ZAutoComplete';
 
@@ -17,10 +20,15 @@ const options: OptionType[] = [
     },
 ];
 
+const handleChange: handleChangeType = (event, value) => {
+    console.log(event, value);
+};
+
 const props: PropsType = {
     label: 'People',
     name: 'people',
     options: options,
+    onChange: handleChange,
 };
 
 describe('ZAutoComplete', () => {
