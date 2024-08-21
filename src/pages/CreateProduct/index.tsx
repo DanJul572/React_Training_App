@@ -6,6 +6,7 @@ import { formStyle } from './styles';
 
 import LabelField from './components/LabelField';
 import ImageField from './components/ImageField';
+import TypeField from './components/TypeField';
 
 import useCreateProduct from './hooks';
 
@@ -32,6 +33,18 @@ const CreateProduct = () => {
                 control={control}
                 render={({ field, fieldState, formState }) => (
                     <ImageField
+                        field={field}
+                        resetField={resetField}
+                        fieldState={fieldState}
+                        formState={formState}
+                    />
+                )}
+            />
+            <Controller
+                name="type"
+                control={control}
+                render={({ field, fieldState, formState }) => (
+                    <TypeField
                         field={field}
                         resetField={resetField}
                         fieldState={fieldState}

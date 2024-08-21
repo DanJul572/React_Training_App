@@ -3,7 +3,11 @@ import TextField from '@mui/material/TextField';
 
 import { PropsType } from './types';
 
+import useZAutoComplete from './hooks';
+
 const ZAutoComplete = (props: PropsType) => {
+    const { handleChange } = useZAutoComplete(props);
+
     return (
         <Autocomplete
             options={props.options}
@@ -12,8 +16,12 @@ const ZAutoComplete = (props: PropsType) => {
                     {...params}
                     label={props.label}
                     name={props.name}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
                 />
             )}
+            onChange={handleChange}
         />
     );
 };
