@@ -1,17 +1,17 @@
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import LabelField from './components/LabelField';
 import ImageField from './components/ImageField';
 import TypeField from './components/TypeField';
+import ActionButton from './components/ActionButton';
 
-import { containerButtonStyle, formStyle } from './styles';
+import { formStyle } from './styles';
 
 import useCreateProduct from './hooks';
 
 const CreateProduct = () => {
-    const { resetField, handleSubmit, onSubmit, control } =
+    const { resetField, handleSubmit, onSubmit, control, handleClear } =
         useCreateProduct();
 
     const labelProps = {
@@ -28,9 +28,7 @@ const CreateProduct = () => {
                     <ImageField {...labelProps} />
                     <TypeField {...labelProps} />
                 </Box>
-                <Box sx={containerButtonStyle}>
-                    <Button type="submit">Submit</Button>
-                </Box>
+                <ActionButton handleClear={handleClear} />
             </form>
         </Box>
     );

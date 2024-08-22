@@ -11,6 +11,11 @@ const theme = createTheme({
             main: '#831ef7',
             dark: '#4d0d9e',
         },
+        secondary: {
+            light: '#919191',
+            main: '#757575',
+            dark: '#4a4a4a',
+        },
     },
     components: {
         MuiButton: {

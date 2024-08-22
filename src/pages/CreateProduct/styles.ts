@@ -6,9 +6,3 @@ export const formStyle: CSSProperties = {
     flexDirection: 'column',
     gap: '20px',
 };
-
-export const containerButtonStyle: CSSProperties = {
-    marginTop: '10px',
-    display: 'flex',
-    justifyContent: 'flex-end',
-};

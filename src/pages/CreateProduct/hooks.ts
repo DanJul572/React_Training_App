@@ -13,6 +13,9 @@ const useCreateProduct = () => {
 
     const onSubmit: SubmitHandler<ProductFormType> = (data) => {
         console.log(data);
+    };
+
+    const handleClear = () => {
         reset();
     };
 
@@ -21,6 +24,7 @@ const useCreateProduct = () => {
         handleSubmit,
         onSubmit,
         resetField,
+        handleClear,
     };
 };
 
