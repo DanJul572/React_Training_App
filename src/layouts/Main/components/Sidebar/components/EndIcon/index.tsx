@@ -1,16 +1,11 @@
 import InsertDriveFileOutlined from '@mui/icons-material/InsertDriveFileOutlined';
 
-import theme from '@/configs/theme';
+import { iconStyle } from './styles';
 
 const EndIcon = (
     props: React.PropsWithoutRef<typeof InsertDriveFileOutlined>
 ) => {
-    return (
-        <InsertDriveFileOutlined
-            {...props}
-            sx={{ color: theme.palette.primary.main }}
-        />
-    );
+    return <InsertDriveFileOutlined {...props} sx={iconStyle} />;
 };
 
 export default EndIcon;

@@ -1,11 +1,9 @@
 import Folder from '@mui/icons-material/Folder';
 
-import theme from '@/configs/theme';
+import { iconStyle } from './styles';
 
 const ExpandIcon = (props: React.PropsWithoutRef<typeof Folder>) => {
-    return (
-        <Folder {...props} sx={{ color: theme.palette.primary.main }} />
-    );
+    return <Folder {...props} sx={iconStyle} />;
 };
 
 export default ExpandIcon;
