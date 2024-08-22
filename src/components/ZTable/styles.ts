@@ -1,5 +1,5 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const ZTableContainerStyle: SxProps<Theme> = {
+export const containerStyle: SxProps<Theme> = {
     width: '100%',
 };

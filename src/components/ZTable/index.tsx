@@ -11,7 +11,7 @@ import table from '@/configs/table';
 import Columns from './components/Columns';
 import ToolBar from './components/Toolbar';
 
-import { ZTableContainerStyle } from './styles';
+import { containerStyle } from './styles';
 
 const ZTable = (props: PropsType) => {
     const columns = Columns(props.columns, props.onEdit, props.onDelete);
@@ -23,7 +23,7 @@ const ZTable = (props: PropsType) => {
     const getRowId: GridRowIdGetter<any> = (row) => row[props.id];
 
     return (
-        <Paper sx={ZTableContainerStyle} data-testid="ztable">
+        <Paper sx={containerStyle} data-testid="ztable">
             <DataGrid
                 autoHeight={true}
                 autosizeOptions={table.autoSizeOption}

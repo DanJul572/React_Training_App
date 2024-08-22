@@ -12,11 +12,12 @@ import {
 import translator from '@/helpers/translator';
 
 import { PropsType } from './types';
+import { containerStyle, subContainerStyle } from './styles';
 
 const ToolBar = (props: PropsType) => {
     return (
-        <Box display="flex" padding={2} justifyContent="space-between">
-            <Box display="flex" gap={1}>
+        <Box sx={containerStyle}>
+            <Box sx={subContainerStyle}>
                 <Tooltip title={translator('add_record')}>
                     <Button
                         color="primary"
