@@ -8,7 +8,8 @@ import Clear from '@mui/icons-material/Clear';
 import Upload from '@mui/icons-material/Upload';
 
 import { RenderFieldType } from '../../types';
-import useImageField from './useImageField';
+
+import useImageField from './hooks';
 
 const ImageField = (props: RenderFieldType) => {
     const { handleChange, hanldeClear } = useImageField(props);

@@ -1,4 +1,5 @@
-import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
 import { GridRowIdGetter } from '@mui/x-data-grid/models';
@@ -22,7 +23,7 @@ const ZTable = (props: PropsType) => {
     const getRowId: GridRowIdGetter<any> = (row) => row[props.id];
 
     return (
-        <Box sx={ZTableContainerStyle} data-testid="ztable">
+        <Paper sx={ZTableContainerStyle} data-testid="ztable">
             <DataGrid
                 autoHeight={true}
                 autosizeOptions={table.autoSizeOption}
@@ -44,7 +45,7 @@ const ZTable = (props: PropsType) => {
                 slots={slots}
                 sortingMode={table.gridMode}
             />
-        </Box>
+        </Paper>
     );
 };
 
