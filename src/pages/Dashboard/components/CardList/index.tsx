@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid';
 
 import CardItem from '../CardItem';
 
-import cards from './dummies/card';
+import cards from './dummies/cards';
 
 import { containerStyle } from './styles';
 
