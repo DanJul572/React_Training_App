@@ -15,7 +15,6 @@ const CardItem = (props: PropsType) => {
                 </Typography>
                 <Typography variant="h4">{props.content}</Typography>
             </Box>
-            {props.icon}
         </Card>
     );
 };
