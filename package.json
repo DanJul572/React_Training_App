@@ -1,8 +1,21 @@
 {
-    "name": "zapp",
-    "private": true,
-    "version": "0.0.0",
+    "name": "@dandicode/zapp",
+    "private": false,
+    "version": "0.0.1",
     "type": "module",
+    "main": "./dist/zapp.umd.cjs",
+    "module": "./dist/zapp.js",
+    "sideEffects": false,
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/zapp.js",
+            "require": "./dist/zapp.umd.cjs"
+        }
+    },
     "scripts": {
         "run:dev": "vite --mode development",
         "run:stage": "vite --mode staging",
@@ -16,6 +29,8 @@
         "test": "vitest --mode development",
         "test:coverage": "vitest run --coverage --mode development",
         "test:ui": "vitest --ui --mode development",
+        "storybook": "storybook dev -p 6006",
+        "storybook:build": "storybook build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
         "prepare": "husky"
@@ -35,6 +50,15 @@
         "react-router-dom": "^6.26.1"
     },
     "devDependencies": {
+        "@chromatic-com/storybook": "1.7.0",
+        "@storybook/addon-essentials": "^8.2.9",
+        "@storybook/addon-interactions": "^8.2.9",
+        "@storybook/addon-links": "^8.2.9",
+        "@storybook/addon-onboarding": "^8.2.9",
+        "@storybook/blocks": "^8.2.9",
+        "@storybook/react": "^8.2.9",
+        "@storybook/react-vite": "^8.2.9",
+        "@storybook/test": "^8.2.9",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.5.0",
         "@testing-library/react": "^16.0.0",
@@ -52,9 +76,11 @@
         "eslint-plugin-prettier": "^5.2.1",
         "eslint-plugin-react-hooks": "^4.6.2",
         "eslint-plugin-react-refresh": "^0.4.11",
+        "eslint-plugin-storybook": "^0.8.0",
         "husky": "^9.1.5",
         "jsdom": "^24.1.1",
         "prettier": "^3.3.3",
+        "storybook": "^8.2.9",
         "typescript": "^5.5.4",
         "vitest": "^2.0.5"
     },
