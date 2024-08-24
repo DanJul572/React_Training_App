@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 import ZSelect from '@/components/ZSelect';
 
 import { RenderFieldType } from '../../types';
-import { typeOptions } from './enums';
+import { typeOptions } from './dummies/options';
 import useTypeField from './hooks';
 
 const TypeField = (props: RenderFieldType) => {
