@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { SelectChangeEvent } from '@mui/material/Select';
-import { PropsType } from './types';
+
+import StoryBook from '@/layouts/StoryBook';
+
 import ZSelect from '.';
+
+import { PropsType } from './types';
 
 export default {
     title: 'Components/ZSelect',
     component: ZSelect,
+    decorators: (Story) => {
+        return (
+            <StoryBook>
+                <Story />
+            </StoryBook>
+        );
+    },
 } as Meta;
 
 const Template: StoryFn<PropsType> = (args) => {
