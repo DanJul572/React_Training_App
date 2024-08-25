@@ -3,21 +3,7 @@
     "private": false,
     "version": "0.0.1",
     "type": "module",
-    "main": "./dist/zapp.umd.cjs",
-    "module": "./dist/zapp.js",
-    "types": "./dist/src/main.d.ts",
-    "sideEffects": false,
     "license": "MIT",
-    "files": [
-        "dist"
-    ],
-    "exports": {
-        ".": {
-            "import": "./dist/zapp.js",
-            "require": "./dist/zapp.umd.cjs",
-            "types": "./dist/src/main.d.ts"
-        }
-    },
     "scripts": {
         "run:dev": "vite --mode development",
         "run:stage": "vite --mode staging",
@@ -33,7 +19,7 @@
         "test:ui": "vitest --ui --mode development",
         "storybook": "storybook dev -p 6006",
         "storybook:build": "storybook build",
-        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
         "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
         "prepare": "husky"
     },
