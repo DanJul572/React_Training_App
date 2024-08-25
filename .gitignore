@@ -25,7 +25,11 @@ dist-ssr
 
 #coverage
 coverage
-*storybook.log
 
+#storybook
+*storybook.log
+storybook-static
+
+#.d.ts file
 *.d.ts
 *.d.ts.map
