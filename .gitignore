@@ -26,3 +26,6 @@ dist-ssr
 #coverage
 coverage
 *storybook.log
+
+*.d.ts
+*.d.ts.map

@@ -5,6 +5,7 @@
     "type": "module",
     "main": "./dist/zapp.umd.cjs",
     "module": "./dist/zapp.js",
+    "types": "./dist/src/main.d.ts",
     "sideEffects": false,
     "license": "MIT",
     "files": [
@@ -13,7 +14,8 @@
     "exports": {
         ".": {
             "import": "./dist/zapp.js",
-            "require": "./dist/zapp.umd.cjs"
+            "require": "./dist/zapp.umd.cjs",
+            "types": "./dist/src/main.d.ts"
         }
     },
     "scripts": {
@@ -82,6 +84,7 @@
         "prettier": "^3.3.3",
         "storybook": "^8.2.9",
         "typescript": "^5.5.4",
+        "vite-plugin-dts": "^4.0.3",
         "vitest": "^2.0.5"
     },
     "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
