@@ -5,6 +5,6 @@ export type PropsType = {
     label: string;
     name: string;
     options: OptionType[];
-    value?: string;
+    value: string | undefined;
     onChange: (event: SelectChangeEvent<string>) => void;
 };

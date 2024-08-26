@@ -10,6 +10,7 @@ import { PropsType } from './types';
 const ZUpload = (props: PropsType) => {
     return (
         <TextField
+            data-testid="zupload"
             variant="outlined"
             label={props.label}
             value={props.value ? props.value.name : ''}
@@ -22,6 +23,7 @@ const ZUpload = (props: PropsType) => {
                             <input
                                 type="file"
                                 hidden={true}
+                                name={props.name}
                                 onChange={props.onChange}
                             />
                         </IconButton>

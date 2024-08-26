@@ -28,6 +28,7 @@ describe('ZSelect Component', () => {
             label: 'Select',
             name: 'select',
             onChange: vitest.fn(),
+            value: undefined,
             options: [
                 { value: 'option1', label: 'Option 1' },
                 { value: 'option2', label: 'Option 2' },
