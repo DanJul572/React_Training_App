@@ -10,6 +10,7 @@ const ZAutoComplete = (props: PropsType) => {
 
     return (
         <Autocomplete
+            data-testid="zautocomplete"
             options={props.options}
             renderInput={(params) => (
                 <TextField

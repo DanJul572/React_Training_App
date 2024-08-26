@@ -7,7 +7,7 @@ import { PropsType } from './types';
 
 const ZSelect = (props: PropsType) => {
     return (
-        <FormControl fullWidth={true}>
+        <FormControl fullWidth={true} data-testid="zselect">
             <InputLabel>{props.label}</InputLabel>
             <Select
                 label={props.label}

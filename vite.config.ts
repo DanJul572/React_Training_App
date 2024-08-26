@@ -39,6 +39,7 @@ export default defineConfig({
                 '**src/**/types.ts',
                 '**src/types/**',
                 '**src/Routes.tsx',
+                '**src/**/**.stories.tsx',
             ],
         },
     },
