@@ -3,11 +3,7 @@ import TextField from '@mui/material/TextField';
 
 import { PropsType } from './types';
 
-import useZAutoComplete from './hooks';
-
 const ZAutoComplete = (props: PropsType) => {
-    const { handleChange } = useZAutoComplete(props);
-
     return (
         <Autocomplete
             data-testid="zautocomplete"
@@ -22,7 +18,7 @@ const ZAutoComplete = (props: PropsType) => {
                     }}
                 />
             )}
-            onChange={handleChange}
+            onChange={props.onChange}
         />
     );
 };

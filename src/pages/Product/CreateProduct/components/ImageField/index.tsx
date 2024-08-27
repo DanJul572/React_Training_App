@@ -15,6 +15,7 @@ const ImageField = (props: RenderFieldType) => {
             render={({ field }) => (
                 <ZUpload
                     label="Image"
+                    name="image"
                     value={field.value}
                     onChange={(e) => handleChange(e, field)}
                     onClear={hanldeClear}
