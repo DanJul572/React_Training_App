@@ -1,4 +1,4 @@
-import Grid from '@mui/material/Grid';
+import Grid2 from '@mui/material/Grid2';
 
 import CardItem from '../CardItem';
 
@@ -8,13 +8,13 @@ import { containerStyle } from './styles';
 
 const CardList = () => {
     return (
-        <Grid container spacing="10px" sx={containerStyle}>
+        <Grid2 container spacing="10px" sx={containerStyle}>
             {cards.map((card, index) => (
-                <Grid key={index} item xs={6}>
+                <Grid2 key={index} size={6}>
                     <CardItem title={card.title} content={card.content} />
-                </Grid>
+                </Grid2>
             ))}
-        </Grid>
+        </Grid2>
     );
 };
 
