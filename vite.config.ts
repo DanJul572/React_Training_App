@@ -7,9 +7,12 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), /*dts({ copyDtsFiles: true })*/],
+    plugins: [react() /*dts({ copyDtsFiles: true })*/],
     resolve: {
-        alias: [{ find: '@', replacement: resolve(__dirname, 'src') }],
+        alias: [
+            { find: '@', replacement: resolve(__dirname, 'src') },
+            { find: '@public', replacement: resolve(__dirname, 'public') },
+        ],
     },
     test: {
         environment: 'jsdom',

@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+import logo from '@public/logo.svg';
+
 import { containerStyle } from './styles';
 
 const Logo = () => {
@@ -8,7 +10,7 @@ const Logo = () => {
 
     return (
         <Box sx={containerStyle}>
-            <img src="/public/logo.svg" />
+            <img src={logo} />
             <Typography
                 sx={{
                     fontSize: '25px',
