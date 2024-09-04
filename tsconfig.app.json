@@ -29,8 +29,7 @@
         "types": ["@testing-library/jest-dom"],
 
         "paths": {
-            "@/*": ["./src/*"],
-            "@public/*": ["./public/*"]
+            "@/*": ["./src/*"]
         }
     },
     "include": ["src"]

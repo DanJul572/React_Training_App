@@ -9,10 +9,7 @@ import { resolve } from 'path';
 export default defineConfig({
     plugins: [react() /*dts({ copyDtsFiles: true })*/],
     resolve: {
-        alias: [
-            { find: '@', replacement: resolve(__dirname, 'src') },
-            { find: '@public', replacement: resolve(__dirname, 'public') },
-        ],
+        alias: [{ find: '@', replacement: resolve(__dirname, 'src') }],
     },
     test: {
         environment: 'jsdom',
@@ -46,23 +43,4 @@ export default defineConfig({
             ],
         },
     },
-    /*
-    build: {
-        lib: {
-            entry: resolve(__dirname, 'src/main.ts'),
-            name: 'zapp',
-            fileName: 'zapp',
-        },
-        rollupOptions: {
-            external: ["react", "react-dom", "react/jsx-runtime"],
-            output: {
-                globals: {
-                    react: "React",
-                    "react-dom": "ReactDOM",
-                    "react/jsx-runtime": "react/jsx-runtime",
-                },
-            },
-        },
-    },
-    */
 });

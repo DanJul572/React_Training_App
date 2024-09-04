@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import logo from '@public/logo.svg';
+import logo from '/logo.svg';
 
 import { containerStyle } from './styles';
 
