@@ -10,7 +10,7 @@ const Logo = () => {
 
     return (
         <Box sx={containerStyle}>
-            <img src={logo} />
+            <img src={logo} height="25px" />
             <Typography
                 sx={{
                     fontSize: '25px',
