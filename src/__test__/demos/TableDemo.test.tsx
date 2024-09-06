@@ -5,7 +5,6 @@ import {
     fireEvent,
     act,
     waitFor,
-    within,
 } from '@testing-library/react';
 
 import ZTableComponent from '@/demos/ZTableComponent';
@@ -22,23 +21,18 @@ describe('Table Demo', () => {
     it('click row action', async () => {
         render(<ZTableComponent />);
 
-        const firstRow = screen.getByRole('row', {
-            name: /select row 1 jon snow 14 jon snow/i,
-        });
-
-        const editButton = within(firstRow).getByTestId('EditIcon');
-
-        const deleteButton = within(firstRow).getByTestId('DeleteIcon');
+        const editButton = screen.getAllByTestId('EditIcon');
+        const deleteButton = screen.getAllByTestId('DeleteIcon');
 
         expect(editButton).toBeDefined();
         expect(deleteButton).toBeDefined();
 
         await act(async () => {
-            fireEvent.click(editButton);
+            fireEvent.click(editButton[0]);
         });
 
         await act(async () => {
-            fireEvent.click(deleteButton);
+            fireEvent.click(deleteButton[0]);
         });
     });
 
@@ -105,56 +99,51 @@ describe('Table Demo', () => {
     it('selection row', async () => {
         render(<ZTableComponent />);
 
-        const firstRow = screen.getByRole('row', {
-            name: /select row 1 jon snow 14 jon snow/i,
-        });
+        const checks = screen.getAllByTestId('CheckBoxOutlineBlankIcon');
+        const slectAll = checks[0].previousElementSibling;
+        const selectFirst = checks[1].previousElementSibling;
 
-        const firstCheck = within(firstRow).getByRole('checkbox', {
-            name: /select row/i,
-        });
+        expect(slectAll).toBeInTheDocument();
+        expect(selectFirst).toBeInTheDocument();
 
-        const checkAll = screen.getByRole('checkbox', {
-            name: /select all rows/i,
-        });
+        if (selectFirst && slectAll) {
+            await act(async () => {
+                fireEvent.click(selectFirst);
+            });
 
-        expect(checkAll).toBeInTheDocument();
+            await waitFor(() => {
+                expect(selectFirst).toHaveAttribute(
+                    'aria-label',
+                    'Unselect row'
+                );
+                expect(slectAll).toHaveAttribute(
+                    'aria-label',
+                    'Unselect all rows'
+                );
+            });
 
-        await act(async () => {
-            fireEvent.click(firstCheck);
-        });
+            await act(async () => {
+                fireEvent.click(slectAll);
+            });
 
-        await waitFor(() => {
-            expect(firstCheck).toHaveAttribute(
-                'aria-label',
-                'Unselect row'
-            );
-            expect(checkAll).toHaveAttribute(
-                'aria-label',
-                'Unselect all rows'
-            );
-        });
+            await waitFor(() => {
+                expect(slectAll).toHaveAttribute(
+                    'aria-label',
+                    'Select all rows'
+                );
+            });
 
-        await act(async () => {
-            fireEvent.click(checkAll);
-        });
+            await act(async () => {
+                fireEvent.click(slectAll);
+            });
 
-        await waitFor(() => {
-            expect(checkAll).toHaveAttribute(
-                'aria-label',
-                'Select all rows'
-            );
-        });
-
-        await act(async () => {
-            fireEvent.click(checkAll);
-        });
-
-        await waitFor(() => {
-            expect(checkAll).toHaveAttribute(
-                'aria-label',
-                'Unselect all rows'
-            );
-        });
+            await waitFor(() => {
+                expect(slectAll).toHaveAttribute(
+                    'aria-label',
+                    'Unselect all rows'
+                );
+            });
+        }
     });
 
     it('soting action', async () => {
