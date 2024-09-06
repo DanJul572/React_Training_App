@@ -2,13 +2,13 @@ import Box from '@mui/material/Box';
 
 import CardList from './components/CardList';
 
-import ZTableComponent from '@/demos/ZTableComponent';
+import ZTableDemo from '@/demos/ZTableDemo';
 
 const Dashboard = () => {
     return (
         <Box>
             <CardList />
-            <ZTableComponent />
+            <ZTableDemo />
         </Box>
     );
 };

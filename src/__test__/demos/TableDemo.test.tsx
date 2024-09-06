@@ -7,11 +7,11 @@ import {
     waitFor,
 } from '@testing-library/react';
 
-import ZTableComponent from '@/demos/ZTableComponent';
+import ZTableDemo from '@/demos/ZTableDemo';
 
 describe('Table Demo', () => {
     it('render component', async () => {
-        render(<ZTableComponent />);
+        render(<ZTableDemo />);
 
         const tableContainer = screen.getByTestId('ztable');
 
@@ -19,7 +19,7 @@ describe('Table Demo', () => {
     });
 
     it('click row action', async () => {
-        render(<ZTableComponent />);
+        render(<ZTableDemo />);
 
         const editButton = screen.getAllByTestId('EditIcon');
         const deleteButton = screen.getAllByTestId('DeleteIcon');
@@ -37,7 +37,7 @@ describe('Table Demo', () => {
     });
 
     it('click add action', async () => {
-        render(<ZTableComponent />);
+        render(<ZTableDemo />);
 
         const addButton = screen.getByTestId('AddIcon');
 
@@ -49,7 +49,7 @@ describe('Table Demo', () => {
     });
 
     it('change page action', async () => {
-        render(<ZTableComponent />);
+        render(<ZTableDemo />);
 
         const pageButton = screen.getByTestId('KeyboardArrowRightIcon');
 
@@ -65,7 +65,7 @@ describe('Table Demo', () => {
     });
 
     it('filter action', async () => {
-        render(<ZTableComponent />);
+        render(<ZTableDemo />);
 
         const filterButton = screen.getByTestId('FilterListIcon');
 
@@ -97,7 +97,7 @@ describe('Table Demo', () => {
     });
 
     it('selection row', async () => {
-        render(<ZTableComponent />);
+        render(<ZTableDemo />);
 
         const checks = screen.getAllByTestId('CheckBoxOutlineBlankIcon');
         const slectAll = checks[0].previousElementSibling;
@@ -147,7 +147,7 @@ describe('Table Demo', () => {
     });
 
     it('soting action', async () => {
-        render(<ZTableComponent />);
+        render(<ZTableDemo />);
 
         const sortButton = screen.getAllByTestId('ArrowUpwardIcon');
 

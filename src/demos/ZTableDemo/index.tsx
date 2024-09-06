@@ -2,9 +2,9 @@ import ZTable from '@/components/ZTable';
 
 import columns from './dummies/columns';
 import rows from './dummies/rows';
-import useZTableComponent from './hooks';
+import useZTableDemo from './hooks';
 
-const ZTableComponent = () => {
+const ZTableDemo = () => {
     const {
         onAdd,
         onChangePage,
@@ -13,7 +13,7 @@ const ZTableComponent = () => {
         onFilter,
         onSelect,
         onSort,
-    } = useZTableComponent();
+    } = useZTableDemo();
 
     return (
         <ZTable
@@ -31,4 +31,4 @@ const ZTableComponent = () => {
     );
 };
 
-export default ZTableComponent;
+export default ZTableDemo;

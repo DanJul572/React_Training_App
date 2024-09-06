@@ -1,4 +1,4 @@
-const useZTableComponent = () => {
+const useZTableDemo = () => {
     const onAdd = (): void => {};
     const onChangePage = (): void => {};
     const onDelete = (): void => {};
@@ -18,4 +18,4 @@ const useZTableComponent = () => {
     };
 };
 
-export default useZTableComponent;
+export default useZTableDemo;
