@@ -2,7 +2,7 @@ import { CardType } from '@/pages/Dashboard/types';
 
 const cards: CardType[] = [
     {
-        title: 'Uses',
+        title: 'Users',
         content: '250',
     },
     {
