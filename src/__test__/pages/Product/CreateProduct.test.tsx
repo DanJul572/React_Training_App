@@ -28,6 +28,32 @@ describe('CreateProduct Page', () => {
         );
     });
 
+    it('change and clear image value', () => {
+        render(<CreateProduct />);
+
+        const imageField = screen.getByTestId('UploadIcon')
+            .nextSibling as HTMLInputElement;
+        expect(imageField).toBeInTheDocument();
+
+        if (imageField) {
+            const file = new File(['hello'], 'hello.png', {
+                type: 'image/png',
+            });
+
+            fireEvent.change(imageField, {
+                target: { files: [file] },
+            });
+        }
+
+        const clearIcon = screen.getByTestId('ClearIcon');
+        expect(clearIcon).toBeInTheDocument();
+
+        fireEvent.click(clearIcon);
+        if (imageField) {
+            expect(imageField.value).toBe('');
+        }
+    });
+
     it('submit and clear form', async () => {
         render(<CreateProduct />);
 
