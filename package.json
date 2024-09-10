@@ -19,7 +19,8 @@
         "test:ui": "vitest --ui --mode development",
         "storybook": "storybook dev -p 6006",
         "storybook:build": "storybook build",
-        "lint": "eslint . --max-warnings 0 --fix",
+        "lint": "eslint . --max-warnings 0",
+        "lint:fix": "eslint . --max-warnings 0 --fix",
         "prepare": "husky"
     },
     "dependencies": {
