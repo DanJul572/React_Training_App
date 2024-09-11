@@ -20,6 +20,11 @@ export default [
     {
         ignores: [
             '**/dist',
+            '**/storybook-static',
+            '**/node_modules',
+            '**/coverage',
+            '**/.husky',
+            '**/.storybook',
             '**/.eslintrc.cjs',
             '**/vite.config.ts',
             '**/vitest.setup.ts',
