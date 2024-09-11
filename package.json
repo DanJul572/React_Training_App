@@ -17,11 +17,11 @@
         "test": "vitest --mode development",
         "test:coverage": "vitest run --coverage --mode development",
         "test:ui": "vitest --ui --mode development",
-        "storybook": "storybook dev -p 6006",
-        "storybook:build": "storybook build",
         "lint": "eslint . --max-warnings 0",
         "lint:fix": "eslint . --max-warnings 0 --fix",
-        "prepare": "husky"
+        "prepare": "husky",
+        "storybook": "storybook dev -p 6006",
+        "storybook:build": "storybook build"
     },
     "dependencies": {
         "@emotion/react": "^11.13.3",
@@ -38,7 +38,7 @@
         "react-router-dom": "^6.26.2"
     },
     "devDependencies": {
-        "@chromatic-com/storybook": "2.0.0",
+        "@chromatic-com/storybook": "1.9.0",
         "@eslint/compat": "^1.1.1",
         "@eslint/eslintrc": "^3.1.0",
         "@eslint/js": "^9.10.0",
