@@ -6,6 +6,7 @@ import {
     act,
     waitFor,
 } from '@testing-library/react';
+import translator from '@/helpers/translator';
 
 import ZTableDemo from '@/demos/ZTableDemo';
 
@@ -75,7 +76,9 @@ describe('Table Demo', () => {
             fireEvent.click(filterButton);
         });
 
-        const filterValue = screen.getByPlaceholderText(/filter value/i);
+        const filterValue = screen.getByPlaceholderText(
+            translator('filter_value')
+        );
 
         await waitFor(() => {
             expect(filterValue).toBeInTheDocument();
