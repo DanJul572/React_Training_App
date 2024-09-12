@@ -15,7 +15,6 @@ describe('Table Demo', () => {
         render(<ZTableDemo />);
 
         const tableContainer = screen.getByTestId('ztable');
-
         expect(tableContainer).toBeInTheDocument();
     });
 
@@ -28,41 +27,27 @@ describe('Table Demo', () => {
         expect(editButton).toBeDefined();
         expect(deleteButton).toBeDefined();
 
-        await act(async () => {
-            fireEvent.click(editButton[0]);
-        });
-
-        await act(async () => {
-            fireEvent.click(deleteButton[0]);
-        });
+        fireEvent.click(editButton[0]);
+        fireEvent.click(deleteButton[0]);
     });
 
     it('click add action', async () => {
         render(<ZTableDemo />);
 
         const addButton = screen.getByTestId('AddIcon');
-
         expect(addButton).toBeInTheDocument();
 
-        await act(async () => {
-            fireEvent.click(addButton);
-        });
+        fireEvent.click(addButton);
     });
 
     it('change page action', async () => {
         render(<ZTableDemo />);
 
         const pageButton = screen.getByTestId('KeyboardArrowRightIcon');
-
         expect(pageButton).toBeInTheDocument();
 
-        await act(async () => {
-            fireEvent.click(pageButton);
-        });
-
-        await waitFor(() => {
-            expect(pageButton.parentElement).toBeDisabled();
-        });
+        fireEvent.click(pageButton);
+        expect(pageButton.parentElement).toBeDisabled();
     });
 
     it('filter action', async () => {
@@ -110,42 +95,27 @@ describe('Table Demo', () => {
         expect(selectFirst).toBeInTheDocument();
 
         if (selectFirst && slectAll) {
-            await act(async () => {
-                fireEvent.click(selectFirst);
-            });
+            fireEvent.click(selectFirst);
+            expect(selectFirst).toHaveAttribute(
+                'aria-label',
+                'Unselect row'
+            );
+            expect(slectAll).toHaveAttribute(
+                'aria-label',
+                'Unselect all rows'
+            );
 
-            await waitFor(() => {
-                expect(selectFirst).toHaveAttribute(
-                    'aria-label',
-                    'Unselect row'
-                );
-                expect(slectAll).toHaveAttribute(
-                    'aria-label',
-                    'Unselect all rows'
-                );
-            });
+            fireEvent.click(slectAll);
+            expect(slectAll).toHaveAttribute(
+                'aria-label',
+                'Select all rows'
+            );
 
-            await act(async () => {
-                fireEvent.click(slectAll);
-            });
-
-            await waitFor(() => {
-                expect(slectAll).toHaveAttribute(
-                    'aria-label',
-                    'Select all rows'
-                );
-            });
-
-            await act(async () => {
-                fireEvent.click(slectAll);
-            });
-
-            await waitFor(() => {
-                expect(slectAll).toHaveAttribute(
-                    'aria-label',
-                    'Unselect all rows'
-                );
-            });
+            fireEvent.click(slectAll);
+            expect(slectAll).toHaveAttribute(
+                'aria-label',
+                'Unselect all rows'
+            );
         }
     });
 
@@ -153,17 +123,10 @@ describe('Table Demo', () => {
         render(<ZTableDemo />);
 
         const sortButton = screen.getAllByTestId('ArrowUpwardIcon');
-
         expect(sortButton).toBeDefined();
 
         const firtSort = sortButton[0];
-
-        await act(async () => {
-            fireEvent.click(firtSort);
-        });
-
-        await waitFor(() => {
-            expect(firtSort).not.toBeInTheDocument();
-        });
+        fireEvent.click(firtSort);
+        expect(firtSort).not.toBeInTheDocument();
     });
 });

@@ -10,7 +10,6 @@ describe('ZUpload Component', () => {
         const mockFile = new File(['file content'], 'hello.txt', {
             type: 'text/plain',
         });
-
         const mockProps: PropsType = {
             label: 'Select',
             name: 'select',
@@ -18,9 +17,7 @@ describe('ZUpload Component', () => {
             onChange: vitest.fn(),
             onClear: vitest.fn(),
         };
-
         render(<ZUpload {...mockProps} />);
-
         expect(screen.getByTestId('zupload')).toBeInTheDocument();
     });
 
@@ -32,9 +29,7 @@ describe('ZUpload Component', () => {
             onChange: vitest.fn(),
             onClear: vitest.fn(),
         };
-
         render(<ZUpload {...mockProps} />);
-
         expect(screen.getByTestId('zupload')).toBeInTheDocument();
     });
 });

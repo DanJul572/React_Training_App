@@ -21,7 +21,6 @@ describe('Main Layout', () => {
                 <h1>Hello</h1>
             </Main>
         );
-
         expect(screen.getByTestId('logo')).toBeInTheDocument();
     });
 
@@ -33,16 +32,10 @@ describe('Main Layout', () => {
         );
 
         const nestedMenu = screen.getAllByTestId('FolderIcon');
-
         expect(nestedMenu).toBeDefined();
 
-        await act(async () => {
-            fireEvent.click(nestedMenu[0]);
-        });
-
-        await waitFor(() => {
-            expect(screen.getAllByTestId('FolderOpenIcon')).toBeDefined();
-        });
+        fireEvent.click(nestedMenu[0]);
+        expect(screen.getAllByTestId('FolderOpenIcon')).toBeDefined();
     });
 
     it('show and hide FadeMenu', async () => {
