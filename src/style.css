@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-/* temporary fix for Remove Filter Button width */
+/* Remove Clear Button width in Mui Data Grid Filter Form */
 .MuiDataGrid-panelWrapper
     .MuiDataGrid-panelContent
     .MuiDataGrid-filterForm
