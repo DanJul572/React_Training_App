@@ -44,6 +44,12 @@ const ZTable = (props: PropsType) => {
                 rowCount={props.rows.length}
                 rows={props.rows}
                 slots={slots}
+                slotProps={{
+                    pagination: {
+                        showFirstButton: true,
+                        showLastButton: true,
+                    },
+                }}
                 sortingMode={table.gridMode}
             />
         </Paper>
