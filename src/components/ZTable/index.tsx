@@ -25,6 +25,7 @@ const ZTable = (props: PropsType) => {
     return (
         <Paper sx={containerStyle} data-testid="ztable">
             <DataGrid
+                localeText={table.localeText}
                 autoHeight={true}
                 autosizeOptions={table.autoSizeOption}
                 checkboxSelection={true}

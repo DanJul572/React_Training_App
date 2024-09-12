@@ -1,5 +1,7 @@
 {
     "add_record": "Tambah Data",
+    "columns": "Kolom",
+    "filters": "Saring",
     "hello": "Halo",
     "logout": "Keluar",
     "my_account": "Akun Saya"

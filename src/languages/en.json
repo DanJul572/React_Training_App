@@ -1,5 +1,7 @@
 {
     "add_record": "Add Record",
+    "columns": "Columns",
+    "filters": "Filters",
     "hello": "Hello",
     "logout": "Logout",
     "my_account": "My Account"
