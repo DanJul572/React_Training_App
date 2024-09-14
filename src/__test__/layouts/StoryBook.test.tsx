@@ -10,7 +10,6 @@ describe('StoryBook Layout', () => {
                 <h1>Hello</h1>
             </StoryBook>
         );
-
         expect(screen.getByText('Hello')).toBeInTheDocument();
     });
 });

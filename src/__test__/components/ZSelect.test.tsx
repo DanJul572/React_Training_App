@@ -17,9 +17,7 @@ describe('ZSelect Component', () => {
                 { value: 'option2', label: 'Option 2' },
             ],
         };
-
         render(<ZSelect {...mockProps} />);
-
         expect(screen.getByTestId('zselect')).toBeInTheDocument();
     });
 
@@ -34,9 +32,7 @@ describe('ZSelect Component', () => {
                 { value: 'option2', label: 'Option 2' },
             ],
         };
-
         render(<ZSelect {...mockProps} />);
-
         expect(screen.getByTestId('zselect')).toBeInTheDocument();
     });
 });

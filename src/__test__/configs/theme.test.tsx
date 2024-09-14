@@ -11,7 +11,6 @@ describe('theme', () => {
                 <Typography>Hello</Typography>
             </ThemeProvider>
         );
-
         expect(screen.getByText('Hello')).toBeInTheDocument();
     });
 });

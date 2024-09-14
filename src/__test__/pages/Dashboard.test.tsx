@@ -6,7 +6,6 @@ import Dashboard from '@/pages/Dashboard';
 describe('Dashboard Page', () => {
     it('render component', () => {
         render(<Dashboard />);
-
         expect(screen.getByTestId('ztable')).toBeInTheDocument();
     });
 });

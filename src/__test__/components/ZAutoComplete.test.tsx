@@ -1,11 +1,5 @@
 import { describe, expect, it, vitest } from 'vitest';
-import {
-    render,
-    waitFor,
-    screen,
-    act,
-    fireEvent,
-} from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import { OptionType } from '@/types/option';
 import {
@@ -37,34 +31,17 @@ const props: PropsType = {
 
 describe('ZAutoComplete', () => {
     it('render component and change value', async () => {
-        const component = <ZAutoComplete {...props} />;
-
-        render(component);
+        render(<ZAutoComplete {...props} />);
 
         const input = screen.getByTestId('zautocomplete');
-
-        await waitFor(() => {
-            expect(input).toBeInTheDocument();
-        });
+        expect(input).toBeInTheDocument();
 
         const arrowButton = screen.getByTestId('ArrowDropDownIcon');
-
-        await act(async () => {
-            fireEvent.click(arrowButton);
-        });
-
+        fireEvent.click(arrowButton);
         const firstOption = screen.getByText(/Joe/i);
+        expect(firstOption).toBeInTheDocument();
 
-        await waitFor(() => {
-            expect(firstOption).toBeInTheDocument();
-        });
-
-        await act(async () => {
-            fireEvent.click(firstOption);
-        });
-
-        await waitFor(() => {
-            expect(handleChange).toBeCalled();
-        });
+        fireEvent.click(firstOption);
+        expect(handleChange).toBeCalled();
     });
 });

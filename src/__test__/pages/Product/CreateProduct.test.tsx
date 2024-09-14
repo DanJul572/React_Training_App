@@ -13,15 +13,11 @@ describe('CreateProduct Page', () => {
         render(<CreateProduct />);
 
         const typeField = screen.getByRole('combobox');
-
         expect(typeField).toBeInTheDocument();
 
         fireEvent.mouseDown(typeField);
-
         const listbox = within(screen.getByRole('listbox'));
-
         fireEvent.click(listbox.getByText('Food'));
-
         expect(typeField.nextElementSibling).toHaveAttribute(
             'value',
             'food'
@@ -39,7 +35,6 @@ describe('CreateProduct Page', () => {
             const file = new File(['hello'], 'hello.png', {
                 type: 'image/png',
             });
-
             fireEvent.change(imageField, {
                 target: { files: [file] },
             });
