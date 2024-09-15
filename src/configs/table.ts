@@ -37,11 +37,16 @@ const paginationLabels: MuiTablePaginationLocalizedProps = {
 };
 
 const localeText: Partial<GridLocaleText> = {
+    columnHeaderFiltersTooltipActive: (count) => {
+        return `${count} ${translator('active_filter')}`;
+    },
     columnHeaderSortIconLabel: translator('sort'),
     columnsManagementReset: translator('reset'),
     columnsManagementSearchTitle: translator('search'),
     columnsManagementShowHideAllText: translator('show_hide_all'),
     filterOperatorContains: translator('contains'),
+    filterOperatorDoesNotContain: translator('does_not_contain'),
+    filterOperatorDoesNotEqual: translator('does_not_equal'),
     filterOperatorEndsWith: translator('ends_with'),
     filterOperatorEquals: translator('equals'),
     filterOperatorIsAnyOf: translator('is_any_of'),
@@ -53,14 +58,11 @@ const localeText: Partial<GridLocaleText> = {
     filterPanelInputLabel: translator('value'),
     filterPanelInputPlaceholder: translator('filter_value'),
     filterPanelOperator: translator('operator'),
+    MuiTablePagination: paginationLabels,
     toolbarColumns: translator('columns'),
     toolbarColumnsLabel: translator('select_column'),
     toolbarFilters: translator('filters'),
     toolbarFiltersTooltipShow: translator('show_filer'),
-    columnHeaderFiltersTooltipActive: (count) => {
-        return `${count} ${translator('active_filter')}`;
-    },
-    MuiTablePagination: paginationLabels,
 };
 
 const table = {
