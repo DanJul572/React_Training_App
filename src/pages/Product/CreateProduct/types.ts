@@ -1,11 +1,11 @@
 import { Control, UseFormResetField } from 'react-hook-form';
 
 export type ProductFormType = {
-    label: string;
     description?: string;
-    type: string;
-    price: number;
     image?: File;
+    label: string;
+    price: number;
+    type: string;
 };
 
 export type RenderFieldType = {

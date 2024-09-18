@@ -1,18 +1,24 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import LabelField from './components/LabelField';
-import ImageField from './components/ImageField';
-import TypeField from './components/TypeField';
 import ActionButton from './components/ActionButton';
+import AlertError from './components/AlertError';
+import ImageField from './components/ImageField';
+import LabelField from './components/LabelField';
+import TypeField from './components/TypeField';
 
 import { formStyle } from './styles';
-
 import useCreateProduct from './hooks';
 
 const CreateProduct = () => {
-    const { resetField, handleSubmit, onSubmit, control, handleClear } =
-        useCreateProduct();
+    const {
+        control,
+        error,
+        handleClear,
+        handleSubmit,
+        onSubmit,
+        resetField,
+    } = useCreateProduct();
 
     const labelProps = {
         control,
@@ -22,6 +28,7 @@ const CreateProduct = () => {
     return (
         <Box>
             <Typography variant="h6">Create Product</Typography>
+            <AlertError {...error} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={formStyle}>
                     <LabelField {...labelProps} />
