@@ -1,6 +1,13 @@
-import { expect, it, describe } from 'vitest';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { expect, it, describe, vitest } from 'vitest';
+import {
+    fireEvent,
+    render,
+    screen,
+    waitFor,
+    within,
+} from '@testing-library/react';
 
+import request from '@/helpers/request';
 import CreateProduct from '@/pages/Product/CreateProduct';
 
 describe('CreateProduct Page', () => {
@@ -49,20 +56,46 @@ describe('CreateProduct Page', () => {
         }
     });
 
-    it('submit and clear form', async () => {
+    it('clear form', async () => {
         render(<CreateProduct />);
 
         const cleartButton = screen.getByRole('button', {
             name: 'Clear',
         });
+        expect(cleartButton).toBeInTheDocument();
+
+        fireEvent.click(cleartButton);
+    });
+
+    it('submit form with empty body', async () => {
+        render(<CreateProduct />);
+
         const submitButton = screen.getByRole('button', {
             name: 'Submit',
         });
-
-        expect(cleartButton).toBeInTheDocument();
         expect(submitButton).toBeInTheDocument();
 
-        fireEvent.click(cleartButton);
+        request.post = vitest.fn().mockRejectedValueOnce({
+            response: {
+                data: {
+                    message: [
+                        'label should not be empty',
+                        'image must be base64 encoded',
+                        'price must be a number conforming to the specified constraints',
+                        'price should not be empty',
+                        'type must be a string',
+                        'type should not be empty',
+                    ],
+                    error: 'Bad Request',
+                    statusCode: 400,
+                },
+            },
+        });
         fireEvent.click(submitButton);
+        await waitFor(() => {
+            expect(
+                screen.getByText('label should not be empty')
+            ).toBeInTheDocument();
+        });
     });
 });
