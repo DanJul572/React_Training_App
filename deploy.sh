@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Navigate to the React Native Training directory
-cd "React_Training_App" || exit
-
 # Pull the latest changes from the main branch
 git pull origin main
 
