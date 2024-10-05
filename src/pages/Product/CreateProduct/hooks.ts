@@ -12,7 +12,9 @@ const useCreateProduct = () => {
         useForm<ProductFormType>({
             defaultValues: {
                 label: '',
-                image: undefined,
+                type: '',
+                price: 0,
+                image: null,
             },
         });
 
@@ -22,11 +24,32 @@ const useCreateProduct = () => {
         statusCode: null,
     });
 
+    const [successMessage, setSuccessMessage] = useState<string | null>(
+        null
+    );
+
+    const formatPayloads = (data: ProductFormType) => {
+        data.price = Number(data.price);
+        return data;
+    };
+
+    const clearAllMessage = () => {
+        setSuccessMessage(null);
+        setError({
+            error: null,
+            message: null,
+            statusCode: null,
+        });
+    };
+
     const onSubmit: SubmitHandler<ProductFormType> = (data) => {
+        const formatedData = formatPayloads(data);
+        clearAllMessage();
         request
-            .post<ProductFormType>('/products', data)
-            .then((response) => {
-                console.log(response);
+            .post<ProductFormType>('/products', formatedData)
+            .then(() => {
+                setSuccessMessage('Product has been created.');
+                reset();
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
@@ -42,10 +65,11 @@ const useCreateProduct = () => {
     return {
         control,
         error,
+        handleClear,
         handleSubmit,
         onSubmit,
         resetField,
-        handleClear,
+        successMessage,
     };
 };
 
