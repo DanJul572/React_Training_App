@@ -98,4 +98,29 @@ describe('CreateProduct Page', () => {
             ).toBeInTheDocument();
         });
     });
+
+    it('submit form with valid payloads', async () => {
+        render(<CreateProduct />);
+
+        const submitButton = screen.getByRole('button', {
+            name: 'Submit',
+        });
+        expect(submitButton).toBeInTheDocument();
+
+        request.post = vitest.fn().mockResolvedValueOnce({
+            response: {
+                data: {
+                    label: 'Soap',
+                    type: 'Tool',
+                    price: 3000,
+                },
+            },
+        });
+        fireEvent.click(submitButton);
+        await waitFor(() => {
+            expect(
+                screen.getByText('Product has been created.')
+            ).toBeInTheDocument();
+        });
+    });
 });
