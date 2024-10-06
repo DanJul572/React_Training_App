@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { AxiosError } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import request from '@/helpers/request';
+import { ZLoaderContextState } from '@/context/ZLoaderContext';
 import { ErrorResponse } from '@/types/errorResponse';
 
 import { ProductFormType } from './types';
 
 const useCreateProduct = () => {
+    const { setOpen } = useContext(ZLoaderContextState);
+
     const { control, handleSubmit, resetField, reset } =
         useForm<ProductFormType>({
             defaultValues: {
@@ -29,7 +32,9 @@ const useCreateProduct = () => {
     );
 
     const formatPayloads = (data: ProductFormType) => {
-        data.price = Number(data.price);
+        if (data.price || data.price === 0) {
+            data.price = Number(data.price);
+        }
         return data;
     };
 
@@ -45,6 +50,7 @@ const useCreateProduct = () => {
     const onSubmit: SubmitHandler<ProductFormType> = (data) => {
         const formatedData = formatPayloads(data);
         clearAllMessage();
+        setOpen(true);
         request
             .post<ProductFormType>('/products', formatedData)
             .then(() => {
@@ -55,6 +61,9 @@ const useCreateProduct = () => {
                 if (error.response) {
                     setError(error.response.data as ErrorResponse);
                 }
+            })
+            .finally(() => {
+                setOpen(false);
             });
     };
 
