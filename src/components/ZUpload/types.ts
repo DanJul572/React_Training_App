@@ -3,7 +3,7 @@ import { ChangeEventHandler, MouseEventHandler } from 'react';
 export type PropsType = {
     label: string;
     name: string;
-    value: File | undefined;
+    value: File | null;
     onChange: ChangeEventHandler<HTMLInputElement>;
     onClear: MouseEventHandler<HTMLButtonElement>;
 };

@@ -25,7 +25,7 @@ describe('ZUpload Component', () => {
         const mockProps: PropsType = {
             label: 'Select',
             name: 'select',
-            value: undefined,
+            value: null,
             onChange: vitest.fn(),
             onClear: vitest.fn(),
         };
