@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 
-import ZLoader from '@/components/ZLoader';
-import { ZLoaderContext } from '@/context/ZLoaderContext';
+import { ZLoader } from '@/context/ZLoader';
 
 import Topbar from './components/Topbar';
 import Sidebar from './components/Sidebar';
@@ -17,14 +16,13 @@ import {
 const Main = (props: PropsType) => {
     return (
         <Box sx={containerStyle}>
-            <ZLoaderContext>
-                <ZLoader open={true} handleClose={() => {}} />
+            <ZLoader>
                 <Topbar />
                 <Box sx={sidebarAndContentStyle}>
                     <Sidebar />
                     <Box sx={contentStyle}>{props.children}</Box>
                 </Box>
-            </ZLoaderContext>
+            </ZLoader>
         </Box>
     );
 };

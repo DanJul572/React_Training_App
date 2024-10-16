@@ -3,7 +3,7 @@ import Alert from '@mui/material/Alert';
 
 import { PropsType } from './types';
 
-const ZSuccessAlert = (props: PropsType) => {
+const SuccessAlert = (props: PropsType) => {
     if (!props.message) {
         return false;
     }
@@ -15,4 +15,4 @@ const ZSuccessAlert = (props: PropsType) => {
     );
 };
 
-export default ZSuccessAlert;
+export default SuccessAlert;

@@ -9,7 +9,7 @@ import { ErrorResponse } from '@/types/errorResponse';
 
 import { containerStyle } from './styles';
 
-const AlertError = (props: ErrorResponse) => {
+const ErrorAlert = (props: ErrorResponse) => {
     if (!props.error) return false;
 
     return (
@@ -35,4 +35,4 @@ const AlertError = (props: ErrorResponse) => {
     );
 };
 
-export default AlertError;
+export default ErrorAlert;

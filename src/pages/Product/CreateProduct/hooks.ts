@@ -3,13 +3,13 @@ import { AxiosError } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import request from '@/helpers/request';
-import { ZLoaderContextState } from '@/context/ZLoaderContext';
+import { ZLoaderContext } from '@/context/ZLoader';
 import { ErrorResponse } from '@/types/errorResponse';
 
 import { ProductFormType } from './types';
 
 const useCreateProduct = () => {
-    const { setOpen } = useContext(ZLoaderContextState);
+    const { setOpen } = useContext(ZLoaderContext);
 
     const { control, handleSubmit, resetField, reset } =
         useForm<ProductFormType>({
