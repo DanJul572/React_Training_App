@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
+import translator from '@/helpers/translator';
+
 import { containerButtonStyle } from './styles';
 import { PropsType } from './types';
 
@@ -10,11 +12,11 @@ const ActionButton = (props: PropsType) => {
             <Button
                 type="button"
                 color="secondary"
-                onClick={props.handleClear}
+                onClick={props.onClear}
             >
-                Clear
+                {translator('clear')}
             </Button>
-            <Button type="submit">Submit</Button>
+            <Button type="submit">{translator('submit')}</Button>
         </Box>
     );
 };

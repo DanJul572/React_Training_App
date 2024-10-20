@@ -8,6 +8,8 @@ import {
 } from '@testing-library/react';
 
 import request from '@/helpers/request';
+import translator from '@/helpers/translator';
+
 import CreateProduct from '@/pages/Product/CreateProduct';
 
 describe('CreateProduct Page', () => {
@@ -60,7 +62,7 @@ describe('CreateProduct Page', () => {
         render(<CreateProduct />);
 
         const cleartButton = screen.getByRole('button', {
-            name: 'Clear',
+            name: translator('clear'),
         });
         expect(cleartButton).toBeInTheDocument();
 
@@ -71,7 +73,7 @@ describe('CreateProduct Page', () => {
         render(<CreateProduct />);
 
         const submitButton = screen.getByRole('button', {
-            name: 'Submit',
+            name: translator('submit'),
         });
         expect(submitButton).toBeInTheDocument();
 
@@ -103,7 +105,7 @@ describe('CreateProduct Page', () => {
         render(<CreateProduct />);
 
         const submitButton = screen.getByRole('button', {
-            name: 'Submit',
+            name: translator('submit'),
         });
         expect(submitButton).toBeInTheDocument();
 

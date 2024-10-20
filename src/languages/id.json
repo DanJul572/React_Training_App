@@ -1,6 +1,7 @@
 {
     "active_filter": "Filter Aktif",
     "add_record": "Tambah Data",
+    "clear": "Bersihkan",
     "columns": "Kolom",
     "contains": "Berisi",
     "delete": "Hapus",
@@ -31,5 +32,6 @@
     "show_hide_all": "Tampilkan/Sembunyikan Semua",
     "sort": "Sortir",
     "starts_with": "Dimulai Dengan",
+    "submit": "Kirim",
     "value": "Nilai"
 }

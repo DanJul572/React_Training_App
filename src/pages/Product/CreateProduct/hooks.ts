@@ -35,7 +35,7 @@ const useCreateProduct = () => {
         return data;
     };
 
-    const clearAllMessage = () => {
+    const clearAlert = () => {
         setShowAlert({
             data: null,
             isShow: false,
@@ -44,32 +44,40 @@ const useCreateProduct = () => {
         });
     };
 
+    const showErrorAlert = (error: AxiosError): void => {
+        if (error.response) {
+            const errorResponse = error.response.data as ErrorResponse;
+            setShowAlert({
+                data: errorResponse.message,
+                isShow: true,
+                message: errorResponse.error,
+                type: 'error',
+            });
+        }
+    };
+
+    const showSuccessAlert = (message: string): void => {
+        setShowAlert({
+            data: null,
+            isShow: true,
+            message: message,
+            type: 'success',
+        });
+    };
+
     const onSubmit: SubmitHandler<ProductFormType> = (data) => {
         const formatedData = formatPayloads(data);
-        clearAllMessage();
+        clearAlert();
         setOpen(true);
         request
             .post<ProductFormType>('/products', formatedData)
             .then(() => {
-                setShowAlert({
-                    data: null,
-                    isShow: true,
-                    message: 'Product has been created.',
-                    type: 'success',
-                });
+                showSuccessAlert('Product has been created.');
                 reset();
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
-                    const errorResponse = error.response
-                        .data as ErrorResponse;
-                    const alertData: ShowAlertType = {
-                        data: errorResponse.message,
-                        isShow: true,
-                        message: errorResponse.error,
-                        type: 'error',
-                    };
-                    setShowAlert(alertData);
+                    showErrorAlert(error);
                 }
             })
             .finally(() => {
@@ -77,13 +85,13 @@ const useCreateProduct = () => {
             });
     };
 
-    const handleClear = () => {
+    const onClear = () => {
         reset();
     };
 
     return {
         control,
-        handleClear,
+        onClear,
         handleSubmit,
         onSubmit,
         resetField,

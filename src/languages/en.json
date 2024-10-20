@@ -1,6 +1,7 @@
 {
     "active_filter": "Active Filter",
     "add_record": "Add Record",
+    "clear": "Clear",
     "columns": "Columns",
     "contains": "Contains",
     "delete": "Delete",
@@ -31,5 +32,6 @@
     "show_hide_all": "Show/Hide All",
     "sort": "Sort",
     "starts_with": "Starts With",
+    "submit": "Submit",
     "value": "Value"
 }

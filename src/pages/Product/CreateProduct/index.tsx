@@ -14,7 +14,7 @@ import useCreateProduct from './hooks';
 const CreateProduct = () => {
     const {
         control,
-        handleClear,
+        onClear,
         handleSubmit,
         onSubmit,
         resetField,
@@ -37,7 +37,7 @@ const CreateProduct = () => {
                     <TypeField {...labelProps} />
                     <ImageField {...labelProps} />
                 </Box>
-                <ActionButton handleClear={handleClear} />
+                <ActionButton onClear={onClear} />
             </form>
         </Box>
     );
