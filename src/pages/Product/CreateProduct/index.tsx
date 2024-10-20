@@ -2,11 +2,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import ActionButton from './components/ActionButton';
-import ErrorAlert from './components/ErrorAlert';
+import AlertMessage from './components/AlertMessage';
 import ImageField from './components/ImageField';
 import LabelField from './components/LabelField';
 import PriceField from './components/PriceField';
-import SuccessAlert from './components/SuccessAlert';
 import TypeField from './components/TypeField';
 
 import { formStyle } from './styles';
@@ -15,12 +14,11 @@ import useCreateProduct from './hooks';
 const CreateProduct = () => {
     const {
         control,
-        error,
         handleClear,
         handleSubmit,
         onSubmit,
         resetField,
-        successMessage,
+        showAlert,
     } = useCreateProduct();
 
     const labelProps = {
@@ -31,8 +29,7 @@ const CreateProduct = () => {
     return (
         <Box>
             <Typography variant="h6">Create Product</Typography>
-            <ErrorAlert {...error} />
-            <SuccessAlert message={successMessage} />
+            <AlertMessage {...showAlert} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={formStyle}>
                     <LabelField {...labelProps} />

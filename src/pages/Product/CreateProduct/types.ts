@@ -12,3 +12,10 @@ export type RenderFieldType = {
     control: Control<ProductFormType, any>;
     resetField: UseFormResetField<ProductFormType>;
 };
+
+export type ShowAlertType = {
+    data: string[] | null;
+    isShow: boolean;
+    message: string | null;
+    type: 'error' | 'success';
+};

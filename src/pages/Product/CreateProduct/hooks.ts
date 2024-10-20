@@ -6,7 +6,7 @@ import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
 import { ErrorResponse } from '@/types/errorResponse';
 
-import { ProductFormType } from './types';
+import { ProductFormType, ShowAlertType } from './types';
 
 const useCreateProduct = () => {
     const { setOpen } = useContext(ZLoaderContext);
@@ -21,15 +21,12 @@ const useCreateProduct = () => {
             },
         });
 
-    const [error, setError] = useState<ErrorResponse>({
-        error: null,
+    const [showAlert, setShowAlert] = useState<ShowAlertType>({
+        data: null,
+        isShow: false,
         message: null,
-        statusCode: null,
+        type: 'success',
     });
-
-    const [successMessage, setSuccessMessage] = useState<string | null>(
-        null
-    );
 
     const formatPayloads = (data: ProductFormType) => {
         if (data.price || data.price === 0) {
@@ -39,11 +36,11 @@ const useCreateProduct = () => {
     };
 
     const clearAllMessage = () => {
-        setSuccessMessage(null);
-        setError({
-            error: null,
+        setShowAlert({
+            data: null,
+            isShow: false,
             message: null,
-            statusCode: null,
+            type: 'success',
         });
     };
 
@@ -54,12 +51,25 @@ const useCreateProduct = () => {
         request
             .post<ProductFormType>('/products', formatedData)
             .then(() => {
-                setSuccessMessage('Product has been created.');
+                setShowAlert({
+                    data: null,
+                    isShow: true,
+                    message: 'Product has been created.',
+                    type: 'success',
+                });
                 reset();
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
-                    setError(error.response.data as ErrorResponse);
+                    const errorResponse = error.response
+                        .data as ErrorResponse;
+                    const alertData: ShowAlertType = {
+                        data: errorResponse.message,
+                        isShow: true,
+                        message: errorResponse.error,
+                        type: 'error',
+                    };
+                    setShowAlert(alertData);
                 }
             })
             .finally(() => {
@@ -73,12 +83,11 @@ const useCreateProduct = () => {
 
     return {
         control,
-        error,
         handleClear,
         handleSubmit,
         onSubmit,
         resetField,
-        successMessage,
+        showAlert,
     };
 };
 
