@@ -40,6 +40,7 @@ const localeText: Partial<GridLocaleText> = {
     columnHeaderFiltersTooltipActive: (count) => {
         return `${count} ${translator('active_filter')}`;
     },
+    checkboxSelectionHeaderName: translator('checkbox_selection'),
     columnHeaderSortIconLabel: translator('sort'),
     columnsManagementReset: translator('reset'),
     columnsManagementSearchTitle: translator('search'),
@@ -58,6 +59,9 @@ const localeText: Partial<GridLocaleText> = {
     filterPanelInputLabel: translator('value'),
     filterPanelInputPlaceholder: translator('filter_value'),
     filterPanelOperator: translator('operator'),
+    footerRowSelected: (count) => {
+        return `${count} ${translator('selected_row')}`;
+    },
     MuiTablePagination: paginationLabels,
     toolbarColumns: translator('columns'),
     toolbarColumnsLabel: translator('select_column'),

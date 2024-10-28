@@ -1,8 +1,12 @@
+import Tooltip from '@mui/material/Tooltip';
+
 import Delete from '@mui/icons-material/Delete';
 import Edit from '@mui/icons-material/Edit';
 
 import { GridActionsCellItem } from '@mui/x-data-grid/components';
 import { GridColDef } from '@mui/x-data-grid/models/colDef/gridColDef';
+
+import translator from '@/helpers/translator';
 
 import { PropsType } from './types';
 
@@ -18,19 +22,27 @@ const Columns: PropsType = (columns, onEdit, onDelete) => {
         {
             field: 'actions',
             type: 'actions',
-            headerName: 'Actions',
+            headerName: translator('action'),
             cellClassName: 'actions',
             getActions: (data) => {
                 return [
                     <GridActionsCellItem
                         color="inherit"
-                        icon={<Edit />}
+                        icon={
+                            <Tooltip title={translator('edit')} arrow>
+                                <Edit />
+                            </Tooltip>
+                        }
                         label="Edit"
                         onClick={() => onEdit(data.id)}
                     />,
                     <GridActionsCellItem
                         color="inherit"
-                        icon={<Delete />}
+                        icon={
+                            <Tooltip title={translator('delete')} arrow>
+                                <Delete />
+                            </Tooltip>
+                        }
                         label="Delete"
                         onClick={() => onDelete(data.id)}
                     />,
