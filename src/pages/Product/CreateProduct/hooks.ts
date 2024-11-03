@@ -9,7 +9,7 @@ import { ErrorResponse } from '@/types/errorResponse';
 import { ProductFormType, ShowAlertType } from './types';
 
 const useCreateProduct = () => {
-    const { setOpen } = useContext(ZLoaderContext);
+    const { setOpenLoader } = useContext(ZLoaderContext);
 
     const { control, handleSubmit, resetField, reset } =
         useForm<ProductFormType>({
@@ -65,10 +65,8 @@ const useCreateProduct = () => {
         });
     };
 
-    const onSubmit: SubmitHandler<ProductFormType> = (data) => {
+    const insertProduct = (data: ProductFormType) => {
         const formatedData = formatPayloads(data);
-        clearAlert();
-        setOpen(true);
         request
             .post<ProductFormType>('/products', formatedData)
             .then(() => {
@@ -81,8 +79,14 @@ const useCreateProduct = () => {
                 }
             })
             .finally(() => {
-                setOpen(false);
+                setOpenLoader(false);
             });
+    };
+
+    const onSubmit: SubmitHandler<ProductFormType> = (data) => {
+        clearAlert();
+        setOpenLoader(true);
+        insertProduct(data);
     };
 
     const onClear = () => {

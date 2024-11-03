@@ -10,22 +10,22 @@ import { PropsType, ZLoaderContextType } from './types';
 import { containerStyle } from './styles';
 
 const ZLoaderContext = createContext<ZLoaderContextType>({
-    open: false,
-    setOpen: () => {},
+    openLoader: false,
+    setOpenLoader: () => {},
 });
 
 const ZLoader = (props: PropsType) => {
-    const [open, setOpen] = useState<boolean>(false);
+    const [openLoader, setOpenLoader] = useState<boolean>(false);
 
     const handleClose = () => {
-        setOpen(false);
+        setOpenLoader(false);
     };
 
     return (
-        <ZLoaderContext.Provider value={{ open, setOpen }}>
+        <ZLoaderContext.Provider value={{ openLoader, setOpenLoader }}>
             <Backdrop
                 sx={containerStyle}
-                open={open}
+                open={openLoader}
                 onClick={handleClose}
             >
                 <CircularProgress color="inherit" size={15} />

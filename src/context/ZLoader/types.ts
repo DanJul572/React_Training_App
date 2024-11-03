@@ -5,6 +5,6 @@ export type PropsType = {
 };
 
 export type ZLoaderContextType = {
-    open: boolean;
-    setOpen: Dispatch<SetStateAction<boolean>>;
+    openLoader: boolean;
+    setOpenLoader: Dispatch<SetStateAction<boolean>>;
 };
