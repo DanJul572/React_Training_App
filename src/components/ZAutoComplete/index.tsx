@@ -13,8 +13,10 @@ const ZAutoComplete = (props: PropsType) => {
                     {...params}
                     label={props.label}
                     name={props.name}
-                    InputLabelProps={{
-                        shrink: true,
+                    slotProps={{
+                        inputLabel: {
+                            shrink: true,
+                        },
                     }}
                 />
             )}

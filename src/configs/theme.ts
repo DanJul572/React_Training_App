@@ -7,7 +7,7 @@ const theme = createTheme({
     palette: {
         mode: colorMode,
         primary: {
-            main: '#C0C0C0',
+            main: '#FFD700',
         },
         secondary: {
             main: '#71706E',
@@ -22,8 +22,10 @@ const theme = createTheme({
         MuiTextField: {
             defaultProps: {
                 fullWidth: true,
-                InputLabelProps: {
-                    shrink: true,
+                slotProps: {
+                    inputLabel: {
+                        shrink: true,
+                    },
                 },
             },
         },
