@@ -2,22 +2,28 @@ import Paper from '@mui/material/Paper';
 
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
-import { GridRowIdGetter } from '@mui/x-data-grid/models';
+import {
+    GridRowIdGetter,
+    GridSlotsComponentsProps,
+} from '@mui/x-data-grid/models';
 
 import { PropsType } from './types';
+import { containerStyle } from './styles';
 
 import table from '@/configs/table';
 
 import Columns from './components/Columns';
 import ToolBar from './components/Toolbar';
 
-import { containerStyle } from './styles';
-
 const ZTable = (props: PropsType) => {
     const columns = Columns(props.columns, props.onEdit, props.onDelete);
 
     const slots: Partial<GridSlotsComponent> = {
         toolbar: () => <ToolBar onAdd={props.onAdd} />,
+    };
+
+    const slotProps: Partial<GridSlotsComponentsProps> = {
+        pagination: { showFirstButton: true, showLastButton: true },
     };
 
     const getRowId: GridRowIdGetter<any> = (row) => row[props.id];
@@ -43,12 +49,7 @@ const ZTable = (props: PropsType) => {
                 rowCount={props.rows.length}
                 rows={props.rows}
                 slots={slots}
-                slotProps={{
-                    pagination: {
-                        showFirstButton: true,
-                        showLastButton: true,
-                    },
-                }}
+                slotProps={slotProps}
                 sortingMode={table.gridMode}
             />
         </Paper>
