@@ -29,13 +29,13 @@
         "@fontsource/roboto": "^5.1.0",
         "@mui/icons-material": "^6.2.0",
         "@mui/material": "^6.2.0",
-        "@mui/x-data-grid": "^7.23.1",
-        "@mui/x-tree-view": "^7.23.0",
+        "@mui/x-data-grid": "^7.23.2",
+        "@mui/x-tree-view": "^7.23.2",
         "axios": "^1.7.9",
         "path": "^0.12.7",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
-        "react-hook-form": "^7.54.0",
+        "react-hook-form": "^7.54.1",
         "react-router-dom": "^7.0.2"
     },
     "devDependencies": {

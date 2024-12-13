@@ -892,10 +892,10 @@
     prop-types "^15.8.1"
     react-is "^19.0.0"
 
-"@mui/x-data-grid@^7.23.1":
-  version "7.23.1"
-  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-7.23.1.tgz#14889f4fc9dff3ba1d05389a0c9c057df93dcbb0"
-  integrity sha512-1CumfhjGA+WgNtnN3ZD3gCOw6RVf/cEy2X2gS0iyXtVsFNaE+qtyMz9KesQsIzi9u13Wj3RNuhBdH0C5qXtAhQ==
+"@mui/x-data-grid@^7.23.2":
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-7.23.2.tgz#3cc82c609a56b02dfe0317d74ab21d0e69dbe964"
+  integrity sha512-Xhm4Bh+WiU5MSLFIZ8mE1egHoS0xPEVlwvjYvairPIkxNPubB7f+gtLkuAJ2+m+BYbgO7yDte+Pp7dfjkU+vOA==
   dependencies:
     "@babel/runtime" "^7.25.7"
     "@mui/utils" "^5.16.6 || ^6.0.0"
@@ -912,10 +912,10 @@
     "@babel/runtime" "^7.25.7"
     "@mui/utils" "^5.16.6 || ^6.0.0"
 
-"@mui/x-tree-view@^7.23.0":
-  version "7.23.0"
-  resolved "https://registry.yarnpkg.com/@mui/x-tree-view/-/x-tree-view-7.23.0.tgz#396cbb7279b0e79e7bc570f9c0ad1d271e53fff3"
-  integrity sha512-67e+FCVMD2A5IaNettHFLUg09j+mMOWlN9f0Uw+LGePA9vLCAMFBdPZIFa18J9F3hTurNLrFzjVA0O4QfHlvrQ==
+"@mui/x-tree-view@^7.23.2":
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@mui/x-tree-view/-/x-tree-view-7.23.2.tgz#c9ea5c538bfcbc4aee253b556e3e0705a32128e3"
+  integrity sha512-/R/9/GSF311fVLOUCg7r+a/+AScYZezL0SJZPfsTOquL1RDPAFRZei7BZEivUzOSEELJc0cxLGapJyM6QCA7Zg==
   dependencies:
     "@babel/runtime" "^7.25.7"
     "@mui/utils" "^5.16.6 || ^6.0.0"
@@ -3588,10 +3588,10 @@ react-dom@^19.0.0:
   dependencies:
     scheduler "^0.25.0"
 
-react-hook-form@^7.54.0:
-  version "7.54.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.54.0.tgz#46bd9142d65fd16ac064a2bbf4dc0333e2d6840d"
-  integrity sha512-PS05+UQy/IdSbJNojBypxAo9wllhHgGmyr8/dyGQcPoiMf3e7Dfb9PWYVRco55bLbxH9S+1yDDJeTdlYCSxO3A==
+react-hook-form@^7.54.1:
+  version "7.54.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.54.1.tgz#e99c2a55a5e4859fb47a8f55adf66b34d6ac331d"
+  integrity sha512-PUNzFwQeQ5oHiiTUO7GO/EJXGEtuun2Y1A59rLnZBBj+vNEOWt/3ERTiG1/zt7dVeJEM+4vDX/7XQ/qanuvPMg==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
