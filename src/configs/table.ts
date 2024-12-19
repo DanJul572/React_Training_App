@@ -26,13 +26,17 @@ const paginationLabels: MuiTablePaginationLocalizedProps = {
     getItemAriaLabel: (type) => {
         if (type === 'next') {
             return translator('next_page');
-        } else if (type === 'first') {
-            return translator('first_page');
-        } else if (type === 'last') {
-            return translator('last_page');
-        } else {
-            return translator('prev_page');
         }
+
+        if (type === 'first') {
+            return translator('first_page');
+        }
+
+        if (type === 'last') {
+            return translator('last_page');
+        }
+
+        return translator('prev_page');
     },
 };
 
