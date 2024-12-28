@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from './layouts/Main';
 
 import App from './App';
-
 import Dashboard from './pages/Dashboard';
 import CreateProduct from './pages/Product/CreateProduct';
 
@@ -25,7 +24,7 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path: '/create-product',
+        path: '/product/create',
         element: (
             <Main>
                 <CreateProduct />

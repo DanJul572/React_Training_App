@@ -11,9 +11,9 @@ const tree: MenuType[] = [
         label: 'Product',
         child: [
             {
-                id: '3',
+                id: '4',
                 label: 'Create Product',
-                url: '/create-product',
+                url: '/product/create',
             },
         ],
     },
