@@ -54,9 +54,7 @@ describe('Table Demo', () => {
         render(<ZTableDemo />);
 
         const filterButton = screen.getByTestId('FilterListIcon');
-
         expect(filterButton).toBeInTheDocument();
-
         await act(async () => {
             fireEvent.click(filterButton);
         });
@@ -64,11 +62,9 @@ describe('Table Demo', () => {
         const filterValue = screen.getByPlaceholderText(
             translator('filter_value')
         );
-
         await waitFor(() => {
             expect(filterValue).toBeInTheDocument();
         });
-
         await act(async () => {
             fireEvent.change(filterValue, {
                 target: { value: 'example value' },
@@ -76,9 +72,9 @@ describe('Table Demo', () => {
         });
 
         const loadIcon = screen.getByTestId('LoadIcon');
-
-        expect(loadIcon).toBeInTheDocument();
-
+        await waitFor(() => {
+            expect(loadIcon).toBeInTheDocument();
+        });
         await waitFor(() => {
             expect(loadIcon).not.toBeInTheDocument();
         });
