@@ -9,6 +9,9 @@ import { PropsType } from './types';
 const ActionButton = (props: PropsType) => {
     return (
         <Box sx={containerButtonStyle}>
+            <Button type="button" color="secondary" onClick={props.onBack}>
+                {translator('back')}
+            </Button>
             <Button
                 type="button"
                 color="secondary"

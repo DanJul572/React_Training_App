@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { AxiosError } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
@@ -10,6 +11,8 @@ import { ProductFormType, ShowAlertType } from './types';
 
 const useCreateProduct = () => {
     const { setOpenLoader } = useContext(ZLoaderContext);
+
+    const navigate = useNavigate();
 
     const { control, handleSubmit, resetField, reset } =
         useForm<ProductFormType>({
@@ -93,8 +96,13 @@ const useCreateProduct = () => {
         reset();
     };
 
+    const onBack = () => {
+        navigate('/product');
+    };
+
     return {
         control,
+        onBack,
         onClear,
         handleSubmit,
         onSubmit,

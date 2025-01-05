@@ -4,6 +4,7 @@ import Main from './layouts/Main';
 
 import App from './App';
 import Dashboard from './pages/Dashboard';
+import ProductList from './pages/Product/ProductList';
 import CreateProduct from './pages/Product/CreateProduct';
 
 const router = createBrowserRouter([
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
         element: (
             <Main>
                 <Dashboard />
+            </Main>
+        ),
+    },
+    {
+        path: '/product',
+        element: (
+            <Main>
+                <ProductList />
             </Main>
         ),
     },
