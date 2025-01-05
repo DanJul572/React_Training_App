@@ -83,8 +83,8 @@ describe('CreateProduct Page', () => {
                     message: [
                         'label should not be empty',
                         'image must be base64 encoded',
-                        'price must be a number conforming to the specified constraints',
-                        'price should not be empty',
+                        'stock must be a number conforming to the specified constraints',
+                        'stock should not be empty',
                         'type must be a string',
                         'type should not be empty',
                     ],
@@ -114,7 +114,7 @@ describe('CreateProduct Page', () => {
                 data: {
                     label: 'Soap',
                     type: 'Tool',
-                    price: 3000,
+                    stock: 3000,
                 },
             },
         });

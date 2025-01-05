@@ -3,9 +3,12 @@ import Typography from '@mui/material/Typography';
 
 import ActionButton from './components/ActionButton';
 import AlertMessage from './components/AlertMessage';
+import ColorCodeField from './components/ColorCodeField';
 import ImageField from './components/ImageField';
-import LabelField from './components/LabelField';
-import PriceField from './components/PriceField';
+import NameField from './components/NameField';
+import SizeField from './components/SizeField';
+import StockField from './components/StockField';
+import SurfaceField from './components/Surface';
 import TypeField from './components/TypeField';
 
 import { formStyle } from './styles';
@@ -33,9 +36,12 @@ const CreateProduct = () => {
             <AlertMessage {...showAlert} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={formStyle}>
-                    <LabelField {...labelProps} />
-                    <PriceField {...labelProps} />
+                    <NameField {...labelProps} />
                     <TypeField {...labelProps} />
+                    <SizeField {...labelProps} />
+                    <ColorCodeField {...labelProps} />
+                    <SurfaceField {...labelProps} />
+                    <StockField {...labelProps} />
                     <ImageField {...labelProps} />
                 </Box>
                 <ActionButton onBack={onBack} onClear={onClear} />

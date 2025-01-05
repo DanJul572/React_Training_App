@@ -1,18 +1,18 @@
+import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 
 import { RenderFieldType } from '../../types';
-import { Controller } from 'react-hook-form';
 
-const PriceField = (props: RenderFieldType) => {
+const SizeField = (props: RenderFieldType) => {
     return (
         <Controller
-            name="price"
+            name="size"
             control={props.control}
             render={({ field }) => (
-                <TextField {...field} label="Price" type="number" />
+                <TextField {...field} label="Size" type="number" />
             )}
         />
     );
 };
 
-export default PriceField;
+export default SizeField;
