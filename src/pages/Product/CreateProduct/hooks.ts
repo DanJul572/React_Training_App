@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
-import { ErrorResponse } from '@/types/errorResponse';
+import { ErrorResponseType } from '@/types/errorResponse';
 
 import { ProductFormType, ShowAlertType } from './types';
 
@@ -28,7 +28,6 @@ const useCreateProduct = () => {
         });
 
     const [showAlert, setShowAlert] = useState<ShowAlertType>({
-        data: null,
         isShow: false,
         message: null,
         type: 'success',
@@ -43,7 +42,6 @@ const useCreateProduct = () => {
 
     const clearAlert = () => {
         setShowAlert({
-            data: null,
             isShow: false,
             message: null,
             type: 'success',
@@ -52,9 +50,8 @@ const useCreateProduct = () => {
 
     const showErrorAlert = (error: AxiosError): void => {
         if (error.response) {
-            const errorResponse = error.response.data as ErrorResponse;
+            const errorResponse = error.response.data as ErrorResponseType;
             setShowAlert({
-                data: errorResponse.message,
                 isShow: true,
                 message: errorResponse.error,
                 type: 'error',
@@ -64,7 +61,6 @@ const useCreateProduct = () => {
 
     const showSuccessAlert = (message: string): void => {
         setShowAlert({
-            data: null,
             isShow: true,
             message: message,
             type: 'success',

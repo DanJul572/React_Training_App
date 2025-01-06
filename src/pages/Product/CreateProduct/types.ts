@@ -17,7 +17,6 @@ export type RenderFieldType = {
 };
 
 export type ShowAlertType = {
-    data: string[] | null;
     isShow: boolean;
     message: string | null;
     type: 'error' | 'success';
