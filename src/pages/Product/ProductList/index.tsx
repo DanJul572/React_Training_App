@@ -1,7 +1,6 @@
 import ZTable from '@/components/ZTable';
 
 import columns from './dummies/columns';
-import rows from './dummies/rows';
 import useProductList from './hooks';
 
 const ProductList = () => {
@@ -18,7 +17,7 @@ const ProductList = () => {
     return (
         <ZTable
             columns={columns}
-            rows={rows}
+            rows={[]}
             id="id"
             onAdd={onAdd}
             onChangePage={onChangePage}

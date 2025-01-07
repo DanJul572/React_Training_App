@@ -37,6 +37,9 @@ const useCreateProduct = () => {
         if (data.stock || data.stock === 0) {
             data.stock = Number(data.stock);
         }
+        if (data.size || data.size === 0) {
+            data.size = Number(data.size);
+        }
         return data;
     };
 
