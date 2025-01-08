@@ -1,22 +1,28 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { GridPaginationModel } from '@mui/x-data-grid';
 
 import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
 import { PaginatedResponseType } from '@/types/paginationReponse';
 
-import { ProductType } from './types';
+import { onLoadType, ProductType } from './types';
 
 const ProductList = () => {
     const navigate = useNavigate();
     const { setOpenLoader } = useContext(ZLoaderContext);
 
+    const [rows, setRows] = useState<ProductType[]>([]);
+    const [count, setCount] = useState<number>(0);
+
     const onAdd = (): void => {
         navigate('/product/create');
     };
 
-    const onChangePage = (): void => {};
+    const onChangePage = (model: GridPaginationModel): void => {
+        onLoad(model.page + 1);
+    };
 
     const onDelete = (): void => {};
 
@@ -28,12 +34,14 @@ const ProductList = () => {
 
     const onSort = (): void => {};
 
-    const onLoad = () => {
+    const onLoad: onLoadType = (page) => {
         setOpenLoader(true);
+        const url = `/products?page=${page}`;
         request
-            .get<PaginatedResponseType<ProductType>>('/products')
+            .get<PaginatedResponseType<ProductType>>(url)
             .then((response) => {
-                console.log(response);
+                setRows(response.data);
+                setCount(response.total);
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
@@ -46,7 +54,7 @@ const ProductList = () => {
     };
 
     useEffect(() => {
-        onLoad();
+        onLoad(1);
     }, []);
 
     return {
@@ -57,6 +65,8 @@ const ProductList = () => {
         onFilter,
         onSelect,
         onSort,
+        count,
+        rows,
     };
 };
 

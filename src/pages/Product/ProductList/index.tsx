@@ -12,13 +12,16 @@ const ProductList = () => {
         onFilter,
         onSelect,
         onSort,
+        count,
+        rows,
     } = useProductList();
 
     return (
         <ZTable
             columns={columns}
-            rows={[]}
+            rows={rows}
             id="id"
+            count={count}
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={onDelete}

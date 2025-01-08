@@ -46,7 +46,7 @@ const ZTable = (props: PropsType) => {
                 onSortModelChange={props.onSort}
                 pageSizeOptions={table.pageSizeOptions}
                 paginationMode={table.gridMode}
-                rowCount={props.rows.length}
+                rowCount={props.count}
                 rows={props.rows}
                 slots={slots}
                 slotProps={slotProps}

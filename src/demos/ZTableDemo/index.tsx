@@ -18,8 +18,9 @@ const ZTableDemo = () => {
     return (
         <ZTable
             columns={columns}
-            rows={rows}
+            count={rows.length}
             id="id"
+            rows={rows}
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={onDelete}

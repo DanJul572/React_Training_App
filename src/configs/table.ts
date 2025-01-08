@@ -6,9 +6,9 @@ import { GridDensity } from '@mui/x-data-grid/models/gridDensity';
 import { GridFeatureMode } from '@mui/x-data-grid/models/gridFeatureMode';
 import { GridInitialStateCommunity } from '@mui/x-data-grid/models/gridStateCommunity';
 
-const pageSize: number = 5;
+const pageSize: number = 10;
 const density: GridDensity = 'compact';
-const pageSizeOptions: number[] = [5];
+const pageSizeOptions: number[] = [10];
 const filterDebounceMs: number = 1000;
 const gridMode: GridFeatureMode = 'server';
 const initialState: GridInitialStateCommunity = {

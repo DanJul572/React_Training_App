@@ -10,3 +10,5 @@ export type ProductType = {
     created_at: string;
     updated_at: string;
 };
+
+export type onLoadType = (page: number) => void;

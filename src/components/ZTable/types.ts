@@ -8,6 +8,7 @@ export type PropsType = {
     columns: readonly GridColDef[];
     id: string;
     rows: any[];
+    count: number;
     onAdd: () => void;
     onChangePage: (data: GridPaginationModel) => void;
     onDelete: (data: any) => void;
