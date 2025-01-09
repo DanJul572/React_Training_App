@@ -1,47 +1,87 @@
 import { useContext, useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { GridPaginationModel } from '@mui/x-data-grid';
+import { GridFilterModel, GridPaginationModel } from '@mui/x-data-grid';
 
 import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
 import { PaginatedResponseType } from '@/types/paginationReponse';
 
-import { onLoadType, ProductType } from './types';
+import {
+    DisplayDataType,
+    GetUrlType,
+    OnLoadType,
+    ProductType,
+} from './types';
 
 const ProductList = () => {
     const navigate = useNavigate();
     const { setOpenLoader } = useContext(ZLoaderContext);
 
-    const [rows, setRows] = useState<ProductType[]>([]);
-    const [count, setCount] = useState<number>(0);
+    const [displayData, setDisplayData] = useState<DisplayDataType>({
+        rows: [],
+        count: 0,
+        page: 1,
+        quickFilter: null,
+    });
+
+    const getUrl: GetUrlType = (page, quickFilter) => {
+        let url = `/products?page=${page}`;
+        if (quickFilter) {
+            url += `&quickFilter=${quickFilter}`;
+        }
+        return url;
+    };
 
     const onAdd = (): void => {
         navigate('/product/create');
     };
 
     const onChangePage = (model: GridPaginationModel): void => {
-        onLoad(model.page + 1);
+        const pageRequest = model.page + 1;
+        onLoad(pageRequest, displayData.quickFilter);
+        setDisplayData((prevState) => ({
+            ...prevState,
+            page: pageRequest,
+        }));
     };
 
     const onDelete = (): void => {};
 
     const onEdit = (): void => {};
 
-    const onFilter = (): void => {};
+    const onFilter = (model: GridFilterModel): void => {
+        const quickFilterValue = model.quickFilterValues;
+        if (quickFilterValue && quickFilterValue.length) {
+            onLoad(displayData.page, quickFilterValue.join(' '));
+            setDisplayData((prevState) => ({
+                ...prevState,
+                quickFilter: quickFilterValue.join(' '),
+            }));
+        } else {
+            onLoad(displayData.page, null);
+            setDisplayData((prevState) => ({
+                ...prevState,
+                quickFilter: null,
+            }));
+        }
+    };
 
     const onSelect = (): void => {};
 
     const onSort = (): void => {};
 
-    const onLoad: onLoadType = (page) => {
+    const onLoad: OnLoadType = (page, quickFilter) => {
         setOpenLoader(true);
-        const url = `/products?page=${page}`;
+        const url = getUrl(page, quickFilter);
         request
             .get<PaginatedResponseType<ProductType>>(url)
             .then((response) => {
-                setRows(response.data);
-                setCount(response.total);
+                setDisplayData((prevState) => ({
+                    ...prevState,
+                    rows: response.data,
+                    count: response.total,
+                }));
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
@@ -58,6 +98,7 @@ const ProductList = () => {
     }, []);
 
     return {
+        displayData,
         onAdd,
         onChangePage,
         onDelete,
@@ -65,8 +106,6 @@ const ProductList = () => {
         onFilter,
         onSelect,
         onSort,
-        count,
-        rows,
     };
 };
 

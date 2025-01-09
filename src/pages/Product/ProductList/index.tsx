@@ -5,6 +5,7 @@ import useProductList from './hooks';
 
 const ProductList = () => {
     const {
+        displayData,
         onAdd,
         onChangePage,
         onDelete,
@@ -12,16 +13,14 @@ const ProductList = () => {
         onFilter,
         onSelect,
         onSort,
-        count,
-        rows,
     } = useProductList();
 
     return (
         <ZTable
             columns={columns}
-            rows={rows}
+            rows={displayData.rows}
             id="id"
-            count={count}
+            count={displayData.count}
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={onDelete}

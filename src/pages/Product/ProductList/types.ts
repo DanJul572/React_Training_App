@@ -11,4 +11,19 @@ export type ProductType = {
     updated_at: string;
 };
 
-export type onLoadType = (page: number) => void;
+export type OnLoadType = (
+    page: number,
+    quickFilter?: string | null
+) => void;
+
+export type GetUrlType = (
+    page: number,
+    quickFilter?: string | null
+) => string;
+
+export type DisplayDataType = {
+    rows: ProductType[];
+    count: number;
+    quickFilter?: string | null;
+    page: number;
+};
