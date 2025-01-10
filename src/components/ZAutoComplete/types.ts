@@ -1,5 +1,5 @@
 import { SyntheticEvent } from 'react';
-import { OptionType } from '@/types/option';
+import { OptionType } from '@/types';
 
 export type PropsType = {
     label: string;

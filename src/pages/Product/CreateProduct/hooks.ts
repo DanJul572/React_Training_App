@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
-import { ErrorResponseType } from '@/types/errorResponse';
+import { ErrorResponseType } from '@/types';
 
 import { ProductFormType, ShowAlertType } from './types';
 

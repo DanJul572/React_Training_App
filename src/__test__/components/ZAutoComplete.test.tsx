@@ -1,7 +1,7 @@
 import { describe, expect, it, vitest } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-import { OptionType } from '@/types/option';
+import { OptionType } from '@/types';
 import {
     handleChangeType,
     PropsType,

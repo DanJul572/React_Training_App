@@ -1,5 +1,5 @@
-import { OptionType } from '@/types/option';
 import { SelectChangeEvent } from '@mui/material/Select';
+import { OptionType } from '@/types';
 
 export type PropsType = {
     label: string;

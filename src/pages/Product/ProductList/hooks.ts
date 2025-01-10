@@ -1,18 +1,23 @@
 import { useContext, useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { GridFilterModel, GridPaginationModel } from '@mui/x-data-grid';
+import {
+    GridFilterModel,
+    GridPaginationModel,
+    GridSortModel,
+} from '@mui/x-data-grid';
 
 import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
-import { PaginatedResponseType } from '@/types/paginationReponse';
 
 import {
     DisplayDataType,
     GetUrlType,
     OnLoadType,
     ProductType,
+    TablePropertyType,
 } from './types';
+import { PaginatedResponseType, SortType } from '@/types';
 
 const ProductList = () => {
     const navigate = useNavigate();
@@ -21,14 +26,23 @@ const ProductList = () => {
     const [displayData, setDisplayData] = useState<DisplayDataType>({
         rows: [],
         count: 0,
+    });
+    const [tableProperty, setTableProperty] = useState<TablePropertyType>({
         page: 1,
         quickFilter: null,
+        sort: {
+            field: 'id',
+            sort: 'asc',
+        },
     });
 
-    const getUrl: GetUrlType = (page, quickFilter) => {
-        let url = `/products?page=${page}`;
-        if (quickFilter) {
-            url += `&quickFilter=${quickFilter}`;
+    const getUrl: GetUrlType = (prop) => {
+        let url = `/products?page=${prop.page}`;
+        if (prop.quickFilter) {
+            url += `&quickFilter=${prop.quickFilter}`;
+        }
+        if (prop.sort.field && prop.sort.sort) {
+            url += `&orderBy=${prop.sort.field}&order=${prop.sort.sort}`;
         }
         return url;
     };
@@ -39,8 +53,7 @@ const ProductList = () => {
 
     const onChangePage = (model: GridPaginationModel): void => {
         const pageRequest = model.page + 1;
-        onLoad(pageRequest, displayData.quickFilter);
-        setDisplayData((prevState) => ({
+        setTableProperty((prevState) => ({
             ...prevState,
             page: pageRequest,
         }));
@@ -52,28 +65,32 @@ const ProductList = () => {
 
     const onFilter = (model: GridFilterModel): void => {
         const quickFilterValue = model.quickFilterValues;
+        let finalValue = null;
         if (quickFilterValue && quickFilterValue.length) {
-            onLoad(displayData.page, quickFilterValue.join(' '));
-            setDisplayData((prevState) => ({
-                ...prevState,
-                quickFilter: quickFilterValue.join(' '),
-            }));
-        } else {
-            onLoad(displayData.page, null);
-            setDisplayData((prevState) => ({
-                ...prevState,
-                quickFilter: null,
-            }));
+            finalValue = quickFilterValue.join(' ');
         }
+        setTableProperty((prevState) => ({
+            ...prevState,
+            quickFilter: finalValue,
+        }));
     };
 
     const onSelect = (): void => {};
 
-    const onSort = (): void => {};
+    const onSort = (model: GridSortModel): void => {
+        if (model.length && model[0].sort && model[0].field) {
+            const field = model[0].field;
+            const sort: SortType = model[0].sort;
+            setTableProperty((prevState) => ({
+                ...prevState,
+                sort: { field: field, sort: sort },
+            }));
+        }
+    };
 
-    const onLoad: OnLoadType = (page, quickFilter) => {
+    const onLoad: OnLoadType = (prop) => {
         setOpenLoader(true);
-        const url = getUrl(page, quickFilter);
+        const url = getUrl(prop);
         request
             .get<PaginatedResponseType<ProductType>>(url)
             .then((response) => {
@@ -94,8 +111,8 @@ const ProductList = () => {
     };
 
     useEffect(() => {
-        onLoad(1);
-    }, []);
+        onLoad(tableProperty);
+    }, [tableProperty]);
 
     return {
         displayData,

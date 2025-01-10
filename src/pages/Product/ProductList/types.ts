@@ -1,3 +1,5 @@
+import { SortType } from '@/types';
+
 export type ProductType = {
     id: number;
     colorCode: string;
@@ -11,19 +13,20 @@ export type ProductType = {
     updated_at: string;
 };
 
-export type OnLoadType = (
-    page: number,
-    quickFilter?: string | null
-) => void;
+export type TablePropertyType = {
+    quickFilter: string | null;
+    page: number;
+    sort: {
+        field: string;
+        sort: SortType;
+    };
+};
 
-export type GetUrlType = (
-    page: number,
-    quickFilter?: string | null
-) => string;
+export type OnLoadType = (tableProperty: TablePropertyType) => void;
+
+export type GetUrlType = (tableProperty: TablePropertyType) => string;
 
 export type DisplayDataType = {
     rows: ProductType[];
     count: number;
-    quickFilter?: string | null;
-    page: number;
 };

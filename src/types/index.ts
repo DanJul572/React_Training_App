@@ -1,3 +1,22 @@
+export type ErrorResponseType = {
+    error: string | null;
+    statusCode: number | null;
+};
+
+export type SortType = 'asc' | 'desc';
+
+export type MenuType = {
+    id: string;
+    label: string;
+    child?: MenuType[];
+    url?: string;
+};
+
+export type OptionType = {
+    label: string;
+    value: string;
+};
+
 type PaginationLinkType = {
     url: string | null;
     label: string;
