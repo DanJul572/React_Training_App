@@ -8,26 +8,26 @@ const ProductList = () => {
         displayData,
         onAdd,
         onChangePage,
-        onDelete,
         onEdit,
         onFilter,
         onSelect,
         onSort,
+        openDialog,
     } = useProductList();
 
     return (
         <ZTable
             columns={columns}
-            rows={displayData.rows}
-            id="id"
             count={displayData.count}
+            id="id"
             onAdd={onAdd}
             onChangePage={onChangePage}
-            onDelete={onDelete}
+            onDelete={openDialog}
             onEdit={onEdit}
             onFilter={onFilter}
             onSelect={onSelect}
             onSort={onSort}
+            rows={displayData.rows}
         />
     );
 };

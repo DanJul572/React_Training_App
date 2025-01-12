@@ -1,14 +1,14 @@
 export type ErrorResponseType = {
-    error: string | null;
-    statusCode: number | null;
+    error: string;
+    statusCode: number;
 };
 
 export type SortType = 'asc' | 'desc';
 
 export type MenuType = {
+    child?: MenuType[];
     id: string;
     label: string;
-    child?: MenuType[];
     url?: string;
 };
 
@@ -18,9 +18,9 @@ export type OptionType = {
 };
 
 type PaginationLinkType = {
-    url: string | null;
-    label: string;
     active: boolean;
+    label: string;
+    url: string | null;
 };
 
 export type PaginatedResponseType<T> = {
@@ -28,8 +28,8 @@ export type PaginatedResponseType<T> = {
     data: T[];
     first_page_url: string;
     from: number | null;
-    last_page: number;
     last_page_url: string;
+    last_page: number;
     links: PaginationLinkType[];
     next_page_url: string | null;
     path: string;
@@ -37,4 +37,13 @@ export type PaginatedResponseType<T> = {
     prev_page_url: string | null;
     to: number | null;
     total: number;
+};
+
+export type ZConfirmationDialogPropsType = {
+    cancelButton: string;
+    confirmButton: string;
+    content: string;
+    onConfirm: () => void;
+    open: boolean;
+    title: string;
 };

@@ -1,5 +1,7 @@
 import Box from '@mui/material/Box';
 
+import { ZAlert } from '@/context/ZAlert';
+import { ZConfirmationDialog } from '@/context/ZConfirmationDialog';
 import { ZLoader } from '@/context/ZLoader';
 
 import Topbar from './components/Topbar';
@@ -17,11 +19,15 @@ const Main = (props: PropsType) => {
     return (
         <Box sx={containerStyle}>
             <ZLoader>
-                <Topbar />
-                <Box sx={sidebarAndContentStyle}>
-                    <Sidebar />
-                    <Box sx={contentStyle}>{props.children}</Box>
-                </Box>
+                <ZConfirmationDialog>
+                    <Topbar />
+                    <Box sx={sidebarAndContentStyle}>
+                        <Sidebar />
+                        <Box sx={contentStyle}>
+                            <ZAlert>{props.children}</ZAlert>
+                        </Box>
+                    </Box>
+                </ZConfirmationDialog>
             </ZLoader>
         </Box>
     );

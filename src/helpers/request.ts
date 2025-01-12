@@ -12,9 +12,15 @@ const post = async <T>(endpoint: string, body: T): Promise<T> => {
     return response.data;
 };
 
+const remove = async <T>(endpoint: string): Promise<T> => {
+    const response = await axios.delete<T>(url + endpoint);
+    return response.data;
+};
+
 const request = {
     get,
     post,
+    remove,
 };
 
 export default request;

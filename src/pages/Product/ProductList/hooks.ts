@@ -8,6 +8,14 @@ import {
 } from '@mui/x-data-grid';
 
 import request from '@/helpers/request';
+import { ZAlertContext } from '@/context/ZAlert';
+import { ZConfirmationDialogContext } from '@/context/ZConfirmationDialog';
+import {
+    ErrorResponseType,
+    PaginatedResponseType,
+    SortType,
+    ZConfirmationDialogPropsType,
+} from '@/types';
 import { ZLoaderContext } from '@/context/ZLoader';
 
 import {
@@ -17,10 +25,20 @@ import {
     ProductType,
     TablePropertyType,
 } from './types';
-import { PaginatedResponseType, SortType } from '@/types';
+
+const defaultDialogProps: ZConfirmationDialogPropsType = {
+    cancelButton: 'Cancel',
+    confirmButton: 'Delete',
+    content: 'This data will be permanently deleted',
+    onConfirm: () => {},
+    open: false,
+    title: 'Are you sure you want to delete this data?',
+};
 
 const ProductList = () => {
     const navigate = useNavigate();
+    const { setAlertProps } = useContext(ZAlertContext);
+    const { setDialogProps } = useContext(ZConfirmationDialogContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
     const [displayData, setDisplayData] = useState<DisplayDataType>({
@@ -47,6 +65,15 @@ const ProductList = () => {
         return url;
     };
 
+    const openDialog = (id: number): void => {
+        const newProps = { ...defaultDialogProps };
+        newProps.open = true;
+        newProps.onConfirm = () => {
+            onDelete(id);
+        };
+        setDialogProps(newProps);
+    };
+
     const onAdd = (): void => {
         navigate('/product/create');
     };
@@ -59,7 +86,33 @@ const ProductList = () => {
         }));
     };
 
-    const onDelete = (): void => {};
+    const onDelete = (id: number): void => {
+        setOpenLoader(true);
+        request
+            .remove<string>(`/products/${id}`)
+            .then((response) => {
+                onLoad(tableProperty);
+                setAlertProps({
+                    open: true,
+                    message: response,
+                    type: 'success',
+                });
+            })
+            .catch((error: ErrorResponseType) => {
+                setAlertProps({
+                    open: true,
+                    message: error.error,
+                    type: 'error',
+                });
+            })
+            .finally(() => {
+                setOpenLoader(false);
+                setDialogProps((prevState) => ({
+                    ...prevState,
+                    open: false,
+                }));
+            });
+    };
 
     const onEdit = (): void => {};
 
@@ -123,6 +176,7 @@ const ProductList = () => {
         onFilter,
         onSelect,
         onSort,
+        openDialog,
     };
 };
 
