@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import ActionButton from './components/ActionButton';
-import AlertMessage from './components/AlertMessage';
 import ColorCodeField from './components/ColorCodeField';
 import ImageField from './components/ImageField';
 import NameField from './components/NameField';
@@ -22,7 +21,6 @@ const CreateProduct = () => {
         handleSubmit,
         onSubmit,
         resetField,
-        showAlert,
     } = useCreateProduct();
 
     const labelProps = {
@@ -33,7 +31,6 @@ const CreateProduct = () => {
     return (
         <Box>
             <Typography variant="h6">Create Product</Typography>
-            <AlertMessage {...showAlert} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={formStyle}>
                     <NameField {...labelProps} />

@@ -39,6 +39,11 @@ const theme = createTheme({
                 shrink: true,
             },
         },
+        MuiAlert: {
+            defaultProps: {
+                variant: 'outlined',
+            },
+        },
     },
 });
 

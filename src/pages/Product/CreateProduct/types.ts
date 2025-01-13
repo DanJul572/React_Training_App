@@ -15,9 +15,3 @@ export type RenderFieldType = {
     control: Control<ProductFormType, any>;
     resetField: UseFormResetField<ProductFormType>;
 };
-
-export type ShowAlertType = {
-    isShow: boolean;
-    message: string | null;
-    type: 'error' | 'success';
-};

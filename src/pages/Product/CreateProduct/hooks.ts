@@ -1,15 +1,17 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AxiosError } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import request from '@/helpers/request';
 import { ZLoaderContext } from '@/context/ZLoader';
+import { ZAlertContext } from '@/context/ZAlert';
 import { ErrorResponseType } from '@/types';
 
-import { ProductFormType, ShowAlertType } from './types';
+import { ProductFormType } from './types';
 
 const useCreateProduct = () => {
+    const { setAlertProps } = useContext(ZAlertContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
     const navigate = useNavigate();
@@ -27,12 +29,6 @@ const useCreateProduct = () => {
             },
         });
 
-    const [showAlert, setShowAlert] = useState<ShowAlertType>({
-        isShow: false,
-        message: null,
-        type: 'success',
-    });
-
     const formatPayloads = (data: ProductFormType) => {
         if (data.stock || data.stock === 0) {
             data.stock = Number(data.stock);
@@ -44,8 +40,8 @@ const useCreateProduct = () => {
     };
 
     const clearAlert = () => {
-        setShowAlert({
-            isShow: false,
+        setAlertProps({
+            open: false,
             message: null,
             type: 'success',
         });
@@ -54,8 +50,8 @@ const useCreateProduct = () => {
     const showErrorAlert = (error: AxiosError): void => {
         if (error.response) {
             const errorResponse = error.response.data as ErrorResponseType;
-            setShowAlert({
-                isShow: true,
+            setAlertProps({
+                open: true,
                 message: errorResponse.error,
                 type: 'error',
             });
@@ -63,8 +59,8 @@ const useCreateProduct = () => {
     };
 
     const showSuccessAlert = (message: string): void => {
-        setShowAlert({
-            isShow: true,
+        setAlertProps({
+            open: true,
             message: message,
             type: 'success',
         });
@@ -109,7 +105,6 @@ const useCreateProduct = () => {
         handleSubmit,
         onSubmit,
         resetField,
-        showAlert,
     };
 };
 

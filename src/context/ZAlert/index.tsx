@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 
 import Alert from '@mui/material/Alert';
 
+import { containerStyle } from './styles';
 import { PropsType, ZAlertContextType, ZAlertPropsType } from './types';
 
 const defaultValue: ZAlertPropsType = {
@@ -29,7 +30,11 @@ const ZAlert = (props: PropsType) => {
     return (
         <ZAlertContext.Provider value={{ alertProps, setAlertProps }}>
             {alertProps.open && (
-                <Alert severity={alertProps.type} onClose={handleClose}>
+                <Alert
+                    severity={alertProps.type}
+                    onClose={handleClose}
+                    style={containerStyle}
+                >
                     {alertProps.message}
                 </Alert>
             )}

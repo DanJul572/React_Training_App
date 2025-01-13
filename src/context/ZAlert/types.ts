@@ -5,7 +5,7 @@ export type PropsType = {
 };
 
 export type ZAlertPropsType = {
-    message: string;
+    message: string | null;
     open: boolean;
     type: 'error' | 'success';
 };
