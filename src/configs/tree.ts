@@ -1,24 +1,26 @@
+import translator from '@/helpers/translator';
+
 import { MenuType } from '@/types';
 
 const tree: MenuType[] = [
     {
         id: '1',
-        label: 'Dashboard',
+        label: translator('dashboard'),
         url: '/dashboard',
     },
     {
         id: '2',
-        label: 'Transaksi',
+        label: translator('transaction'),
         url: '/transaction',
     },
     {
         id: '3',
-        label: 'Produk',
+        label: translator('product'),
         url: '/product',
     },
     {
         id: '4',
-        label: 'Pengguna',
+        label: translator('user'),
         url: '/users',
     },
 ];

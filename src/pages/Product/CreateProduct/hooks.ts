@@ -4,8 +4,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import request from '@/helpers/request';
+import translator from '@/helpers/translator';
+
 import { ZLoaderContext } from '@/context/ZLoader';
 import { ZAlertContext } from '@/context/ZAlert';
+
 import { ErrorResponseType } from '@/types';
 
 import { ProductFormType } from './types';
@@ -71,7 +74,7 @@ const useCreateProduct = () => {
         request
             .post<ProductFormType>('/products', formatedData)
             .then(() => {
-                showSuccessAlert('Product has been created.');
+                showSuccessAlert(translator('product_is_created'));
                 reset();
             })
             .catch((error: AxiosError) => {

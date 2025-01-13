@@ -8,15 +8,18 @@ import {
 } from '@mui/x-data-grid';
 
 import request from '@/helpers/request';
+import translator from '@/helpers/translator';
+
 import { ZAlertContext } from '@/context/ZAlert';
 import { ZConfirmationDialogContext } from '@/context/ZConfirmationDialog';
+import { ZLoaderContext } from '@/context/ZLoader';
+
 import {
     ErrorResponseType,
     PaginatedResponseType,
     SortType,
     ZConfirmationDialogPropsType,
 } from '@/types';
-import { ZLoaderContext } from '@/context/ZLoader';
 
 import {
     DisplayDataType,
@@ -27,12 +30,12 @@ import {
 } from './types';
 
 const defaultDialogProps: ZConfirmationDialogPropsType = {
-    cancelButton: 'Cancel',
-    confirmButton: 'Delete',
-    content: 'This data will be permanently deleted',
+    cancelButton: translator('cancel'),
+    confirmButton: translator('delete'),
+    content: translator('delete_dialog_content'),
     onConfirm: () => {},
     open: false,
-    title: 'Are you sure you want to delete this data?',
+    title: translator('delete_dialog_title'),
 };
 
 const ProductList = () => {
