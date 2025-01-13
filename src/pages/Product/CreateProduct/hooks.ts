@@ -1,7 +1,7 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AxiosError } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import request from '@/helpers/request';
 import translator from '@/helpers/translator';
@@ -11,13 +11,14 @@ import { ZAlertContext } from '@/context/ZAlert';
 
 import { ErrorResponseType } from '@/types';
 
-import { ProductFormType } from './types';
+import { ParamType, ProductFormType } from './types';
 
 const useCreateProduct = () => {
+    const params: ParamType = useParams();
+    const navigate = useNavigate();
+
     const { setAlertProps } = useContext(ZAlertContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
-
-    const navigate = useNavigate();
 
     const { control, handleSubmit, resetField, reset } =
         useForm<ProductFormType>({
@@ -87,10 +88,50 @@ const useCreateProduct = () => {
             });
     };
 
+    const updateProduct = (data: ProductFormType) => {
+        const formatedData = formatPayloads(data);
+        request
+            .put<ProductFormType>(`/products/${params.id}`, formatedData)
+            .then((response) => {
+                showSuccessAlert(translator('product_is_updated'));
+                reset(response);
+            })
+            .catch((error: AxiosError) => {
+                if (error.response) {
+                    showErrorAlert(error);
+                }
+            })
+            .finally(() => {
+                setOpenLoader(false);
+            });
+    };
+
+    const getProduct = () => {
+        setOpenLoader(true);
+        const productId = params.id;
+        request
+            .get<ProductFormType>(`/products/${productId}`)
+            .then((response) => {
+                reset(response);
+            })
+            .catch((error: AxiosError) => {
+                if (error.response) {
+                    showErrorAlert(error);
+                }
+            })
+            .finally(() => {
+                setOpenLoader(false);
+            });
+    };
+
     const onSubmit: SubmitHandler<ProductFormType> = (data) => {
         clearAlert();
         setOpenLoader(true);
-        insertProduct(data);
+        if (params.id) {
+            updateProduct(data);
+        } else {
+            insertProduct(data);
+        }
     };
 
     const onClear = () => {
@@ -100,6 +141,12 @@ const useCreateProduct = () => {
     const onBack = () => {
         navigate('/product');
     };
+
+    useEffect(() => {
+        if (params.id) {
+            getProduct();
+        }
+    }, [params]);
 
     return {
         control,

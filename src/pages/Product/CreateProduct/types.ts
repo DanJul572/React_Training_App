@@ -15,3 +15,7 @@ export type RenderFieldType = {
     control: Control<ProductFormType, any>;
     resetField: UseFormResetField<ProductFormType>;
 };
+
+export type ParamType = {
+    id?: number;
+};

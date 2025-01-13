@@ -40,6 +40,14 @@ const router = createBrowserRouter([
             </Main>
         ),
     },
+    {
+        path: '/product/create/:id',
+        element: (
+            <Main>
+                <CreateProduct />
+            </Main>
+        ),
+    },
 ]);
 
 export default router;

@@ -17,9 +17,15 @@ const remove = async <T>(endpoint: string): Promise<T> => {
     return response.data;
 };
 
+const put = async <T>(endpoint: string, body: T): Promise<T> => {
+    const response = await axios.put<T>(url + endpoint, body);
+    return response.data;
+};
+
 const request = {
     get,
     post,
+    put,
     remove,
 };
 

@@ -117,7 +117,9 @@ const ProductList = () => {
             });
     };
 
-    const onEdit = (): void => {};
+    const onEdit = (id: number): void => {
+        navigate(`/product/create/${id}`);
+    };
 
     const onFilter = (model: GridFilterModel): void => {
         const quickFilterValue = model.quickFilterValues;
