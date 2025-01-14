@@ -73,7 +73,10 @@ const useCreateProduct = () => {
     const insertProduct = (data: ProductFormType) => {
         const formatedData = formatPayloads(data);
         request
-            .post<ProductFormType>('/products', formatedData)
+            .post<ProductFormType, ProductFormType>(
+                '/products',
+                formatedData
+            )
             .then(() => {
                 showSuccessAlert(translator('product_is_created'));
                 reset();

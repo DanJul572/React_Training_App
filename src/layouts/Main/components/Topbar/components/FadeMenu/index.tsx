@@ -13,7 +13,8 @@ import translator from '@/helpers/translator';
 import { avatarStyle, containerStyle, dividerStyle } from './styles';
 
 const FadeMenu = () => {
-    const { anchorEl, handleClick, handleClose } = useFadeMenu();
+    const { anchorEl, handleClick, handleClose, handleLogout } =
+        useFadeMenu();
 
     const open = Boolean(anchorEl);
 
@@ -59,7 +60,7 @@ const FadeMenu = () => {
                 </MenuItem>
                 <MenuItem
                     data-testid="FadeItemLogout"
-                    onClick={handleClose}
+                    onClick={handleLogout}
                 >
                     {translator('logout')}
                 </MenuItem>

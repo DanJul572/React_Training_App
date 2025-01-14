@@ -160,7 +160,13 @@ const ProductList = () => {
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
-                    console.log(error.response);
+                    const errorResponse = error.response
+                        .data as ErrorResponseType;
+                    setAlertProps({
+                        open: true,
+                        message: errorResponse.error,
+                        type: 'error',
+                    });
                 }
             })
             .finally(() => {
