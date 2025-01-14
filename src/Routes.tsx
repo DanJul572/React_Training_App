@@ -3,49 +3,66 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from './layouts/Main';
 
 import App from './App';
-import Dashboard from './pages/Dashboard';
-import ProductList from './pages/Product/ProductList';
 import CreateProduct from './pages/Product/CreateProduct';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Auth/Login';
+import ProductList from './pages/Product/ProductList';
+
+import ProtectedRoute from './middleware/ProtectedRoute';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: (
-            <Main>
-                <App />
-            </Main>
+            <ProtectedRoute>
+                <Main>
+                    <App />
+                </Main>
+            </ProtectedRoute>
         ),
+    },
+    {
+        path: '/login',
+        element: <Login />,
     },
     {
         path: '/dashboard',
         element: (
-            <Main>
-                <Dashboard />
-            </Main>
+            <ProtectedRoute>
+                <Main>
+                    <Dashboard />
+                </Main>
+            </ProtectedRoute>
         ),
     },
     {
         path: '/product',
         element: (
-            <Main>
-                <ProductList />
-            </Main>
+            <ProtectedRoute>
+                <Main>
+                    <ProductList />
+                </Main>
+            </ProtectedRoute>
         ),
     },
     {
         path: '/product/create',
         element: (
-            <Main>
-                <CreateProduct />
-            </Main>
+            <ProtectedRoute>
+                <Main>
+                    <CreateProduct />
+                </Main>
+            </ProtectedRoute>
         ),
     },
     {
         path: '/product/create/:id',
         element: (
-            <Main>
-                <CreateProduct />
-            </Main>
+            <ProtectedRoute>
+                <Main>
+                    <CreateProduct />
+                </Main>
+            </ProtectedRoute>
         ),
     },
 ]);
