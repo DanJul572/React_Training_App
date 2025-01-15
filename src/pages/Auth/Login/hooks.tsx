@@ -4,8 +4,10 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import request from '@/helpers/request';
+import showErrorAlert from '@/helpers/showErrorAlert';
+
 import { ZLoaderContext } from '@/context/ZLoader';
-import { AlertPropsType, ErrorResponseType } from '@/types';
+import { AlertPropsType } from '@/types';
 
 import { LoginFormType, LoginResponseType } from './types';
 
@@ -35,15 +37,7 @@ const useLogin = () => {
                 navigate('/');
             })
             .catch((error: AxiosError) => {
-                if (error.response) {
-                    const errorResponse = error.response
-                        .data as ErrorResponseType;
-                    setAlert({
-                        open: true,
-                        type: 'error',
-                        message: errorResponse.error,
-                    });
-                }
+                showErrorAlert(error, setAlert);
             })
             .finally(() => {
                 setOpenLoader(false);

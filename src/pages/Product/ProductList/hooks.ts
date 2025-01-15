@@ -8,6 +8,7 @@ import {
 } from '@mui/x-data-grid';
 
 import request from '@/helpers/request';
+import showErrorAlert from '@/helpers/showErrorAlert';
 import translator from '@/helpers/translator';
 
 import { ZAlertContext } from '@/context/ZAlert';
@@ -159,15 +160,7 @@ const ProductList = () => {
                 }));
             })
             .catch((error: AxiosError) => {
-                if (error.response) {
-                    const errorResponse = error.response
-                        .data as ErrorResponseType;
-                    setAlertProps({
-                        open: true,
-                        message: errorResponse.error,
-                        type: 'error',
-                    });
-                }
+                showErrorAlert(error, setAlertProps);
             })
             .finally(() => {
                 setOpenLoader(false);

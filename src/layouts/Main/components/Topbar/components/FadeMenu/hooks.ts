@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 
 import request from '@/helpers/request';
+import showErrorAlert from '@/helpers/showErrorAlert';
 
 import { ZLoaderContext } from '@/context/ZLoader';
 import { ZAlertContext } from '@/context/ZAlert';
-
-import { ErrorResponseType } from '@/types';
 
 import { OnCloseType } from './types';
 
@@ -36,15 +35,7 @@ const useFadeMenu = () => {
                 navigate('/login');
             })
             .catch((error: AxiosError) => {
-                if (error.response) {
-                    const errorResponse = error.response
-                        .data as ErrorResponseType;
-                    setAlertProps({
-                        open: true,
-                        message: errorResponse.error,
-                        type: 'error',
-                    });
-                }
+                showErrorAlert(error, setAlertProps);
             })
             .catch(() => {
                 setOpenLoader(false);

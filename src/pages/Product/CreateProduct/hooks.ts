@@ -4,12 +4,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import request from '@/helpers/request';
+import showErrorAlert from '@/helpers/showErrorAlert';
 import translator from '@/helpers/translator';
 
 import { ZLoaderContext } from '@/context/ZLoader';
 import { ZAlertContext } from '@/context/ZAlert';
-
-import { ErrorResponseType } from '@/types';
 
 import { ParamType, ProductFormType } from './types';
 
@@ -51,17 +50,6 @@ const useCreateProduct = () => {
         });
     };
 
-    const showErrorAlert = (error: AxiosError): void => {
-        if (error.response) {
-            const errorResponse = error.response.data as ErrorResponseType;
-            setAlertProps({
-                open: true,
-                message: errorResponse.error,
-                type: 'error',
-            });
-        }
-    };
-
     const showSuccessAlert = (message: string): void => {
         setAlertProps({
             open: true,
@@ -83,7 +71,7 @@ const useCreateProduct = () => {
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
-                    showErrorAlert(error);
+                    showErrorAlert(error, setAlertProps);
                 }
             })
             .finally(() => {
@@ -101,7 +89,7 @@ const useCreateProduct = () => {
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
-                    showErrorAlert(error);
+                    showErrorAlert(error, setAlertProps);
                 }
             })
             .finally(() => {
@@ -119,7 +107,7 @@ const useCreateProduct = () => {
             })
             .catch((error: AxiosError) => {
                 if (error.response) {
-                    showErrorAlert(error);
+                    showErrorAlert(error, setAlertProps);
                 }
             })
             .finally(() => {
