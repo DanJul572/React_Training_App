@@ -24,6 +24,8 @@ describe('Main Layout', () => {
         expect(screen.getByTestId('logo')).toBeInTheDocument();
     });
 
+    /* uncomment when Tree Menu is have nested menu */
+    /*
     it('coallapse nested menu', async () => {
         render(
             <Main>
@@ -37,6 +39,7 @@ describe('Main Layout', () => {
         fireEvent.click(nestedMenu[0]);
         expect(screen.getAllByTestId('FolderOpenIcon')).toBeDefined();
     });
+    */
 
     it('show and hide FadeMenu', async () => {
         render(

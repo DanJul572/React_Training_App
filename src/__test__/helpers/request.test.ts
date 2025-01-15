@@ -6,7 +6,7 @@ vitest.mock('axios');
 
 describe('request', () => {
     describe('post', () => {
-        it('should call axios.post with the correct URL and body', async () => {
+        it('should call axios.post with the correct URL, body, and config', async () => {
             const mockData = { success: true };
             const endpoint = '/test-endpoint';
             const body = { key: 'value' };
@@ -19,7 +19,8 @@ describe('request', () => {
 
             expect(axios.post).toHaveBeenCalledWith(
                 `${import.meta.env.VITE_API_URL}${endpoint}`,
-                body
+                body,
+                {}
             );
             expect(result).toEqual(mockData);
         });
