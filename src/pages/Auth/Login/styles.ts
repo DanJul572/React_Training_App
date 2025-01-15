@@ -11,12 +11,16 @@ export const containerStyle: CSSProperties = {
 };
 
 export const cardStyle: CSSProperties = {
+    padding: '20px',
+    width: '450px',
+};
+
+export const fieldContainerStyle: CSSProperties = {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
     gap: '20px',
-    padding: '20px',
-    width: '450px',
+    marginBlock: '20px',
 };
 
 export const headStyle: CSSProperties = {

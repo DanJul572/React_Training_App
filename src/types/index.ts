@@ -47,3 +47,9 @@ export type ZConfirmationDialogPropsType = {
     open: boolean;
     title: string;
 };
+
+export type AlertPropsType = {
+    message: string | null;
+    open: boolean;
+    type: 'error' | 'success';
+};

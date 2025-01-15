@@ -2,10 +2,12 @@ import { createContext, useState } from 'react';
 
 import Alert from '@mui/material/Alert';
 
-import { containerStyle } from './styles';
-import { PropsType, ZAlertContextType, ZAlertPropsType } from './types';
+import { AlertPropsType } from '@/types';
 
-const defaultValue: ZAlertPropsType = {
+import { containerStyle } from './styles';
+import { PropsType, ZAlertContextType } from './types';
+
+const defaultValue: AlertPropsType = {
     open: false,
     message: '',
     type: 'error',
@@ -18,7 +20,7 @@ const ZAlertContext = createContext<ZAlertContextType>({
 
 const ZAlert = (props: PropsType) => {
     const [alertProps, setAlertProps] =
-        useState<ZAlertPropsType>(defaultValue);
+        useState<AlertPropsType>(defaultValue);
 
     const handleClose = () => {
         setAlertProps((prevState) => ({
