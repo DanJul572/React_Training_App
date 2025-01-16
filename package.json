@@ -19,9 +19,7 @@
         "test:ui": "vitest --ui --mode development",
         "lint": "eslint . --max-warnings 0",
         "lint:fix": "eslint . --max-warnings 0 --fix",
-        "prepare": "husky",
-        "storybook": "storybook dev -p 6006",
-        "storybook:build": "storybook build"
+        "prepare": "husky"
     },
     "dependencies": {
         "@emotion/react": "^11.14.0",
@@ -39,18 +37,9 @@
         "react-router-dom": "^7.1.1"
     },
     "devDependencies": {
-        "@chromatic-com/storybook": "3.2.3",
         "@eslint/compat": "^1.2.5",
         "@eslint/eslintrc": "^3.2.0",
         "@eslint/js": "^9.18.0",
-        "@storybook/addon-essentials": "^8.5.0",
-        "@storybook/addon-interactions": "^8.5.0",
-        "@storybook/addon-links": "^8.5.0",
-        "@storybook/addon-onboarding": "^8.5.0",
-        "@storybook/blocks": "^8.5.0",
-        "@storybook/react": "^8.5.0",
-        "@storybook/react-vite": "^8.5.0",
-        "@storybook/test": "^8.5.0",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.2.0",
@@ -68,12 +57,10 @@
         "eslint-plugin-prettier": "^5.2.2",
         "eslint-plugin-react-hooks": "^5.1.0",
         "eslint-plugin-react-refresh": "^0.4.18",
-        "eslint-plugin-storybook": "^0.11.2",
         "globals": "^15.14.0",
         "husky": "^9.1.7",
         "jsdom": "^26.0.0",
         "prettier": "^3.4.2",
-        "storybook": "^8.5.0",
         "typescript": "^5.7.3",
         "vitest": "^2.1.8"
     },

@@ -41,7 +41,6 @@ export default defineConfig({
                 'src/stories/**',
                 'src/**/**.stories.ts',
                 'src/**/**.stories.tsx',
-                'storybook-static/**',
             ],
         },
     },

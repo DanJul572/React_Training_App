@@ -20,11 +20,9 @@ export default [
     {
         ignores: [
             '**/dist',
-            '**/storybook-static',
             '**/node_modules',
             '**/coverage',
             '**/.husky',
-            '**/.storybook',
             '**/.eslintrc.cjs',
             '**/vite.config.ts',
             '**/vitest.setup.ts',
@@ -35,8 +33,7 @@ export default [
             'eslint:recommended',
             'plugin:@typescript-eslint/recommended',
             'plugin:react-hooks/recommended',
-            'plugin:prettier/recommended',
-            'plugin:storybook/recommended'
+            'plugin:prettier/recommended'
         )
     ),
     {
