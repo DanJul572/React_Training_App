@@ -4,9 +4,11 @@ import Empty from './layouts/Empty';
 import Main from './layouts/Main';
 
 import App from './App';
-import CreateProduct from './pages/Product/CreateProduct';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Auth/Login';
+
+import CreateProduct from './pages/Product/CreateProduct';
+import ProductDetail from './pages/Product/ProductDetail';
 import ProductList from './pages/Product/ProductList';
 
 import ProtectedRoute from './middleware/ProtectedRoute';
@@ -66,6 +68,16 @@ const router = createBrowserRouter([
             <ProtectedRoute>
                 <Main>
                     <CreateProduct />
+                </Main>
+            </ProtectedRoute>
+        ),
+    },
+    {
+        path: '/product/detail/:id',
+        element: (
+            <ProtectedRoute>
+                <Main>
+                    <ProductDetail />
                 </Main>
             </ProtectedRoute>
         ),

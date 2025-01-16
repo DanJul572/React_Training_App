@@ -122,6 +122,10 @@ const ProductList = () => {
         navigate(`/product/create/${id}`);
     };
 
+    const onDetail = (id: number): void => {
+        navigate(`/product/detail/${id}`);
+    };
+
     const onFilter = (model: GridFilterModel): void => {
         const quickFilterValue = model.quickFilterValues;
         let finalValue = null;
@@ -176,6 +180,7 @@ const ProductList = () => {
         onAdd,
         onChangePage,
         onDelete,
+        onDetail,
         onEdit,
         onFilter,
         onSelect,

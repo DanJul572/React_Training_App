@@ -16,7 +16,12 @@ import Columns from './components/Columns';
 import ToolBar from './components/Toolbar';
 
 const ZTable = (props: PropsType) => {
-    const columns = Columns(props.columns, props.onEdit, props.onDelete);
+    const columns = Columns(
+        props.columns,
+        props.onEdit,
+        props.onDelete,
+        props.onDetail
+    );
 
     const slots: Partial<GridSlotsComponent> = {
         toolbar: () => <ToolBar onAdd={props.onAdd} />,

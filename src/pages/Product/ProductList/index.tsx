@@ -8,6 +8,7 @@ const ProductList = () => {
         displayData,
         onAdd,
         onChangePage,
+        onDetail,
         onEdit,
         onFilter,
         onSelect,
@@ -23,6 +24,7 @@ const ProductList = () => {
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={openDialog}
+            onDetail={onDetail}
             onEdit={onEdit}
             onFilter={onFilter}
             onSelect={onSelect}

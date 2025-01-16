@@ -2,6 +2,7 @@ const useZTableDemo = () => {
     const onAdd = (): void => {};
     const onChangePage = (): void => {};
     const onDelete = (): void => {};
+    const onDetail = (): void => {};
     const onEdit = (): void => {};
     const onFilter = (): void => {};
     const onSelect = (): void => {};
@@ -11,6 +12,7 @@ const useZTableDemo = () => {
         onAdd,
         onChangePage,
         onDelete,
+        onDetail,
         onEdit,
         onFilter,
         onSelect,

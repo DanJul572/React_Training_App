@@ -9,6 +9,7 @@ const ZTableDemo = () => {
         onAdd,
         onChangePage,
         onDelete,
+        onDetail,
         onEdit,
         onFilter,
         onSelect,
@@ -24,6 +25,7 @@ const ZTableDemo = () => {
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={onDelete}
+            onDetail={onDetail}
             onEdit={onEdit}
             onFilter={onFilter}
             onSelect={onSelect}
