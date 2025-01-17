@@ -22,11 +22,11 @@ import {
     ZConfirmationDialogPropsType,
 } from '@/types';
 
+import { ProductType } from '../types';
 import {
     DisplayDataType,
     GetUrlType,
     OnLoadType,
-    ProductType,
     TablePropertyType,
 } from './types';
 
