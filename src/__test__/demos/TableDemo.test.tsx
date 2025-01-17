@@ -1,12 +1,5 @@
 import { expect, it, describe } from 'vitest';
-import {
-    render,
-    screen,
-    fireEvent,
-    act,
-    waitFor,
-} from '@testing-library/react';
-import translator from '@/helpers/translator';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import ZTableDemo from '@/demos/ZTableDemo';
 
@@ -50,6 +43,8 @@ describe('Table Demo', () => {
         expect(pageButton.parentElement).toBeDisabled();
     });
 
+    /* uncomment when filter in enabledq */
+    /*
     it('filter action', async () => {
         render(<ZTableDemo />);
 
@@ -79,6 +74,7 @@ describe('Table Demo', () => {
             expect(loadIcon).not.toBeInTheDocument();
         });
     });
+    */
 
     it('selection row', async () => {
         render(<ZTableDemo />);
