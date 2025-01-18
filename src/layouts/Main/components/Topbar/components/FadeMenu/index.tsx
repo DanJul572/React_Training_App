@@ -22,10 +22,6 @@ const FadeMenu = () => {
         <Box>
             <Box
                 data-testid="FadeMenuButton"
-                id="fade-button"
-                aria-controls={open ? 'fade-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
                 sx={containerStyle}
             >
@@ -35,10 +31,6 @@ const FadeMenu = () => {
             </Box>
             <Menu
                 data-testid="FadeMenu"
-                id="fade-menu"
-                MenuListProps={{
-                    'aria-labelledby': 'fade-button',
-                }}
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}

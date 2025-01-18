@@ -8,21 +8,21 @@ const tree: MenuType[] = [
         label: translator('dashboard'),
         url: '/dashboard',
     },
-    {
-        id: '2',
-        label: translator('transaction'),
-        url: '/transaction',
-    },
+    // {
+    //     id: '2',
+    //     label: translator('transaction'),
+    //     url: '/transaction',
+    // },
     {
         id: '3',
         label: translator('product'),
         url: '/product',
     },
-    {
-        id: '4',
-        label: translator('user'),
-        url: '/users',
-    },
+    // {
+    //     id: '4',
+    //     label: translator('user'),
+    //     url: '/users',
+    // },
 ];
 
 export default tree;
