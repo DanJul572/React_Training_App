@@ -1,9 +1,10 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+import translator from '@/helpers/translator';
+
 import ActionButton from './components/ActionButton';
 import ColorCodeField from './components/ColorCodeField';
-import ImageField from './components/ImageField';
 import NameField from './components/NameField';
 import SizeField from './components/SizeField';
 import StockField from './components/StockField';
@@ -30,7 +31,9 @@ const CreateProduct = () => {
 
     return (
         <Box>
-            <Typography variant="h6">Create Product</Typography>
+            <Typography variant="h6">
+                {translator('create_product')}
+            </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={formStyle}>
                     <NameField {...labelProps} />
@@ -39,7 +42,6 @@ const CreateProduct = () => {
                     <ColorCodeField {...labelProps} />
                     <SurfaceField {...labelProps} />
                     <StockField {...labelProps} />
-                    <ImageField {...labelProps} />
                 </Box>
                 <ActionButton onBack={onBack} onClear={onClear} />
             </form>

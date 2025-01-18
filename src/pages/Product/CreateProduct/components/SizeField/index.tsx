@@ -1,6 +1,8 @@
 import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 
+import translator from '@/helpers/translator';
+
 import { RenderFieldType } from '../../types';
 
 const SizeField = (props: RenderFieldType) => {
@@ -9,7 +11,11 @@ const SizeField = (props: RenderFieldType) => {
             name="size"
             control={props.control}
             render={({ field }) => (
-                <TextField {...field} label="Size" type="number" />
+                <TextField
+                    {...field}
+                    type="number"
+                    label={translator('size')}
+                />
             )}
         />
     );
