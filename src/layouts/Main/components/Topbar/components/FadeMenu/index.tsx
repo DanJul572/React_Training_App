@@ -29,7 +29,7 @@ const FadeMenu = () => {
                 onClick={handleClick}
                 sx={containerStyle}
             >
-                <Typography>Dandi Juliandi</Typography>
+                <Typography>Admin</Typography>
                 <Divider orientation="vertical" sx={dividerStyle} />
                 <Avatar sx={avatarStyle}>D</Avatar>
             </Box>
