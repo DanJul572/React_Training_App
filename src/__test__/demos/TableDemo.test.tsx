@@ -43,7 +43,7 @@ describe('Table Demo', () => {
         expect(pageButton.parentElement).toBeDisabled();
     });
 
-    /* uncomment when filter in enabledq */
+    /* uncomment when filter is enabled */
     /*
     it('filter action', async () => {
         render(<ZTableDemo />);
@@ -76,6 +76,8 @@ describe('Table Demo', () => {
     });
     */
 
+    /* uncomment when selected row is enabled */
+    /*
     it('selection row', async () => {
         render(<ZTableDemo />);
 
@@ -110,6 +112,7 @@ describe('Table Demo', () => {
             );
         }
     });
+    */
 
     it('soting action', async () => {
         render(<ZTableDemo />);

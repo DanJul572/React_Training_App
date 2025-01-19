@@ -6,7 +6,7 @@ const tree: MenuType[] = [
     {
         id: '1',
         label: translator('dashboard'),
-        url: '/dashboard',
+        url: '/',
     },
     // {
     //     id: '2',

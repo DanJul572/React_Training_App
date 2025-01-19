@@ -38,7 +38,7 @@ const ZTable = (props: PropsType) => {
             <DataGrid
                 localeText={table.localeText}
                 autosizeOptions={table.autoSizeOption}
-                checkboxSelection={true}
+                // checkboxSelection={true}
                 columns={columns}
                 density={table.density}
                 filterDebounceMs={table.filterDebounceMs}
@@ -47,7 +47,7 @@ const ZTable = (props: PropsType) => {
                 initialState={table.initialState}
                 onFilterModelChange={props.onFilter}
                 onPaginationModelChange={props.onChangePage}
-                onRowSelectionModelChange={props.onSelect}
+                // onRowSelectionModelChange={props.onSelect}
                 onSortModelChange={props.onSort}
                 pageSizeOptions={table.pageSizeOptions}
                 paginationMode={table.gridMode}

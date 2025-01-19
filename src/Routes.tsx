@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import Empty from './layouts/Empty';
 import Main from './layouts/Main';
 
-import App from './App';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Auth/Login';
 
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
         element: (
             <ProtectedRoute>
                 <Main>
-                    <App />
+                    <Dashboard />
                 </Main>
             </ProtectedRoute>
         ),
@@ -30,16 +29,6 @@ const router = createBrowserRouter([
             <Empty>
                 <Login />
             </Empty>
-        ),
-    },
-    {
-        path: '/dashboard',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <Dashboard />
-                </Main>
-            </ProtectedRoute>
         ),
     },
     {
