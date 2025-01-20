@@ -7,6 +7,7 @@ import { GridSortModel } from '@mui/x-data-grid/models/gridSortModel';
 export type PropsType = {
     columns: readonly GridColDef[];
     count: number;
+    enableAddButton?: boolean;
     enableCheckboxSelection?: boolean;
     enableFilterButton?: boolean;
     id: string;

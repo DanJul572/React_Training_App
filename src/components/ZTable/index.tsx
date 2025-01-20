@@ -26,6 +26,7 @@ const ZTable = (props: PropsType) => {
     const slots: Partial<GridSlotsComponent> = {
         toolbar: () => (
             <ToolBar
+                enableAddButton={props.enableAddButton}
                 enableFilterButton={props.enableFilterButton}
                 onAdd={props.onAdd}
             />

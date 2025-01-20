@@ -10,8 +10,6 @@ const ProductList = () => {
         onChangePage,
         onDetail,
         onEdit,
-        onFilter,
-        onSelect,
         onSort,
         openDialog,
     } = useProductList();
@@ -20,14 +18,13 @@ const ProductList = () => {
         <ZTable
             columns={columns}
             count={displayData.count}
+            enableAddButton={true}
             id="id"
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={openDialog}
             onDetail={onDetail}
             onEdit={onEdit}
-            onFilter={onFilter}
-            onSelect={onSelect}
             onSort={onSort}
             rows={displayData.rows}
         />
