@@ -53,3 +53,11 @@ export type AlertPropsType = {
     open: boolean;
     type: 'error' | 'success';
 };
+
+export type User = {
+    email_verified_at: string;
+    email: string;
+    id: number;
+    name: string;
+    role_id: number;
+};

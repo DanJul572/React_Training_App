@@ -32,6 +32,7 @@ const useFadeMenu = () => {
             .get('/logout')
             .then(() => {
                 localStorage.removeItem('token');
+                localStorage.removeItem('role_id');
                 navigate('/login');
             })
             .catch((error: AxiosError) => {

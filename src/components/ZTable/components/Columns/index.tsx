@@ -60,20 +60,25 @@ const Columns: PropsType = (params) => {
                 }
 
                 if (params.enableDeleteButton) {
-                    <GridActionsCellItem
-                        color="inherit"
-                        icon={
-                            <Tooltip title={translator('delete')} arrow>
-                                <Delete />
-                            </Tooltip>
-                        }
-                        label="Delete"
-                        onClick={() =>
-                            params.onDelete
-                                ? params.onDelete(data.id)
-                                : false
-                        }
-                    />;
+                    actionButtons.push(
+                        <GridActionsCellItem
+                            color="inherit"
+                            icon={
+                                <Tooltip
+                                    title={translator('delete')}
+                                    arrow
+                                >
+                                    <Delete />
+                                </Tooltip>
+                            }
+                            label="Delete"
+                            onClick={() =>
+                                params.onDelete
+                                    ? params.onDelete(data.id)
+                                    : false
+                            }
+                        />
+                    );
                 }
 
                 return actionButtons;

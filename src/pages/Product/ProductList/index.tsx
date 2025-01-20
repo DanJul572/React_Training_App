@@ -6,6 +6,7 @@ import useProductList from './hooks';
 const ProductList = () => {
     const {
         displayData,
+        isAdmin,
         onAdd,
         onChangePage,
         onDetail,
@@ -18,7 +19,9 @@ const ProductList = () => {
         <ZTable
             columns={columns}
             count={displayData.count}
-            enableAddButton={true}
+            enableAddButton={isAdmin}
+            enableDeleteButton={isAdmin}
+            enableEditButton={isAdmin}
             id="id"
             onAdd={onAdd}
             onChangePage={onChangePage}

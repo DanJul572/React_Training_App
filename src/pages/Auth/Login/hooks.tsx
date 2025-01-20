@@ -34,6 +34,10 @@ const useLogin = () => {
             .post<LoginResponseType, LoginFormType>('/login', data)
             .then((response) => {
                 localStorage.setItem('token', response.token);
+                localStorage.setItem(
+                    'role_id',
+                    response.user.role_id.toString()
+                );
                 navigate('/');
             })
             .catch((error: AxiosError) => {

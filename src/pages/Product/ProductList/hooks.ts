@@ -40,6 +40,8 @@ const defaultDialogProps: ZConfirmationDialogPropsType = {
 };
 
 const ProductList = () => {
+    const isAdmin = localStorage.getItem('role_id') === '1';
+
     const navigate = useNavigate();
     const { setAlertProps } = useContext(ZAlertContext);
     const { setDialogProps } = useContext(ZConfirmationDialogContext);
@@ -177,6 +179,7 @@ const ProductList = () => {
 
     return {
         displayData,
+        isAdmin,
         onAdd,
         onChangePage,
         onDelete,
