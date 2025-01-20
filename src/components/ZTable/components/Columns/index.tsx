@@ -11,8 +11,8 @@ import translator from '@/helpers/translator';
 
 import { PropsType } from './types';
 
-const Columns: PropsType = (columns, onEdit, onDelete, onDetail) => {
-    const mappingColumns: GridColDef[] = columns.map((column) => {
+const Columns: PropsType = (params) => {
+    const mappingColumns: GridColDef[] = params.columns.map((column) => {
         column.flex = 1;
         column.disableColumnMenu = true;
         return column;
@@ -27,27 +27,7 @@ const Columns: PropsType = (columns, onEdit, onDelete, onDetail) => {
             headerName: translator('action'),
             cellClassName: 'actions',
             getActions: (data) => {
-                return [
-                    <GridActionsCellItem
-                        color="inherit"
-                        icon={
-                            <Tooltip title={translator('edit')} arrow>
-                                <Edit />
-                            </Tooltip>
-                        }
-                        label="Edit"
-                        onClick={() => onEdit(data.id)}
-                    />,
-                    <GridActionsCellItem
-                        color="inherit"
-                        icon={
-                            <Tooltip title={translator('delete')} arrow>
-                                <Delete />
-                            </Tooltip>
-                        }
-                        label="Delete"
-                        onClick={() => onDelete(data.id)}
-                    />,
+                const actionButtons = [
                     <GridActionsCellItem
                         color="inherit"
                         icon={
@@ -56,9 +36,47 @@ const Columns: PropsType = (columns, onEdit, onDelete, onDetail) => {
                             </Tooltip>
                         }
                         label="Detail"
-                        onClick={() => onDetail(data.id)}
+                        onClick={() => params.onDetail(data.id)}
                     />,
                 ];
+
+                if (params.enableEditButton) {
+                    actionButtons.push(
+                        <GridActionsCellItem
+                            color="inherit"
+                            icon={
+                                <Tooltip title={translator('edit')} arrow>
+                                    <Edit />
+                                </Tooltip>
+                            }
+                            label="Edit"
+                            onClick={() =>
+                                params.onEdit
+                                    ? params.onEdit(data.id)
+                                    : false
+                            }
+                        />
+                    );
+                }
+
+                if (params.enableDeleteButton) {
+                    <GridActionsCellItem
+                        color="inherit"
+                        icon={
+                            <Tooltip title={translator('delete')} arrow>
+                                <Delete />
+                            </Tooltip>
+                        }
+                        label="Delete"
+                        onClick={() =>
+                            params.onDelete
+                                ? params.onDelete(data.id)
+                                : false
+                        }
+                    />;
+                }
+
+                return actionButtons;
             },
         },
     ];
