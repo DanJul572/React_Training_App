@@ -24,7 +24,12 @@ const ZTable = (props: PropsType) => {
     );
 
     const slots: Partial<GridSlotsComponent> = {
-        toolbar: () => <ToolBar onAdd={props.onAdd} />,
+        toolbar: () => (
+            <ToolBar
+                enableFilterButton={props.enableFilterButton}
+                onAdd={props.onAdd}
+            />
+        ),
     };
 
     const slotProps: Partial<GridSlotsComponentsProps> = {
@@ -38,7 +43,7 @@ const ZTable = (props: PropsType) => {
             <DataGrid
                 localeText={table.localeText}
                 autosizeOptions={table.autoSizeOption}
-                // checkboxSelection={true}
+                checkboxSelection={props.enableCheckboxSelection}
                 columns={columns}
                 density={table.density}
                 filterDebounceMs={table.filterDebounceMs}
@@ -47,7 +52,7 @@ const ZTable = (props: PropsType) => {
                 initialState={table.initialState}
                 onFilterModelChange={props.onFilter}
                 onPaginationModelChange={props.onChangePage}
-                // onRowSelectionModelChange={props.onSelect}
+                onRowSelectionModelChange={props.onSelect}
                 onSortModelChange={props.onSort}
                 pageSizeOptions={table.pageSizeOptions}
                 paginationMode={table.gridMode}

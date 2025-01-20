@@ -6,7 +6,7 @@ import Add from '@mui/icons-material/Add';
 
 import {
     GridToolbarColumnsButton,
-    // GridToolbarFilterButton,
+    GridToolbarFilterButton,
     GridToolbarQuickFilter,
 } from '@mui/x-data-grid/components';
 
@@ -30,7 +30,7 @@ const ToolBar = (props: PropsType) => {
                     </Button>
                 </Tooltip>
                 <GridToolbarColumnsButton />
-                {/* <GridToolbarFilterButton /> */}
+                {props.enableFilterButton && <GridToolbarFilterButton />}
             </Box>
             <GridToolbarQuickFilter />
         </Box>

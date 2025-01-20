@@ -27,7 +27,7 @@ const FadeMenu = () => {
             >
                 <Typography>Admin</Typography>
                 <Divider orientation="vertical" sx={dividerStyle} />
-                <Avatar sx={avatarStyle}>D</Avatar>
+                <Avatar sx={avatarStyle}>A</Avatar>
             </Box>
             <Menu
                 data-testid="FadeMenu"
