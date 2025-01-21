@@ -2,16 +2,21 @@ import translator from '@/helpers/translator';
 import { GridColDef } from '@mui/x-data-grid/models/colDef';
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'id', headerName: 'ID', width: 50 },
     {
         field: 'name',
         headerName: translator('name'),
-        width: 110,
+        width: 150,
     },
     {
         field: 'stock',
         headerName: translator('stock'),
-        width: 150,
+        width: 100,
+    },
+    {
+        field: 'type',
+        headerName: translator('type'),
+        width: 100,
     },
 ];
 

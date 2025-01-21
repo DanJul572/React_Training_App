@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import translator from '@/helpers/translator';
 
 import useProductDetail from './hooks';
-import { captionContainerStyle } from './styles';
+import { captionContainerStyle, sizeContainerStyle } from './styles';
 
 const ProductProduct = () => {
     const { product, getProduct, onBack } = useProductDetail();
@@ -17,16 +17,18 @@ const ProductProduct = () => {
         <Card variant="outlined">
             <CardContent>
                 <Typography variant="h4">{product.name}</Typography>
-                <Typography variant="h2">{product.stock}</Typography>
+                <Box sx={sizeContainerStyle}>
+                    <Typography variant="h2">{product.stock}</Typography>
+                    <Typography variant="subtitle1">
+                        {product.size}
+                    </Typography>
+                </Box>
                 <Box sx={captionContainerStyle}>
                     <Typography variant="caption">
                         {product.surface}
                     </Typography>
                     <Typography variant="caption">
                         {product.type}
-                    </Typography>
-                    <Typography variant="caption">
-                        {product.size}
                     </Typography>
                 </Box>
             </CardContent>

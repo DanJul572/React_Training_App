@@ -1,7 +1,12 @@
 import { CSSProperties } from 'react';
 
-export const captionContainerStyle: CSSProperties = {
-    width: '100px',
+export const sizeContainerStyle: CSSProperties = {
     display: 'flex',
-    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    gap: '5px',
+};
+
+export const captionContainerStyle: CSSProperties = {
+    display: 'flex',
+    gap: '10px',
 };
