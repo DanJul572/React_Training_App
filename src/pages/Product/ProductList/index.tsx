@@ -12,6 +12,7 @@ const ProductList = () => {
         onDetail,
         onEdit,
         onSort,
+        onFilter,
         openDialog,
     } = useProductList();
 
@@ -28,6 +29,7 @@ const ProductList = () => {
             onDelete={openDialog}
             onDetail={onDetail}
             onEdit={onEdit}
+            onFilter={onFilter}
             onSort={onSort}
             rows={displayData.rows}
         />
