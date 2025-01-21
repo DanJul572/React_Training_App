@@ -18,9 +18,6 @@ const ProductProduct = () => {
             <CardContent>
                 <Typography variant="h4">{product.name}</Typography>
                 <Typography variant="h2">{product.stock}</Typography>
-                <Typography variant="subtitle1">
-                    {product.colorCode}
-                </Typography>
                 <Box sx={captionContainerStyle}>
                     <Typography variant="caption">
                         {product.surface}
@@ -29,7 +26,7 @@ const ProductProduct = () => {
                         {product.type}
                     </Typography>
                     <Typography variant="caption">
-                        {product.size}{' '}
+                        {product.size}
                     </Typography>
                 </Box>
             </CardContent>

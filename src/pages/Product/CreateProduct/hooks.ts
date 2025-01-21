@@ -22,10 +22,9 @@ const useCreateProduct = () => {
     const { control, handleSubmit, resetField, reset } =
         useForm<ProductFormType>({
             defaultValues: {
-                colorCode: '',
                 image: null,
                 name: '',
-                size: 0,
+                size: '',
                 stock: 0,
                 surface: '',
                 type: '',
@@ -35,9 +34,6 @@ const useCreateProduct = () => {
     const formatPayloads = (data: ProductFormType) => {
         if (data.stock || data.stock === 0) {
             data.stock = Number(data.stock);
-        }
-        if (data.size || data.size === 0) {
-            data.size = Number(data.size);
         }
         return data;
     };

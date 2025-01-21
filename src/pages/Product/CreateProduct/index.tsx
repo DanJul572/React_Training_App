@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import translator from '@/helpers/translator';
 
 import ActionButton from './components/ActionButton';
-import ColorCodeField from './components/ColorCodeField';
 import NameField from './components/NameField';
 import SizeField from './components/SizeField';
 import StockField from './components/StockField';
@@ -39,7 +38,6 @@ const CreateProduct = () => {
                     <NameField {...labelProps} />
                     <TypeField {...labelProps} />
                     <SizeField {...labelProps} />
-                    <ColorCodeField {...labelProps} />
                     <SurfaceField {...labelProps} />
                     <StockField {...labelProps} />
                 </Box>

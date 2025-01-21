@@ -1,9 +1,8 @@
 export type ProductType = {
     id: number;
-    colorCode: string;
     image: string | null;
     name: string;
-    size: number;
+    size: string;
     stock: number;
     surface: string;
     type: string;

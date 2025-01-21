@@ -13,7 +13,7 @@ const SizeField = (props: RenderFieldType) => {
             render={({ field }) => (
                 <TextField
                     {...field}
-                    type="number"
+                    type="text"
                     label={translator('size')}
                 />
             )}
