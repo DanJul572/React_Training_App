@@ -28,16 +28,18 @@ const useLogin = () => {
         },
     });
 
+    const setLocalStorageData = (response: LoginResponseType) => {
+        localStorage.setItem('name', response.user.name);
+        localStorage.setItem('role_id', response.user.role_id.toString());
+        localStorage.setItem('token', response.token);
+    };
+
     const login = (data: LoginFormType) => {
         setOpenLoader(true);
         request
             .post<LoginResponseType, LoginFormType>('/login', data)
             .then((response) => {
-                localStorage.setItem('token', response.token);
-                localStorage.setItem(
-                    'role_id',
-                    response.user.role_id.toString()
-                );
+                setLocalStorageData(response);
                 navigate('/');
             })
             .catch((error: AxiosError) => {

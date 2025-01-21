@@ -11,6 +11,12 @@ import { ZAlertContext } from '@/context/ZAlert';
 import { OnCloseType } from './types';
 
 const useFadeMenu = () => {
+    const username = localStorage.getItem('name') || '';
+    let avatar = 'A';
+    if (username) {
+        avatar = username.trim().charAt(0).toUpperCase();
+    }
+
     const { setOpenLoader } = useContext(ZLoaderContext);
     const { setAlertProps } = useContext(ZAlertContext);
 
@@ -45,9 +51,11 @@ const useFadeMenu = () => {
 
     return {
         anchorEl,
+        avatar,
         handleClick,
         handleClose,
         handleLogout,
+        username,
     };
 };
 

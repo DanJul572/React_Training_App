@@ -13,8 +13,14 @@ import translator from '@/helpers/translator';
 import { avatarStyle, containerStyle, dividerStyle } from './styles';
 
 const FadeMenu = () => {
-    const { anchorEl, handleClick, handleClose, handleLogout } =
-        useFadeMenu();
+    const {
+        anchorEl,
+        avatar,
+        handleClick,
+        handleClose,
+        handleLogout,
+        username,
+    } = useFadeMenu();
 
     const open = Boolean(anchorEl);
 
@@ -25,9 +31,9 @@ const FadeMenu = () => {
                 onClick={handleClick}
                 sx={containerStyle}
             >
-                <Typography>Admin</Typography>
+                <Typography>{username}</Typography>
                 <Divider orientation="vertical" sx={dividerStyle} />
-                <Avatar sx={avatarStyle}>A</Avatar>
+                <Avatar sx={avatarStyle}>{avatar}</Avatar>
             </Box>
             <Menu
                 data-testid="FadeMenu"
