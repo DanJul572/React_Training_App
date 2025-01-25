@@ -26,6 +26,7 @@ const props: PropsType = {
     label: 'People',
     name: 'people',
     options: options,
+    value: '',
     onChange: handleChange,
 };
 
