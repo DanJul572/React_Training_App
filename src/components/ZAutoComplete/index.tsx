@@ -1,13 +1,37 @@
+import { useEffect, useState } from 'react';
+
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
+
+import { OptionType } from '@/types';
 
 import { PropsType } from './types';
 
 const ZAutoComplete = (props: PropsType) => {
+    const [value, setValue] = useState<OptionType>({
+        label: '',
+        value: '',
+    });
+
+    useEffect(() => {
+        const newValue = props.options.find(
+            (item) => item.value === props.value
+        );
+        if (newValue) {
+            setValue(newValue);
+        } else {
+            setValue({
+                label: '',
+                value: '',
+            });
+        }
+    }, [props.value]);
+
     return (
         <Autocomplete
             data-testid="zautocomplete"
             options={props.options}
+            value={value}
             renderInput={(params) => (
                 <TextField
                     {...params}
@@ -18,6 +42,7 @@ const ZAutoComplete = (props: PropsType) => {
                             shrink: true,
                         },
                     }}
+                    value={props.value}
                 />
             )}
             onChange={props.onChange}

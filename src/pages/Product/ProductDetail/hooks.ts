@@ -8,7 +8,8 @@ import { ZAlertContext } from '@/context/ZAlert';
 import request from '@/helpers/request';
 import showErrorAlert from '@/helpers/showErrorAlert';
 
-import { ProductType } from '../types';
+import { ProductType } from '@/types';
+
 import { ParamsType } from './types';
 
 const useProductDetail = () => {

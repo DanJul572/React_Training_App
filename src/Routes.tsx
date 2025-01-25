@@ -10,6 +10,8 @@ import CreateProduct from './pages/Product/CreateProduct';
 import ProductDetail from './pages/Product/ProductDetail';
 import ProductList from './pages/Product/ProductList';
 
+import CreateTransaction from './pages/Transaction/CreateTransaction';
+
 import ProtectedRoute from './middleware/ProtectedRoute';
 
 const router = createBrowserRouter([
@@ -67,6 +69,16 @@ const router = createBrowserRouter([
             <ProtectedRoute>
                 <Main>
                     <ProductDetail />
+                </Main>
+            </ProtectedRoute>
+        ),
+    },
+    {
+        path: '/transaction',
+        element: (
+            <ProtectedRoute>
+                <Main>
+                    <CreateTransaction />
                 </Main>
             </ProtectedRoute>
         ),

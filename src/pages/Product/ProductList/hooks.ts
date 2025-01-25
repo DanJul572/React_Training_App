@@ -18,11 +18,11 @@ import { ZLoaderContext } from '@/context/ZLoader';
 import {
     ErrorResponseType,
     PaginatedResponseType,
+    ProductType,
     SortType,
     ZConfirmationDialogPropsType,
 } from '@/types';
 
-import { ProductType } from '../types';
 import {
     DisplayDataType,
     GetUrlType,
@@ -61,7 +61,7 @@ const ProductList = () => {
     });
 
     const getUrl: GetUrlType = (prop) => {
-        let url = `/products?page=${prop.page}`;
+        let url = `/products?isWihoutProps=false&page=${prop.page}`;
         if (prop.quickFilter) {
             url += `&quickFilter=${prop.quickFilter}`;
         }

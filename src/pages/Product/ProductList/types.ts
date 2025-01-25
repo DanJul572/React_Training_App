@@ -1,6 +1,4 @@
-import { SortType } from '@/types';
-
-import { ProductType } from '../types';
+import { ProductType, SortType } from '@/types';
 
 export type TablePropertyType = {
     quickFilter: string | null;
