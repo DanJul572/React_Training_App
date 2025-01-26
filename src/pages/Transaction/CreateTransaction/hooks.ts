@@ -89,6 +89,7 @@ const useCreateTransaction = () => {
         handleSubmit,
         onSubmit,
         productOpttions,
+        reset,
     };
 };
 

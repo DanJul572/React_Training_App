@@ -18,11 +18,12 @@ const CreateTransaction = () => {
         handleSubmit,
         onSubmit,
         productOpttions,
+        reset,
     } = useCreateTransaction();
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Typography variant="h5">
+            <Typography variant="h6">
                 {translator('create_transaction')}
             </Typography>
             <Box sx={fieldContainerStyle}>
@@ -53,6 +54,13 @@ const CreateTransaction = () => {
                 />
             </Box>
             <Box sx={buttonContainerStyle}>
+                <Button
+                    color="secondary"
+                    onClick={() => reset()}
+                    type="button"
+                >
+                    {translator('clear')}
+                </Button>
                 <Button type="submit">{translator('submit')}</Button>
             </Box>
         </form>
