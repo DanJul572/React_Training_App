@@ -55,13 +55,13 @@ const ProductList = () => {
         page: 1,
         quickFilter: null,
         sort: {
-            field: 'id',
+            field: 'name',
             sort: 'asc',
         },
     });
 
     const getUrl: GetUrlType = (prop) => {
-        let url = `/products?isWihoutProps=false&page=${prop.page}`;
+        let url = `/products?page=${prop.page}`;
         if (prop.quickFilter) {
             url += `&quickFilter=${prop.quickFilter}`;
         }

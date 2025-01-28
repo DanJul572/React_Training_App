@@ -9,13 +9,18 @@ const columns: GridColDef[] = [
         width: 150,
     },
     {
-        field: 'stock',
-        headerName: translator('stock'),
-        width: 100,
+        field: 'size',
+        headerName: translator('size'),
+        width: 150,
     },
     {
         field: 'type',
         headerName: translator('type'),
+        width: 100,
+    },
+    {
+        field: 'stock',
+        headerName: translator('stock'),
         width: 100,
     },
 ];

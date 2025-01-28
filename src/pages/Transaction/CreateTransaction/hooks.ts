@@ -9,7 +9,7 @@ import request from '@/helpers/request';
 import showErrorAlert from '@/helpers/showErrorAlert';
 import translator from '@/helpers/translator';
 
-import { OptionType, ProductType } from '@/types';
+import { OptionType } from '@/types';
 
 import { handleChangeProductType, TransactionFormType } from './types';
 
@@ -38,12 +38,12 @@ const useCreateTransaction = () => {
     const getAllProducts = () => {
         setOpenLoader(true);
         request
-            .get<ProductType[]>('/products?isWihoutProps=true')
+            .get<OptionType[]>('/products/options')
             .then((response) => {
                 const options: OptionType[] = response.map((item) => {
                     return {
-                        label: item.name.toString(),
-                        value: item.id.toString(),
+                        label: item.label.toString(),
+                        value: item.value.toString(),
                     };
                 });
                 setproductOptions(options);
