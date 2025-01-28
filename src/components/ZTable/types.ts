@@ -10,13 +10,14 @@ export type PropsType = {
     enableAddButton?: boolean;
     enableCheckboxSelection?: boolean;
     enableDeleteButton?: boolean;
+    enableDetailButton?: boolean;
     enableEditButton?: boolean;
     enableFilterButton?: boolean;
     id: string;
-    onAdd: () => void;
+    onAdd?: () => void;
     onChangePage: (data: GridPaginationModel) => void;
     onDelete?: (data: any) => void;
-    onDetail: (data: any) => void;
+    onDetail?: (data: any) => void;
     onEdit?: (data: any) => void;
     onFilter?: (data: GridFilterModel) => void;
     onSelect?: (data: GridRowSelectionModel) => void;

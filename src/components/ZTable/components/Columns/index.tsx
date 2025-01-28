@@ -18,6 +18,14 @@ const Columns: PropsType = (params) => {
         return column;
     });
 
+    if (
+        !params.enableDetailButton &&
+        !params.enableDeleteButton &&
+        !params.enableEditButton
+    ) {
+        return mappingColumns;
+    }
+
     return [
         ...mappingColumns,
         {
@@ -27,18 +35,28 @@ const Columns: PropsType = (params) => {
             headerName: translator('action'),
             cellClassName: 'actions',
             getActions: (data) => {
-                const actionButtons = [
-                    <GridActionsCellItem
-                        color="inherit"
-                        icon={
-                            <Tooltip title={translator('detail')} arrow>
-                                <Info />
-                            </Tooltip>
-                        }
-                        label="Detail"
-                        onClick={() => params.onDetail(data.id)}
-                    />,
-                ];
+                const actionButtons = [];
+                if (params.enableDetailButton) {
+                    actionButtons.push(
+                        <GridActionsCellItem
+                            color="inherit"
+                            icon={
+                                <Tooltip
+                                    title={translator('detail')}
+                                    arrow
+                                >
+                                    <Info />
+                                </Tooltip>
+                            }
+                            label="Detail"
+                            onClick={() =>
+                                params.onDetail
+                                    ? params.onDetail(data.id)
+                                    : false
+                            }
+                        />
+                    );
+                }
 
                 if (params.enableEditButton) {
                     actionButtons.push(

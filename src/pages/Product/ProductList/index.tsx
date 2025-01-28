@@ -22,6 +22,7 @@ const ProductList = () => {
             count={displayData.count}
             enableAddButton={isAdmin}
             enableDeleteButton={isAdmin}
+            enableDetailButton={true}
             enableEditButton={isAdmin}
             id="id"
             onAdd={onAdd}

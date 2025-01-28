@@ -1,4 +1,4 @@
-import { User } from '@/types';
+import { UserType } from '@/types';
 
 export type LoginFormType = {
     email: string;
@@ -7,5 +7,5 @@ export type LoginFormType = {
 
 export type LoginResponseType = {
     token: string;
-    user: User;
+    user: UserType;
 };

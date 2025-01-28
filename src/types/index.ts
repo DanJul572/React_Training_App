@@ -54,7 +54,7 @@ export type AlertPropsType = {
     type: 'error' | 'success';
 };
 
-export type User = {
+export type UserType = {
     email_verified_at: string;
     email: string;
     id: number;

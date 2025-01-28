@@ -19,6 +19,7 @@ const ZTable = (props: PropsType) => {
     const columnParams = {
         columns: props.columns,
         enableDeleteButton: props.enableDeleteButton,
+        enableDetailButton: props.enableDetailButton,
         enableEditButton: props.enableEditButton,
         onDelete: props.onDelete,
         onDetail: props.onDetail,

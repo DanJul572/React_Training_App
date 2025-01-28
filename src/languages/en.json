@@ -43,6 +43,7 @@
     "product_is_created": "Product has been created",
     "product_is_updated": "Product has been updated",
     "transaction_is_created": "Transaction has been created",
+    "transaction_list": "Transaction List",
     "product": "Product",
     "refresh": "Refresh",
     "reset": "Reset",
