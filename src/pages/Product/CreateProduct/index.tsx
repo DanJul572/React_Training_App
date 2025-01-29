@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import translator from '@/helpers/translator';
 
 import ActionButton from './components/ActionButton';
+import ImageField from './components/ImageField';
 import NameField from './components/NameField';
 import SizeField from './components/SizeField';
 import StockField from './components/StockField';
@@ -16,16 +17,18 @@ import useCreateProduct from './hooks';
 const CreateProduct = () => {
     const {
         control,
+        handleSubmit,
         onBack,
         onClear,
-        handleSubmit,
         onSubmit,
         resetField,
+        setValue,
     } = useCreateProduct();
 
     const labelProps = {
         control,
         resetField,
+        setValue,
     };
 
     return (
@@ -40,6 +43,7 @@ const CreateProduct = () => {
                     <SizeField {...labelProps} />
                     <SurfaceField {...labelProps} />
                     <StockField {...labelProps} />
+                    <ImageField {...labelProps} />
                 </Box>
                 <ActionButton onBack={onBack} onClear={onClear} />
             </form>

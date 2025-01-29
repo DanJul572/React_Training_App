@@ -4,5 +4,5 @@ import { ProductFormType } from '../../types';
 
 export type HandleChangeType = (
     event: ChangeEvent<HTMLInputElement>,
-    field: ControllerRenderProps<ProductFormType, 'image'>
+    field: ControllerRenderProps<ProductFormType, 'imageDisplay'>
 ) => void;

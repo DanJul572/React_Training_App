@@ -19,10 +19,10 @@ const useCreateProduct = () => {
     const { setAlertProps } = useContext(ZAlertContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
-    const { control, handleSubmit, resetField, reset } =
+    const { control, handleSubmit, resetField, reset, setValue } =
         useForm<ProductFormType>({
             defaultValues: {
-                image: null,
+                imageDisplay: null,
                 name: '',
                 size: '',
                 stock: 0,
@@ -34,6 +34,9 @@ const useCreateProduct = () => {
     const formatPayloads = (data: ProductFormType) => {
         if (data.stock || data.stock === 0) {
             data.stock = Number(data.stock);
+        }
+        if (data.image && data.imageDisplay) {
+            data.imageDisplay = null;
         }
         return data;
     };
@@ -99,6 +102,8 @@ const useCreateProduct = () => {
         request
             .get<ProductFormType>(`/products/${productId}`)
             .then((response) => {
+                response.image = null;
+                response.imageDisplay = null;
                 reset(response);
             })
             .catch((error: AxiosError) => {
@@ -137,11 +142,12 @@ const useCreateProduct = () => {
 
     return {
         control,
+        handleSubmit,
         onBack,
         onClear,
-        handleSubmit,
         onSubmit,
         resetField,
+        setValue,
     };
 };
 

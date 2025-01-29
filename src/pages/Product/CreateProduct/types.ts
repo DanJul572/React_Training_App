@@ -1,8 +1,13 @@
-import { Control, UseFormResetField } from 'react-hook-form';
+import {
+    Control,
+    UseFormResetField,
+    UseFormSetValue,
+} from 'react-hook-form';
 
 export type ProductFormType = {
     description: string | null;
-    image: File | null;
+    image: string | ArrayBuffer | null;
+    imageDisplay: File | null;
     name: string;
     size: string;
     stock: number;
@@ -13,6 +18,7 @@ export type ProductFormType = {
 export type RenderFieldType = {
     control: Control<ProductFormType, any>;
     resetField: UseFormResetField<ProductFormType>;
+    setValue: UseFormSetValue<ProductFormType>;
 };
 
 export type ParamType = {
