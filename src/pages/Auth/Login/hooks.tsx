@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import { AxiosError } from 'axios';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 
 import request from '@/helpers/request';
 import showErrorAlert from '@/helpers/showErrorAlert';
@@ -12,7 +11,6 @@ import { AlertPropsType } from '@/types';
 import { LoginFormType, LoginResponseType } from './types';
 
 const useLogin = () => {
-    const navigate = useNavigate();
     const { setOpenLoader } = useContext(ZLoaderContext);
 
     const [alert, setAlert] = useState<AlertPropsType>({
@@ -40,7 +38,7 @@ const useLogin = () => {
             .post<LoginResponseType, LoginFormType>('/login', data)
             .then((response) => {
                 setLocalStorageData(response);
-                navigate('/');
+                window.location.href = '/';
             })
             .catch((error: AxiosError) => {
                 showErrorAlert(error, setAlert);

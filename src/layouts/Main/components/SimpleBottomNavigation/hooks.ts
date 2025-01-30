@@ -10,8 +10,10 @@ const useSimpleBottomNavigation = () => {
             return 0;
         } else if (firstPath === 'product') {
             return 1;
-        } else {
+        } else if (firstPath === 'transaction') {
             return 2;
+        } else {
+            return 3;
         }
     };
 
