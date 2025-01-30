@@ -16,11 +16,19 @@
     display: none;
 }
 
+.login {
+    width: 450px;
+}
+
 @media (max-width: 1024px) { /* Tablet dan mobile */
     .sidebar {
         display: none !important;
     }
     .SimpleBottomNavigation {
         display: block;
+    }
+    .login {
+        width: 100%;
+        background-color: red;
     }
 }

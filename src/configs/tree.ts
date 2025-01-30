@@ -1,3 +1,4 @@
+import isAdmin from '@/helpers/isAdmin';
 import translator from '@/helpers/translator';
 
 import { MenuType } from '@/types';
@@ -13,11 +14,19 @@ const tree: MenuType[] = [
         label: translator('product'),
         url: '/product',
     },
-    {
+];
+
+if (isAdmin) {
+    tree.push({
         id: '3',
         label: translator('transaction'),
         url: '/transaction',
-    },
-];
+    });
+    tree.push({
+        id: '4',
+        label: translator('user'),
+        url: '/user',
+    });
+}
 
 export default tree;

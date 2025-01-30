@@ -51,12 +51,6 @@ const FadeMenu = () => {
                 }}
             >
                 <MenuItem
-                    data-testid="FadeItemMyAccount"
-                    onClick={handleClose}
-                >
-                    {translator('my_account')}
-                </MenuItem>
-                <MenuItem
                     data-testid="FadeItemLogout"
                     onClick={handleLogout}
                 >

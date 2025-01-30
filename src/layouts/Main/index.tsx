@@ -17,6 +17,12 @@ import {
 } from './styles';
 
 const Main = (props: PropsType) => {
+    const isLogined = localStorage.getItem('token');
+
+    if (!isLogined) {
+        return false;
+    }
+
     return (
         <Box sx={containerStyle}>
             <ZLoader>

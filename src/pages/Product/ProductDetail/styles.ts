@@ -6,6 +6,8 @@ export const imageContainerStyle: CSSProperties = {
 
 export const imageStyle: CSSProperties = {
     borderRadius: '2px',
+    objectFit: 'contain',
+    width: '100%',
 };
 
 export const noImageStyle: CSSProperties = {

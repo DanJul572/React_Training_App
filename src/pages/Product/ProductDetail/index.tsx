@@ -41,15 +41,12 @@ const ProductProduct = () => {
                         )}
                     </Box>
                     <Box sx={descriptionContainerStyle}>
-                        <Typography variant="h4">
-                            {product.name}
+                        <Typography variant="h5">
+                            {product.name} - {product.type}
                         </Typography>
                         <Box sx={sizeContainerStyle}>
                             <Typography variant="h2">
                                 {product.stock}
-                            </Typography>
-                            <Typography variant="subtitle1">
-                                {product.size}
                             </Typography>
                         </Box>
                         <Box sx={captionContainerStyle}>
@@ -57,7 +54,7 @@ const ProductProduct = () => {
                                 {product.surface}
                             </Typography>
                             <Typography variant="caption">
-                                {product.type}
+                                {product.size}
                             </Typography>
                         </Box>
                         <Box sx={buttonContainerStyle}>

@@ -29,7 +29,6 @@ const Columns: PropsType = (params) => {
     return [
         ...mappingColumns,
         {
-            width: 150,
             field: 'actions',
             type: 'actions',
             headerName: translator('action'),

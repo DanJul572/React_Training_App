@@ -40,8 +40,6 @@ const defaultDialogProps: ZConfirmationDialogPropsType = {
 };
 
 const ProductList = () => {
-    const isAdmin = localStorage.getItem('role_id') === '1';
-
     const navigate = useNavigate();
     const { setAlertProps } = useContext(ZAlertContext);
     const { setDialogProps } = useContext(ZConfirmationDialogContext);
@@ -140,8 +138,6 @@ const ProductList = () => {
         }));
     };
 
-    const onSelect = (): void => {};
-
     const onSort = (model: GridSortModel): void => {
         if (model.length && model[0].sort && model[0].field) {
             const field = model[0].field;
@@ -179,14 +175,12 @@ const ProductList = () => {
 
     return {
         displayData,
-        isAdmin,
         onAdd,
         onChangePage,
         onDelete,
         onDetail,
         onEdit,
         onFilter,
-        onSelect,
         onSort,
         openDialog,
     };

@@ -30,7 +30,7 @@ const Login = () => {
                     <img src={logo} height="25px" />
                     <Typography variant="h6">{appName}</Typography>
                 </Box>
-                <Card sx={cardStyle} variant="outlined">
+                <Card sx={cardStyle} variant="outlined" className="login">
                     {alert.open && (
                         <Alert severity={alert.type}>
                             {alert.message}

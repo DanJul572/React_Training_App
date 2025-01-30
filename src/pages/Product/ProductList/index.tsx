@@ -1,12 +1,13 @@
 import ZTable from '@/components/ZTable';
 
+import isAdmin from '@/helpers/isAdmin';
+
 import columns from './dummies/columns';
 import useProductList from './hooks';
 
 const ProductList = () => {
     const {
         displayData,
-        isAdmin,
         onAdd,
         onChangePage,
         onDetail,

@@ -7,12 +7,12 @@ export const containerStyle: CSSProperties = {
     gap: '10px',
     height: '100vh',
     justifyContent: 'center',
-    margin: '10px',
+    width: '100vw',
+    padding: '20px',
 };
 
 export const cardStyle: CSSProperties = {
     padding: '20px',
-    width: '450px',
 };
 
 export const fieldContainerStyle: CSSProperties = {
