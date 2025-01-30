@@ -13,7 +13,7 @@ import { containerStyle, treeViewStyle } from './styles';
 
 const Sidebar = () => {
     return (
-        <Box sx={containerStyle}>
+        <Box sx={containerStyle} className="sidebar">
             <SimpleTreeView
                 aria-label="customized"
                 slots={{

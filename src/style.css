@@ -11,3 +11,16 @@
     .MuiDataGrid-filterFormDeleteIcon {
     width: auto;
 }
+
+.SimpleBottomNavigation {
+    display: none;
+}
+
+@media (max-width: 1024px) { /* Tablet dan mobile */
+    .sidebar {
+        display: none !important;
+    }
+    .SimpleBottomNavigation {
+        display: block;
+    }
+}

@@ -7,7 +7,7 @@ export const containerStyle: CSSProperties = {
     gap: '10px',
     height: '100vh',
     justifyContent: 'center',
-    width: '100vw',
+    margin: '10px',
 };
 
 export const cardStyle: CSSProperties = {

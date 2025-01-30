@@ -1,10 +1,5 @@
 import { CSSProperties } from 'react';
 
-export const containerStyle: CSSProperties = {
-    display: 'flex',
-    gap: '20px',
-};
-
 export const imageContainerStyle: CSSProperties = {
     flex: 1,
 };

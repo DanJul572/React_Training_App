@@ -4,8 +4,9 @@ import { ZAlert } from '@/context/ZAlert';
 import { ZConfirmationDialog } from '@/context/ZConfirmationDialog';
 import { ZLoader } from '@/context/ZLoader';
 
-import Topbar from './components/Topbar';
 import Sidebar from './components/Sidebar';
+import SimpleBottomNavigation from './components/SimpleBottomNavigation';
+import Topbar from './components/Topbar';
 
 import { PropsType } from './types';
 
@@ -27,6 +28,7 @@ const Main = (props: PropsType) => {
                             <ZAlert>{props.children}</ZAlert>
                         </Box>
                     </Box>
+                    <SimpleBottomNavigation />
                 </ZConfirmationDialog>
             </ZLoader>
         </Box>
