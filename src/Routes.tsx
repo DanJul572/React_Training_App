@@ -15,6 +15,7 @@ import UserList from './pages/User/UserList';
 import CreateTransaction from './pages/Transaction/CreateTransaction';
 
 import ProtectedRoute from './middleware/ProtectedRoute';
+import UnProtectedRoute from './middleware/UnProtectedRoute';
 
 const router = createBrowserRouter([
     {
@@ -30,9 +31,11 @@ const router = createBrowserRouter([
     {
         path: '/login',
         element: (
-            <Empty>
-                <Login />
-            </Empty>
+            <UnProtectedRoute>
+                <Empty>
+                    <Login />
+                </Empty>
+            </UnProtectedRoute>
         ),
     },
     {
