@@ -1,24 +1,19 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 
 import formatObject from '@/helpers/formatObject';
 
 import ActionButton from './components/ActionButton';
+import Description from './components/Description';
 import PaginationComponent from './components/Pagination';
 import Toolbar from './components/Toolbar';
 
 import { PropsType } from '../ZTable/types';
 
 import useZListView from './hooks';
-import {
-    cardItemContainerStyle,
-    containerStyle,
-    descriptionContainerStyle,
-    descriptionStyle,
-} from './styles';
+import { cardItemContainerStyle, containerStyle } from './styles';
 
 const ZListView = (props: PropsType) => {
     const { expanded, toggleExpand } = useZListView();
@@ -49,23 +44,12 @@ const ZListView = (props: PropsType) => {
                             onDetail={props.onDetail}
                             onEdit={props.onEdit}
                         />
-                        <Collapse
-                            in={expanded[item[props.id]]}
-                            sx={descriptionContainerStyle}
-                        >
-                            {props.columns.map((column, index) => {
-                                return (
-                                    <Box key={index} sx={descriptionStyle}>
-                                        <Typography variant="caption">
-                                            {column.headerName}
-                                        </Typography>
-                                        <Typography variant="caption">
-                                            {item[column.field]}
-                                        </Typography>
-                                    </Box>
-                                );
-                            })}
-                        </Collapse>
+                        <Description
+                            columns={props.columns}
+                            expanded={expanded}
+                            id={props.id}
+                            item={item}
+                        />
                     </CardContent>
                 </Card>
             ))}
