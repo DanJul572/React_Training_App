@@ -8,7 +8,7 @@ const columns: GridColDef[] = [
     },
     {
         field: 'email',
-        headerName: translator('size'),
+        headerName: translator('email'),
     },
     {
         field: 'role_id',
