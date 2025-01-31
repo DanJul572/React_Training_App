@@ -50,7 +50,7 @@ const ZListView = (props: PropsType) => {
                 placeholder={translator('search') + '...'}
                 variant="outlined"
                 fullWidth
-                value={searchTerm}
+                value={searchTerm || ''}
                 onChange={handleChange}
             />
             {props.enableAddButton && (
