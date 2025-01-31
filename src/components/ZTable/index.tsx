@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import Paper from '@mui/material/Paper';
 
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
@@ -12,10 +13,20 @@ import { containerStyle } from './styles';
 
 import table from '@/configs/table';
 
+import ZListView from '../ZListView';
+
 import Columns from './components/Columns';
 import ToolBar from './components/Toolbar';
 
 const ZTable = (props: PropsType) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+
+    // mobile mode
+    if (isMobile) {
+        return <ZListView {...props} />;
+    }
+
+    // default mode
     const columnParams = {
         columns: props.columns,
         enableDeleteButton: props.enableDeleteButton,

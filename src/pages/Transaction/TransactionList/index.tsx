@@ -26,6 +26,7 @@ const TransactionList = () => {
                 enableDetailButton={false}
                 enableEditButton={false}
                 id="transaction_id"
+                listTitleFormat="product_name - transaction_count"
                 onChangePage={onChangePage}
                 onFilter={onFilter}
                 onSort={onSort}

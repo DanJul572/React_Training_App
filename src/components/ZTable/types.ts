@@ -14,6 +14,7 @@ export type PropsType = {
     enableEditButton?: boolean;
     enableFilterButton?: boolean;
     id: string;
+    listTitleFormat: string;
     onAdd?: () => void;
     onChangePage: (data: GridPaginationModel) => void;
     onDelete?: (data: any) => void;

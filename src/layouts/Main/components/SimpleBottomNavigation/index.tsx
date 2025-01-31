@@ -12,15 +12,18 @@ import translator from '@/helpers/translator';
 import useSimpleBottomNavigation from './hooks';
 import isAdmin from '@/helpers/isAdmin';
 
+import { containerStyle, subContainerStyle } from './styles';
+
 export default function SimpleBottomNavigation() {
     const { navigate, getActivePath } = useSimpleBottomNavigation();
 
     return (
-        <Box
-            sx={{ marginTop: '-65px' }}
-            className="SimpleBottomNavigation"
-        >
-            <BottomNavigation showLabels value={getActivePath()}>
+        <Box sx={containerStyle} className="SimpleBottomNavigation">
+            <BottomNavigation
+                showLabels
+                value={getActivePath()}
+                sx={subContainerStyle}
+            >
                 <BottomNavigationAction
                     onClick={() => navigate('/')}
                     label={translator('dashboard')}

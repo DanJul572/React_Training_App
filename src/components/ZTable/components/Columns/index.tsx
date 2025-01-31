@@ -2,7 +2,7 @@ import Tooltip from '@mui/material/Tooltip';
 
 import Delete from '@mui/icons-material/Delete';
 import Edit from '@mui/icons-material/Edit';
-import Info from '@mui/icons-material/Info';
+import RemoveRedEye from '@mui/icons-material/RemoveRedEye';
 
 import { GridActionsCellItem } from '@mui/x-data-grid/components';
 import { GridColDef } from '@mui/x-data-grid/models/colDef/gridColDef';
@@ -38,13 +38,13 @@ const Columns: PropsType = (params) => {
                 if (params.enableDetailButton) {
                     actionButtons.push(
                         <GridActionsCellItem
-                            color="inherit"
+                            color="primary"
                             icon={
                                 <Tooltip
                                     title={translator('detail')}
                                     arrow
                                 >
-                                    <Info />
+                                    <RemoveRedEye />
                                 </Tooltip>
                             }
                             label="Detail"
@@ -60,7 +60,7 @@ const Columns: PropsType = (params) => {
                 if (params.enableEditButton) {
                     actionButtons.push(
                         <GridActionsCellItem
-                            color="inherit"
+                            color="warning"
                             icon={
                                 <Tooltip title={translator('edit')} arrow>
                                     <Edit />
@@ -79,7 +79,7 @@ const Columns: PropsType = (params) => {
                 if (params.enableDeleteButton) {
                     actionButtons.push(
                         <GridActionsCellItem
-                            color="inherit"
+                            color="error"
                             icon={
                                 <Tooltip
                                     title={translator('delete')}

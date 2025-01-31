@@ -24,6 +24,7 @@ const ProductList = () => {
             enableDeleteButton={isAdmin}
             enableEditButton={isAdmin}
             id="id"
+            listTitleFormat="name"
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={openDialog}

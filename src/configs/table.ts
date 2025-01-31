@@ -79,8 +79,9 @@ const table = {
     filterDebounceMs,
     gridMode,
     initialState,
-    pageSizeOptions,
     localeText,
+    pageSize,
+    pageSizeOptions,
 };
 
 export default table;

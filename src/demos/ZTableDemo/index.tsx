@@ -21,7 +21,7 @@ const ZTableDemo = () => {
             columns={columns}
             count={rows.length}
             id="id"
-            rows={rows}
+            listTitleFormat="firstName"
             onAdd={onAdd}
             onChangePage={onChangePage}
             onDelete={onDelete}
@@ -30,6 +30,7 @@ const ZTableDemo = () => {
             onFilter={onFilter}
             onSelect={onSelect}
             onSort={onSort}
+            rows={rows}
         />
     );
 };
