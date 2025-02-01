@@ -1,8 +1,9 @@
 import { ControllerRenderProps } from 'react-hook-form';
 
 export type TransactionFormType = {
-    product_id: number | null;
     count: number;
+    product_id: number | null;
+    transaction_type_id: string;
 };
 
 export type handleChangeProductType = (

@@ -12,7 +12,12 @@ import showErrorAlert from '@/helpers/showErrorAlert';
 import { ZAlertContext } from '@/context/ZAlert';
 import { ZLoaderContext } from '@/context/ZLoader';
 
-import { PaginatedResponseType, SortType } from '@/types';
+import {
+    ErrorResponseType,
+    PaginatedResponseType,
+    SortType,
+    ZConfirmationDialogPropsType,
+} from '@/types';
 
 import {
     DisplayDataType,
@@ -21,9 +26,21 @@ import {
     TablePropertyType,
     TransactionType,
 } from './types';
+import translator from '@/helpers/translator';
+import { ZConfirmationDialogContext } from '@/context/ZConfirmationDialog';
+
+const defaultDialogProps: ZConfirmationDialogPropsType = {
+    cancelButton: translator('cancel'),
+    confirmButton: translator('delete'),
+    content: translator('delete_dialog_content'),
+    onConfirm: () => {},
+    open: false,
+    title: translator('delete_dialog_title'),
+};
 
 const useTransactionList = () => {
     const { setAlertProps } = useContext(ZAlertContext);
+    const { setDialogProps } = useContext(ZConfirmationDialogContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
     const [displayData, setDisplayData] = useState<DisplayDataType>({
@@ -48,6 +65,43 @@ const useTransactionList = () => {
             url += `&orderBy=${prop.sort.field}&order=${prop.sort.sort}`;
         }
         return url;
+    };
+
+    const openDialog = (id: number): void => {
+        const newProps = { ...defaultDialogProps };
+        newProps.open = true;
+        newProps.onConfirm = () => {
+            onDelete(id);
+        };
+        setDialogProps(newProps);
+    };
+
+    const onDelete = (id: number): void => {
+        setOpenLoader(true);
+        request
+            .remove<string>(`/transactions/${id}`)
+            .then((response) => {
+                onLoad(tableProperty);
+                setAlertProps({
+                    open: true,
+                    message: response,
+                    type: 'success',
+                });
+            })
+            .catch((error: ErrorResponseType) => {
+                setAlertProps({
+                    open: true,
+                    message: error.error,
+                    type: 'error',
+                });
+            })
+            .finally(() => {
+                setOpenLoader(false);
+                setDialogProps((prevState) => ({
+                    ...prevState,
+                    open: false,
+                }));
+            });
     };
 
     const onChangePage = (model: GridPaginationModel): void => {
@@ -113,6 +167,7 @@ const useTransactionList = () => {
         onFilter,
         onSelect,
         onSort,
+        openDialog,
     };
 };
 

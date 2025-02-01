@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import ZAutoComplete from '@/components/ZAutoComplete';
+import ZSelect from '@/components/ZSelect';
+
 import translator from '@/helpers/translator';
 
 import useCreateTransaction from './hooks';
@@ -17,8 +19,9 @@ const CreateTransaction = () => {
         handleChangeProduct,
         handleSubmit,
         onSubmit,
-        productOpttions,
+        productOptions,
         reset,
+        transacttionTypeOptions,
     } = useCreateTransaction();
 
     return (
@@ -28,13 +31,24 @@ const CreateTransaction = () => {
             </Typography>
             <Box sx={fieldContainerStyle}>
                 <Controller
+                    name="transaction_type_id"
+                    control={control}
+                    render={({ field }) => (
+                        <ZSelect
+                            {...field}
+                            label={translator('transaction_type')}
+                            options={transacttionTypeOptions}
+                        />
+                    )}
+                />
+                <Controller
                     name="product_id"
                     control={control}
                     render={({ field }) => (
                         <ZAutoComplete
                             {...field}
                             label={translator('product')}
-                            options={productOpttions}
+                            options={productOptions}
                             value={field.value?.toString()}
                             onChange={(_event, value) => {
                                 handleChangeProduct(field, value?.value);

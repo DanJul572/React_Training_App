@@ -17,14 +17,23 @@ const useCreateTransaction = () => {
     const { setAlertProps } = useContext(ZAlertContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
-    const [productOpttions, setproductOptions] = useState<OptionType[]>(
-        []
-    );
+    const [productOptions, setproductOptions] = useState<OptionType[]>([]);
+    const transacttionTypeOptions: OptionType[] = [
+        {
+            label: translator('in'),
+            value: '1',
+        },
+        {
+            label: translator('out'),
+            value: '2',
+        },
+    ];
 
     const { control, handleSubmit, reset } = useForm<TransactionFormType>({
         defaultValues: {
-            product_id: null,
             count: 0,
+            product_id: null,
+            transaction_type_id: '1',
         },
     });
 
@@ -88,8 +97,9 @@ const useCreateTransaction = () => {
         handleChangeProduct,
         handleSubmit,
         onSubmit,
-        productOpttions,
+        productOptions,
         reset,
+        transacttionTypeOptions,
     };
 };
 
