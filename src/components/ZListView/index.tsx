@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 import formatObject from '@/helpers/formatObject';
+import translator from '@/helpers/translator';
 
 import ActionButton from './components/ActionButton';
 import Description from './components/Description';
@@ -13,7 +14,11 @@ import Toolbar from './components/Toolbar';
 import { PropsType } from '../ZTable/types';
 
 import useZListView from './hooks';
-import { cardItemContainerStyle, containerStyle } from './styles';
+import {
+    cardItemContainerStyle,
+    containerStyle,
+    noRowContainerStyle,
+} from './styles';
 
 const ZListView = (props: PropsType) => {
     const { expanded, toggleExpand } = useZListView();
@@ -26,6 +31,11 @@ const ZListView = (props: PropsType) => {
                 onAdd={props.onAdd}
                 onFilter={props.onFilter}
             />
+            {!props.rows.length && (
+                <Box sx={noRowContainerStyle}>
+                    <Typography>{translator('no_row')}</Typography>
+                </Box>
+            )}
             {props.rows.map((item) => (
                 <Card key={item[props.id]} style={cardItemContainerStyle}>
                     <CardContent>
@@ -53,10 +63,12 @@ const ZListView = (props: PropsType) => {
                     </CardContent>
                 </Card>
             ))}
-            <PaginationComponent
-                count={props.count}
-                onChangePage={props.onChangePage}
-            />
+            {props.rows.length > 0 && (
+                <PaginationComponent
+                    count={props.count}
+                    onChangePage={props.onChangePage}
+                />
+            )}
         </Box>
     );
 };

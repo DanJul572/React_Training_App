@@ -67,10 +67,12 @@ const localeText: Partial<GridLocaleText> = {
         return `${count} ${translator('selected_row')}`;
     },
     MuiTablePagination: paginationLabels,
+    noRowsLabel: translator('no_row'),
     toolbarColumns: translator('columns'),
     toolbarColumnsLabel: translator('select_column'),
     toolbarFilters: translator('filters'),
     toolbarFiltersTooltipShow: translator('show_filer'),
+    toolbarQuickFilterPlaceholder: `${translator('search')}...`,
 };
 
 const table = {

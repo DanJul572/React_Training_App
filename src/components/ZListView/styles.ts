@@ -7,3 +7,8 @@ export const containerStyle: CSSProperties = {
 export const cardItemContainerStyle: CSSProperties = {
     marginBlock: '10px',
 };
+
+export const noRowContainerStyle: CSSProperties = {
+    marginBlock: '10px',
+    textAlign: 'center',
+};
