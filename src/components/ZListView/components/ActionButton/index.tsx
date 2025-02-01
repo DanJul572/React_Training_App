@@ -18,9 +18,9 @@ const ActionButton = (props: PropsType) => {
                 onClick={() => props.toggleExpand(props.item[props.id])}
             >
                 {props.expanded[props.item[props.id]] ? (
-                    <ExpandLess />
-                ) : (
                     <ExpandMore />
+                ) : (
+                    <ExpandLess />
                 )}
             </IconButton>
             {props.enableDetailButton && (
