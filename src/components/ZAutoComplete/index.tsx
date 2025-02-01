@@ -46,6 +46,7 @@ const ZAutoComplete = (props: PropsType) => {
                 />
             )}
             onChange={props.onChange}
+            getOptionKey={(option) => option.value}
         />
     );
 };

@@ -51,7 +51,7 @@ const useTransactionList = () => {
         page: 1,
         quickFilter: null,
         sort: {
-            field: 'transactions_id',
+            field: 'transaction_id',
             sort: 'desc',
         },
     });
