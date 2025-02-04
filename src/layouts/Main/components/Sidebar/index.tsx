@@ -1,5 +1,3 @@
-import { useMediaQuery } from 'react-responsive';
-
 import Box from '@mui/material/Box';
 
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
@@ -11,10 +9,11 @@ import EndIcon from './components/EndIcon';
 import ExpandIcon from './components/ExpandIcon';
 import MenuItem from './components/MenuItem';
 
+import useSidebar from './hooks';
 import { containerStyle, treeViewStyle } from './styles';
 
 const Sidebar = () => {
-    const isMobile = useMediaQuery({ maxWidth: 1024 });
+    const { isMobile, getActivePath } = useSidebar();
 
     if (isMobile) {
         return false;
@@ -30,6 +29,7 @@ const Sidebar = () => {
                     endIcon: EndIcon,
                 }}
                 sx={treeViewStyle}
+                selectedItems={getActivePath()}
             >
                 {tree.map((item) => {
                     return <MenuItem key={item.id} tree={item} />;
