@@ -13,6 +13,7 @@ export const containerStyle: CSSProperties = {
 
 export const cardStyle: CSSProperties = {
     padding: '20px',
+    width: '450px',
 };
 
 export const fieldContainerStyle: CSSProperties = {

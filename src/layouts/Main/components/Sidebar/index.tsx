@@ -1,3 +1,5 @@
+import { useMediaQuery } from 'react-responsive';
+
 import Box from '@mui/material/Box';
 
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
@@ -12,6 +14,12 @@ import MenuItem from './components/MenuItem';
 import { containerStyle, treeViewStyle } from './styles';
 
 const Sidebar = () => {
+    const isMobile = useMediaQuery({ maxWidth: 1024 });
+
+    if (isMobile) {
+        return false;
+    }
+
     return (
         <Box sx={containerStyle} className="sidebar">
             <SimpleTreeView

@@ -1,3 +1,5 @@
+import { useMediaQuery } from 'react-responsive';
+
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -16,6 +18,12 @@ import { containerStyle, subContainerStyle } from './styles';
 
 export default function SimpleBottomNavigation() {
     const { navigate, getActivePath } = useSimpleBottomNavigation();
+
+    const isMobile = useMediaQuery({ maxWidth: 1024 });
+
+    if (!isMobile) {
+        return false;
+    }
 
     return (
         <Box sx={containerStyle} className="SimpleBottomNavigation">
