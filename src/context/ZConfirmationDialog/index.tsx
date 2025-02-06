@@ -1,10 +1,4 @@
-import {
-    createContext,
-    forwardRef,
-    ReactElement,
-    Ref,
-    useState,
-} from 'react';
+import { createContext, useState } from 'react';
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -12,21 +6,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
 
 import { ZConfirmationDialogPropsType } from '@/types';
 
 import { PropsType, ZConfirmationDialogContextType } from './types';
-
-const Transition = forwardRef(function Transition(
-    props: TransitionProps & {
-        children: ReactElement<any, any>;
-    },
-    ref: Ref<unknown>
-) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const defaultPropsValue: ZConfirmationDialogPropsType = {
     cancelButton: '',
@@ -63,7 +46,6 @@ const ZConfirmationDialog = (props: PropsType) => {
                 keepMounted
                 onClose={handleClose}
                 open={dialogProps.open}
-                TransitionComponent={Transition}
             >
                 <DialogTitle>{dialogProps.title}</DialogTitle>
                 <DialogContent>
