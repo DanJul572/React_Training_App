@@ -19,9 +19,9 @@ import { containerStyle, subContainerStyle } from './styles';
 export default function SimpleBottomNavigation() {
     const { navigate, getActivePath } = useSimpleBottomNavigation();
 
-    const isMobile = useMediaQuery({ maxWidth: 1024 });
+    const isMobileOrTab = useMediaQuery({ maxWidth: 1024 });
 
-    if (!isMobile) {
+    if (!isMobileOrTab) {
         return false;
     }
 

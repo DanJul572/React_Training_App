@@ -13,6 +13,11 @@ export const containerStyle: CSSProperties = {
 
 export const cardStyle: CSSProperties = {
     padding: '20px',
+    width: '100%',
+};
+
+export const cardDekstopStyle: CSSProperties = {
+    padding: '20px',
     width: '450px',
 };
 

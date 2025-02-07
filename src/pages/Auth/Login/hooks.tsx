@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { AxiosError } from 'axios';
+import { useMediaQuery } from 'react-responsive';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import request from '@/helpers/request';
@@ -12,6 +13,7 @@ import { LoginFormType, LoginResponseType } from './types';
 
 const useLogin = () => {
     const { setOpenLoader } = useContext(ZLoaderContext);
+    const isMobile = useMediaQuery({ maxWidth: 480 });
 
     const [alert, setAlert] = useState<AlertPropsType>({
         type: 'error',
@@ -56,6 +58,7 @@ const useLogin = () => {
         alert,
         control,
         handleSubmit,
+        isMobile,
         onSubmit,
         reset,
     };

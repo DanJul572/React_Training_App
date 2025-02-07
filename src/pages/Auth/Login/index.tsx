@@ -12,6 +12,7 @@ import logo from '/logo.svg';
 
 import useLogin from './hooks';
 import {
+    cardDekstopStyle,
     cardStyle,
     containerStyle,
     fieldContainerStyle,
@@ -21,7 +22,8 @@ import {
 const appName = import.meta.env.VITE_APP_NAME;
 
 const Login = () => {
-    const { handleSubmit, onSubmit, control, alert } = useLogin();
+    const { handleSubmit, onSubmit, control, alert, isMobile } =
+        useLogin();
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -30,7 +32,11 @@ const Login = () => {
                     <img src={logo} height="25px" />
                     <Typography variant="h6">{appName}</Typography>
                 </Box>
-                <Card sx={cardStyle} variant="outlined" className="login">
+                <Card
+                    sx={isMobile ? cardStyle : cardDekstopStyle}
+                    variant="outlined"
+                    className="login"
+                >
                     {alert.open && (
                         <Alert severity={alert.type}>
                             {alert.message}

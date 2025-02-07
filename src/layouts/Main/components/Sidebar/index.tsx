@@ -13,9 +13,9 @@ import useSidebar from './hooks';
 import { containerStyle, treeViewStyle } from './styles';
 
 const Sidebar = () => {
-    const { isMobile, getActivePath } = useSidebar();
+    const { isMobileOrTab, getActivePath } = useSidebar();
 
-    if (isMobile) {
+    if (isMobileOrTab) {
         return false;
     }
 

@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 const useSidebar = () => {
-    const isMobile = useMediaQuery({ maxWidth: 1024 });
+    const isMobileOrTab = useMediaQuery({ maxWidth: 1024 });
     const location = useLocation();
     const firstPath = location.pathname.split('/').filter(Boolean)[0];
 
@@ -19,7 +19,7 @@ const useSidebar = () => {
     };
 
     return {
-        isMobile,
+        isMobileOrTab,
         getActivePath,
     };
 };
