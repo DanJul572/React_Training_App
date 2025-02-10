@@ -39,10 +39,19 @@ describe('ZAutoComplete', () => {
 
         const arrowButton = screen.getByTestId('ArrowDropDownIcon');
         fireEvent.click(arrowButton);
-        const firstOption = screen.getByText(/Joe/i);
+
+        const firstOption = screen.getByText('Joe');
         expect(firstOption).toBeInTheDocument();
 
         fireEvent.click(firstOption);
         expect(handleChange).toBeCalled();
+    });
+
+    it('render component with value', async () => {
+        props.value = '1';
+        render(<ZAutoComplete {...props} />);
+
+        const input = screen.getByTestId('zautocomplete');
+        expect(input).toBeInTheDocument();
     });
 });
