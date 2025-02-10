@@ -20,6 +20,12 @@ const ZTableDemo = () => {
         <ZTable
             columns={columns}
             count={rows.length}
+            enableAddButton={true}
+            enableCheckboxSelection={true}
+            enableDeleteButton={true}
+            enableDetailButton={true}
+            enableEditButton={true}
+            enableFilterButton={true}
             id="id"
             listTitleFormat="firstName"
             onAdd={onAdd}

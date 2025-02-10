@@ -6,12 +6,17 @@ import {
     screen,
     waitFor,
 } from '@testing-library/react';
-
-import Main from '@/layouts/Main';
 import { useNavigate } from 'react-router-dom';
 
+import translator from '@/helpers/translator';
+
+import Main from '@/layouts/Main';
+
 vitest.mock('react-router-dom', () => ({
-    useNavigate: vitest.fn(() => vitest.fn()), // Adjust based on your mock setup
+    useNavigate: vitest.fn(() => vitest.fn()),
+    useLocation: vitest.fn(() => ({
+        pathname: '/dashboard',
+    })),
 }));
 
 describe('Main Layout', () => {
@@ -63,11 +68,14 @@ describe('Main Layout', () => {
         });
 
         await act(async () => {
-            fireEvent.click(screen.getByTestId('FadeItemMyAccount'));
+            fireEvent.click(screen.getByTestId('FadeItemLogout'));
         });
 
+        const loaderElement = screen.getByText(
+            `${translator('loading')}...`
+        );
         await waitFor(() => {
-            expect(fadeMenu).not.toBeInTheDocument();
+            expect(loaderElement).toBeInTheDocument();
         });
     });
 
