@@ -8,8 +8,10 @@ import {
 
 import request from '@/helpers/request';
 import showErrorAlert from '@/helpers/showErrorAlert';
+import translator from '@/helpers/translator';
 
 import { ZAlertContext } from '@/context/ZAlert';
+import { ZConfirmationDialogContext } from '@/context/ZConfirmationDialog';
 import { ZLoaderContext } from '@/context/ZLoader';
 
 import {
@@ -26,8 +28,6 @@ import {
     TablePropertyType,
     TransactionType,
 } from './types';
-import translator from '@/helpers/translator';
-import { ZConfirmationDialogContext } from '@/context/ZConfirmationDialog';
 
 const defaultDialogProps: ZConfirmationDialogPropsType = {
     cancelButton: translator('cancel'),
@@ -124,8 +124,6 @@ const useTransactionList = () => {
         }));
     };
 
-    const onSelect = (): void => {};
-
     const onSort = (model: GridSortModel): void => {
         if (model.length && model[0].sort && model[0].field) {
             const field = model[0].field;
@@ -165,7 +163,6 @@ const useTransactionList = () => {
         displayData,
         onChangePage,
         onFilter,
-        onSelect,
         onSort,
         openDialog,
     };
