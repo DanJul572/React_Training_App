@@ -15,6 +15,10 @@ const columns: GridColDef[] = [
         headerName: translator('type'),
     },
     {
+        field: 'product_size',
+        headerName: translator('size'),
+    },
+    {
         field: 'transaction_type_name',
         headerName: translator('transaction_type'),
     },
