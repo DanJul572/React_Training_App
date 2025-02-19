@@ -1,7 +1,8 @@
 import ZTable from '@/components/ZTable';
 
-import columns from './dummies/columns';
+import columns from './constants/columns';
 import rows from './dummies/rows';
+
 import useZTableDemo from './hooks';
 
 const ZTableDemo = () => {

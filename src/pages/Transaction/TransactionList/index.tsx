@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import translator from '@/helpers/translator';
 import isAdmin from '@/helpers/isAdmin';
 
-import columns from './dummies/columns';
+import columns from './constants/columns';
 import useTransactionList from './hooks';
 import { titleStyle } from './styles';
 
