@@ -9,7 +9,6 @@ import {
 
 import request from '@/helpers/request';
 import showErrorAlert from '@/helpers/showErrorAlert';
-import translator from '@/helpers/translator';
 
 import { ZAlertContext } from '@/context/ZAlert';
 import { ZConfirmationDialogContext } from '@/context/ZConfirmationDialog';
@@ -20,8 +19,9 @@ import {
     PaginatedResponseType,
     ProductType,
     SortType,
-    ZConfirmationDialogPropsType,
 } from '@/types';
+
+import deleteDialogProps from '@/constant/deteDialogProps';
 
 import {
     DisplayDataType,
@@ -29,15 +29,6 @@ import {
     OnLoadType,
     TablePropertyType,
 } from './types';
-
-const defaultDialogProps: ZConfirmationDialogPropsType = {
-    cancelButton: translator('cancel'),
-    confirmButton: translator('delete'),
-    content: translator('delete_dialog_content'),
-    onConfirm: () => {},
-    open: false,
-    title: translator('delete_dialog_title'),
-};
 
 const ProductList = () => {
     const navigate = useNavigate();
@@ -70,7 +61,7 @@ const ProductList = () => {
     };
 
     const openDialog = (id: number): void => {
-        const newProps = { ...defaultDialogProps };
+        const newProps = { ...deleteDialogProps };
         newProps.open = true;
         newProps.onConfirm = () => {
             onDelete(id);
