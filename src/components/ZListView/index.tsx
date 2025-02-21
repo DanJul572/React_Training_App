@@ -24,7 +24,7 @@ const ZListView = (props: PropsType) => {
     const { expanded, toggleExpand } = useZListView();
 
     return (
-        <Box sx={containerStyle}>
+        <Box sx={containerStyle} data-testid="zlistview">
             <Toolbar
                 enableAddButton={props.enableAddButton}
                 enableFilterButton={props.enableFilterButton}
