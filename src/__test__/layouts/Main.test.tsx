@@ -86,7 +86,7 @@ describe('Main Layout', () => {
             </Main>
         );
 
-        const dashboardItem = screen.getByText(/dashboard/i);
+        const dashboardItem = screen.getByText(translator('dashboard'));
         expect(dashboardItem).toBeInTheDocument();
 
         await act(async () => {
