@@ -1,14 +1,18 @@
+import { OptionType } from '@/types';
 import {
     Control,
+    ControllerRenderProps,
     UseFormResetField,
     UseFormSetValue,
 } from 'react-hook-form';
 
 export type ProductFormType = {
-    description: string | null;
+    category_id: string | null;
     image: string | ArrayBuffer | null;
     imageDisplay: File | null;
     name: string;
+    price_1: number;
+    price_2: number;
     size: string;
     stock: number;
     surface: string;
@@ -21,6 +25,16 @@ export type RenderFieldType = {
     setValue: UseFormSetValue<ProductFormType>;
 };
 
+export type RenderCategoryFieldType = RenderFieldType & {
+    categoryOptions: OptionType[];
+    handleChangeCategory: handleChangeCategoryType;
+};
+
 export type ParamType = {
     id?: number;
 };
+
+export type handleChangeCategoryType = (
+    field: ControllerRenderProps<ProductFormType, 'category_id'>,
+    value: string | null | undefined
+) => void;

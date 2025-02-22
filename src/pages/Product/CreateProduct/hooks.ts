@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -10,7 +10,13 @@ import translator from '@/helpers/translator';
 import { ZLoaderContext } from '@/context/ZLoader';
 import { ZAlertContext } from '@/context/ZAlert';
 
-import { ParamType, ProductFormType } from './types';
+import { OptionType } from '@/types';
+
+import {
+    handleChangeCategoryType,
+    ParamType,
+    ProductFormType,
+} from './types';
 
 const useCreateProduct = () => {
     const params: ParamType = useParams();
@@ -19,17 +25,31 @@ const useCreateProduct = () => {
     const { setAlertProps } = useContext(ZAlertContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
+    const [categoryOptions, setCategoryOptions] = useState<OptionType[]>(
+        []
+    );
+
     const { control, handleSubmit, resetField, reset, setValue } =
         useForm<ProductFormType>({
             defaultValues: {
+                category_id: null,
                 imageDisplay: null,
                 name: '',
+                price_1: 0,
+                price_2: 0,
                 size: '',
                 stock: 0,
                 surface: '',
                 type: '',
             },
         });
+
+    const handleChangeCategory: handleChangeCategoryType = (
+        field,
+        value
+    ) => {
+        field.onChange(value);
+    };
 
     const formatPayloads = (data: ProductFormType) => {
         if (data.stock || data.stock === 0) {
@@ -55,6 +75,27 @@ const useCreateProduct = () => {
             message: message,
             type: 'success',
         });
+    };
+
+    const getAllCategories = () => {
+        setOpenLoader(true);
+        request
+            .get<OptionType[]>('/categories/options')
+            .then((response) => {
+                const options: OptionType[] = response.map((item) => {
+                    return {
+                        label: item.label.toString(),
+                        value: item.value.toString(),
+                    };
+                });
+                setCategoryOptions(options);
+            })
+            .catch((error: AxiosError) => {
+                showErrorAlert(error, setAlertProps);
+            })
+            .finally(() => {
+                setOpenLoader(false);
+            });
     };
 
     const insertProduct = (data: ProductFormType) => {
@@ -140,8 +181,14 @@ const useCreateProduct = () => {
         }
     }, [params]);
 
+    useEffect(() => {
+        getAllCategories();
+    }, []);
+
     return {
+        categoryOptions,
         control,
+        handleChangeCategory,
         handleSubmit,
         onBack,
         onClear,

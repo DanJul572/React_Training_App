@@ -44,7 +44,7 @@ const ProductList = () => {
         page: 1,
         quickFilter: null,
         sort: {
-            field: 'name',
+            field: 'product_name',
             sort: 'asc',
         },
     });

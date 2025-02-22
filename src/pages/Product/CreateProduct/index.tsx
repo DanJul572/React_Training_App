@@ -4,8 +4,11 @@ import Typography from '@mui/material/Typography';
 import translator from '@/helpers/translator';
 
 import ActionButton from './components/ActionButton';
+import CategoryField from './components/CategoryField';
 import ImageField from './components/ImageField';
 import NameField from './components/NameField';
+import Price1 from './components/Price_1';
+import Price2 from './components/Price_2';
 import SizeField from './components/SizeField';
 import StockField from './components/StockField';
 import SurfaceField from './components/Surface';
@@ -16,7 +19,9 @@ import useCreateProduct from './hooks';
 
 const CreateProduct = () => {
     const {
+        categoryOptions,
         control,
+        handleChangeCategory,
         handleSubmit,
         onBack,
         onClear,
@@ -43,6 +48,13 @@ const CreateProduct = () => {
                     <SizeField {...labelProps} />
                     <SurfaceField {...labelProps} />
                     <StockField {...labelProps} />
+                    <Price1 {...labelProps} />
+                    <Price2 {...labelProps} />
+                    <CategoryField
+                        {...labelProps}
+                        categoryOptions={categoryOptions}
+                        handleChangeCategory={handleChangeCategory}
+                    />
                     <ImageField {...labelProps} />
                 </Box>
                 <ActionButton onBack={onBack} onClear={onClear} />

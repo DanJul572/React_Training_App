@@ -15,7 +15,7 @@ const ZAutoComplete = (props: PropsType) => {
 
     useEffect(() => {
         const newValue = props.options.find(
-            (item) => item.value === props.value
+            (item) => item.value.toString() === props.value?.toString()
         );
         if (newValue) {
             setValue(newValue);
