@@ -14,7 +14,7 @@ const Price1 = (props: RenderFieldType) => {
                 <TextField
                     {...field}
                     type="number"
-                    label={translator('price_1')}
+                    label={`${translator('price')} 1`}
                 />
             )}
         />

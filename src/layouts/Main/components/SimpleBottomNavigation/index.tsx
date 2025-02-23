@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 
+import Category from '@mui/icons-material/Category';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Inventory2 from '@mui/icons-material/Inventory2';
 import Person from '@mui/icons-material/Person';
@@ -42,6 +43,13 @@ export default function SimpleBottomNavigation() {
                     label={translator('product')}
                     icon={<Inventory2 />}
                 />
+                {isAdmin && (
+                    <BottomNavigationAction
+                        onClick={() => navigate('/category')}
+                        label={translator('category')}
+                        icon={<Category />}
+                    />
+                )}
                 {isAdmin && (
                     <BottomNavigationAction
                         onClick={() => navigate('/transaction')}

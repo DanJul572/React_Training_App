@@ -11,10 +11,12 @@ const useSidebar = () => {
             return '1';
         } else if (firstPath === 'product') {
             return '2';
-        } else if (firstPath === 'transaction') {
+        } else if (firstPath === 'category') {
             return '3';
-        } else {
+        } else if (firstPath === 'transaction') {
             return '4';
+        } else {
+            return '5';
         }
     };
 

@@ -63,13 +63,23 @@ export type UserType = {
 };
 
 export type ProductType = {
+    category_id: number;
+    created_at: string;
     id: number;
     image: string | null;
     name: string;
+    price_1: number;
+    price_2: number;
     size: string;
     stock: number;
     surface: string;
     type: string;
+    updated_at: string;
+};
+
+export type CategoryType = {
+    id: number;
+    name: string;
     created_at: string;
     updated_at: string;
 };

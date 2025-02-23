@@ -21,10 +21,13 @@ const useProductDetail = () => {
     const { setAlertProps } = useContext(ZAlertContext);
 
     const [product, setProduct] = useState<ProductType>({
+        category_id: 0,
         created_at: '',
         id: 0,
         image: null,
         name: '',
+        price_1: 0,
+        price_2: 0,
         size: '',
         stock: 0,
         surface: '',

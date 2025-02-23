@@ -6,6 +6,8 @@ import Main from './layouts/Main';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Auth/Login';
 
+import CategoryList from './pages/Category/CategoryList';
+import CreateCategory from './pages/Category/CreateCategory';
 import CreateProduct from './pages/Product/CreateProduct';
 import CreateUser from './pages/User/CreateUser';
 import ProductDetail from './pages/Product/ProductDetail';
@@ -114,6 +116,36 @@ const router = createBrowserRouter([
             <ProtectedRoute>
                 <Main>
                     <CreateUser />
+                </Main>
+            </ProtectedRoute>
+        ),
+    },
+    {
+        path: '/category',
+        element: (
+            <ProtectedRoute>
+                <Main>
+                    <CategoryList />
+                </Main>
+            </ProtectedRoute>
+        ),
+    },
+    {
+        path: '/category/create',
+        element: (
+            <ProtectedRoute>
+                <Main>
+                    <CreateCategory />
+                </Main>
+            </ProtectedRoute>
+        ),
+    },
+    {
+        path: '/category/create/:id',
+        element: (
+            <ProtectedRoute>
+                <Main>
+                    <CreateCategory />
                 </Main>
             </ProtectedRoute>
         ),

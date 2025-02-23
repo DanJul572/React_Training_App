@@ -106,7 +106,7 @@ const useCreateProduct = () => {
                 formatedData
             )
             .then(() => {
-                showSuccessAlert(translator('product_is_created'));
+                showSuccessAlert(translator('data_is_created'));
                 reset();
             })
             .catch((error: AxiosError) => {
@@ -124,7 +124,7 @@ const useCreateProduct = () => {
         request
             .put<ProductFormType>(`/products/${params.id}`, formatedData)
             .then((response) => {
-                showSuccessAlert(translator('product_is_updated'));
+                showSuccessAlert(translator('data_is_updated'));
                 reset(response);
             })
             .catch((error: AxiosError) => {

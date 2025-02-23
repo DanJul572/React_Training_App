@@ -74,7 +74,7 @@ const useCreateTransaction = () => {
             )
             .finally(() => {
                 setAlertProps({
-                    message: translator('transaction_is_created'),
+                    message: translator('data_is_created'),
                     open: true,
                     type: 'success',
                 });

@@ -19,11 +19,16 @@ const tree: MenuType[] = [
 if (isAdmin) {
     tree.push({
         id: '3',
+        label: translator('category'),
+        url: '/category',
+    });
+    tree.push({
+        id: '4',
         label: translator('transaction'),
         url: '/transaction',
     });
     tree.push({
-        id: '4',
+        id: '5',
         label: translator('user'),
         url: '/user',
     });

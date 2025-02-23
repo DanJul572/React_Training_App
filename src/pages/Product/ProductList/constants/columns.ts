@@ -20,11 +20,11 @@ const columns: GridColDef[] = [
     },
     {
         field: 'price_1',
-        headerName: translator('price_1'),
+        headerName: `${translator('price')} 1`,
     },
     {
         field: 'price_2',
-        headerName: translator('price_2'),
+        headerName: `${translator('price')} 2`,
     },
     {
         field: 'category_name',

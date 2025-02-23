@@ -10,9 +10,9 @@ import translator from '@/helpers/translator';
 import { ZLoaderContext } from '@/context/ZLoader';
 import { ZAlertContext } from '@/context/ZAlert';
 
-import { ParamType, UserFormType } from './types';
+import { ParamType, CategoryFormType } from './types';
 
-const useCreateUser = () => {
+const useCreateCategory = () => {
     const params: ParamType = useParams();
     const navigate = useNavigate();
 
@@ -20,12 +20,9 @@ const useCreateUser = () => {
     const { setOpenLoader } = useContext(ZLoaderContext);
 
     const { control, handleSubmit, resetField, reset, setValue } =
-        useForm<UserFormType>({
+        useForm<CategoryFormType>({
             defaultValues: {
                 name: '',
-                role_id: '',
-                email: '',
-                password: '',
             },
         });
 
@@ -45,9 +42,9 @@ const useCreateUser = () => {
         });
     };
 
-    const insertUser = (data: UserFormType) => {
+    const insertCategory = (data: CategoryFormType) => {
         request
-            .post<UserFormType, UserFormType>('/users', data)
+            .post<CategoryFormType, CategoryFormType>('/categories', data)
             .then(() => {
                 showSuccessAlert(translator('data_is_created'));
                 reset();
@@ -62,9 +59,9 @@ const useCreateUser = () => {
             });
     };
 
-    const updateUser = (data: UserFormType) => {
+    const updateCategory = (data: CategoryFormType) => {
         request
-            .put<UserFormType>(`/users/${params.id}`, data)
+            .put<CategoryFormType>(`/categories/${params.id}`, data)
             .then((response) => {
                 showSuccessAlert(translator('data_is_updated'));
                 reset(response);
@@ -79,11 +76,11 @@ const useCreateUser = () => {
             });
     };
 
-    const getUser = () => {
+    const getCategory = () => {
         setOpenLoader(true);
-        const userId = params.id;
+        const categoryId = params.id;
         request
-            .get<UserFormType>(`/users/${userId}`)
+            .get<CategoryFormType>(`/categories/${categoryId}`)
             .then((response) => {
                 reset(response);
             })
@@ -97,13 +94,13 @@ const useCreateUser = () => {
             });
     };
 
-    const onSubmit: SubmitHandler<UserFormType> = (data) => {
+    const onSubmit: SubmitHandler<CategoryFormType> = (data) => {
         clearAlert();
         setOpenLoader(true);
         if (params.id) {
-            updateUser(data);
+            updateCategory(data);
         } else {
-            insertUser(data);
+            insertCategory(data);
         }
     };
 
@@ -112,12 +109,12 @@ const useCreateUser = () => {
     };
 
     const onBack = () => {
-        navigate('/user');
+        navigate('/category');
     };
 
     useEffect(() => {
         if (params.id) {
-            getUser();
+            getCategory();
         }
     }, [params]);
 
@@ -132,4 +129,4 @@ const useCreateUser = () => {
     };
 };
 
-export default useCreateUser;
+export default useCreateCategory;
