@@ -19,12 +19,11 @@ const useCreateCategory = () => {
     const { setAlertProps } = useContext(ZAlertContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
-    const { control, handleSubmit, resetField, reset, setValue } =
-        useForm<CategoryFormType>({
-            defaultValues: {
-                name: '',
-            },
-        });
+    const { control, handleSubmit, reset } = useForm<CategoryFormType>({
+        defaultValues: {
+            name: '',
+        },
+    });
 
     const clearAlert = () => {
         setAlertProps({
@@ -124,8 +123,6 @@ const useCreateCategory = () => {
         onBack,
         onClear,
         onSubmit,
-        resetField,
-        setValue,
     };
 };
 

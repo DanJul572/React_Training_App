@@ -10,21 +10,8 @@ import { formStyle } from './styles';
 import useCreateCategory from './hooks';
 
 const CreateCategory = () => {
-    const {
-        control,
-        handleSubmit,
-        onBack,
-        onClear,
-        onSubmit,
-        resetField,
-        setValue,
-    } = useCreateCategory();
-
-    const labelProps = {
-        control,
-        resetField,
-        setValue,
-    };
+    const { control, handleSubmit, onBack, onClear, onSubmit } =
+        useCreateCategory();
 
     return (
         <Box>
@@ -33,7 +20,7 @@ const CreateCategory = () => {
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Box sx={formStyle}>
-                    <NameField {...labelProps} />
+                    <NameField control={control} />
                 </Box>
                 <ActionButton onBack={onBack} onClear={onClear} />
             </form>

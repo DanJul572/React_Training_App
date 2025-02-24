@@ -1,8 +1,4 @@
-import {
-    Control,
-    UseFormResetField,
-    UseFormSetValue,
-} from 'react-hook-form';
+import { Control } from 'react-hook-form';
 
 export type CategoryFormType = {
     name: string;
@@ -10,8 +6,6 @@ export type CategoryFormType = {
 
 export type RenderFieldType = {
     control: Control<CategoryFormType, any>;
-    resetField: UseFormResetField<CategoryFormType>;
-    setValue: UseFormSetValue<CategoryFormType>;
 };
 
 export type ParamType = {
