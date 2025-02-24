@@ -17,7 +17,13 @@ const useCreateTransaction = () => {
     const { setAlertProps } = useContext(ZAlertContext);
     const { setOpenLoader } = useContext(ZLoaderContext);
 
+    const [categoryFilterValue, setCategoryFilterValue] = useState<
+        string | undefined
+    >();
     const [productOptions, setproductOptions] = useState<OptionType[]>([]);
+    const [categoryOptions, setCategoryOptions] = useState<OptionType[]>(
+        []
+    );
     const transacttionTypeOptions: OptionType[] = [
         {
             label: translator('in'),
@@ -44,10 +50,37 @@ const useCreateTransaction = () => {
         field.onChange(value);
     };
 
+    const handleChangeCategoryFilter = (value: OptionType | null) => {
+        setCategoryFilterValue(value?.value);
+    };
+
+    const getAllCategories = () => {
+        setOpenLoader(true);
+        request
+            .get<OptionType[]>('/categories/options')
+            .then((response) => {
+                const options: OptionType[] = response.map((item) => {
+                    return {
+                        label: item.label.toString(),
+                        value: item.value.toString(),
+                    };
+                });
+                setCategoryOptions(options);
+            })
+            .catch((error: AxiosError) => {
+                showErrorAlert(error, setAlertProps);
+            })
+            .finally(() => {
+                setOpenLoader(false);
+            });
+    };
+
     const getAllProducts = () => {
         setOpenLoader(true);
         request
-            .get<OptionType[]>('/products/options')
+            .get<OptionType[]>(
+                `/products/options?categoryFilter=${categoryFilterValue}`
+            )
             .then((response) => {
                 const options: OptionType[] = response.map((item) => {
                     return {
@@ -89,11 +122,20 @@ const useCreateTransaction = () => {
     };
 
     useEffect(() => {
-        getAllProducts();
+        getAllCategories();
     }, []);
 
+    useEffect(() => {
+        if (categoryFilterValue) {
+            getAllProducts();
+        }
+    }, [categoryFilterValue]);
+
     return {
+        categoryFilterValue,
+        categoryOptions,
         control,
+        handleChangeCategoryFilter,
         handleChangeProduct,
         handleSubmit,
         onSubmit,

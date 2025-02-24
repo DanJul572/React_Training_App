@@ -15,7 +15,10 @@ import { buttonContainerStyle, fieldContainerStyle } from './styles';
 
 const CreateTransaction = () => {
     const {
+        categoryFilterValue,
+        categoryOptions,
         control,
+        handleChangeCategoryFilter,
         handleChangeProduct,
         handleSubmit,
         onSubmit,
@@ -40,6 +43,15 @@ const CreateTransaction = () => {
                             options={transacttionTypeOptions}
                         />
                     )}
+                />
+                <ZAutoComplete
+                    name="category"
+                    label={translator('category')}
+                    options={categoryOptions}
+                    value={categoryFilterValue}
+                    onChange={(_event, value) => {
+                        handleChangeCategoryFilter(value);
+                    }}
                 />
                 <Controller
                     name="product_id"
