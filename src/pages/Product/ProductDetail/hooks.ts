@@ -8,9 +8,7 @@ import { ZAlertContext } from '@/context/ZAlert';
 import request from '@/helpers/request';
 import showErrorAlert from '@/helpers/showErrorAlert';
 
-import { ProductType } from '@/types';
-
-import { ParamsType } from './types';
+import { ParamsType, ProductDetailResponseType } from './types';
 
 const useProductDetail = () => {
     const params: ParamsType = useParams();
@@ -20,25 +18,13 @@ const useProductDetail = () => {
     const { setOpenLoader } = useContext(ZLoaderContext);
     const { setAlertProps } = useContext(ZAlertContext);
 
-    const [product, setProduct] = useState<ProductType>({
-        category_id: 0,
-        created_at: '',
-        id: 0,
-        image: null,
-        name: '',
-        price_1: 0,
-        price_2: 0,
-        size: '',
-        stock: 0,
-        surface: '',
-        type: '',
-        updated_at: '',
-    });
+    const [product, setProduct] =
+        useState<ProductDetailResponseType | null>(null);
 
     const getProduct = () => {
         setOpenLoader(true);
         request
-            .get<ProductType>(`/products/${params.id}`)
+            .get<ProductDetailResponseType>(`/products/${params.id}`)
             .then((response) => {
                 setProduct(response);
             })

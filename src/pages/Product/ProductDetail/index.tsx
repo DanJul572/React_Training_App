@@ -20,6 +20,10 @@ import {
 const ProductProduct = () => {
     const { product, getProduct, onBack } = useProductDetail();
 
+    if (!product) {
+        return false;
+    }
+
     return (
         <Card variant="outlined">
             <CardContent>
@@ -57,7 +61,7 @@ const ProductProduct = () => {
                                 {product.size}
                             </Typography>
                             <Typography variant="caption">
-                                {product.category_id}
+                                {product.category.name}
                             </Typography>
                         </Box>
                         <Box sx={captionContainerStyle}>
