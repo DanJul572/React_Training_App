@@ -2,6 +2,11 @@ import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
 const url = import.meta.env.VITE_API_URL;
 
+const clearStorage = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role_id');
+};
+
 const getConfig = (): AxiosRequestConfig => {
     const token = localStorage.getItem('token');
     const config: AxiosRequestConfig = {};
@@ -17,10 +22,8 @@ const get = async <T>(endpoint: string): Promise<T> => {
     const response = await axios
         .get<T>(url + endpoint, getConfig())
         .catch((error: AxiosError) => {
-            console.log(error);
             if (error.code && error.status === 401) {
-                localStorage.removeItem('token');
-                localStorage.removeItem('role_id');
+                clearStorage();
             }
             throw error;
         });
@@ -35,8 +38,7 @@ const post = async <TResponse, TBody>(
         .post<TResponse>(url + endpoint, body, getConfig())
         .catch((error: AxiosError) => {
             if (error.code && error.status === 401) {
-                localStorage.removeItem('token');
-                localStorage.removeItem('role_id');
+                clearStorage();
             }
             throw error;
         });
@@ -47,10 +49,8 @@ const remove = async <T>(endpoint: string): Promise<T> => {
     const response = await axios
         .delete<T>(url + endpoint, getConfig())
         .catch((error: AxiosError) => {
-            console.log(error);
             if (error.code && error.status === 401) {
-                localStorage.removeItem('token');
-                localStorage.removeItem('role_id');
+                clearStorage();
             }
             throw error;
         });
@@ -61,7 +61,6 @@ const put = async <T>(endpoint: string, body: T): Promise<T> => {
     const response = await axios
         .put<T>(url + endpoint, body, getConfig())
         .catch((error: AxiosError) => {
-            console.log(error);
             if (error.code && error.status === 401) {
                 localStorage.removeItem('token');
                 localStorage.removeItem('role_id');
