@@ -22,7 +22,7 @@ const get = async <T>(endpoint: string): Promise<T> => {
   const response = await axios
     .get<T>(url + endpoint, getConfig())
     .catch((error: AxiosError) => {
-      if (error.code && error.status === 401) {
+      if (error.status === 401) {
         clearStorage();
       }
       throw error;
@@ -37,7 +37,7 @@ const post = async <TResponse, TBody>(
   const response = await axios
     .post<TResponse>(url + endpoint, body, getConfig())
     .catch((error: AxiosError) => {
-      if (error.code && error.status === 401) {
+      if (error.status === 401) {
         clearStorage();
       }
       throw error;
@@ -49,7 +49,7 @@ const remove = async <T>(endpoint: string): Promise<T> => {
   const response = await axios
     .delete<T>(url + endpoint, getConfig())
     .catch((error: AxiosError) => {
-      if (error.code && error.status === 401) {
+      if (error.status === 401) {
         clearStorage();
       }
       throw error;
@@ -61,7 +61,7 @@ const put = async <T>(endpoint: string, body: T): Promise<T> => {
   const response = await axios
     .put<T>(url + endpoint, body, getConfig())
     .catch((error: AxiosError) => {
-      if (error.code && error.status === 401) {
+      if (error.status === 401) {
         localStorage.removeItem('token');
         localStorage.removeItem('role_id');
       }
