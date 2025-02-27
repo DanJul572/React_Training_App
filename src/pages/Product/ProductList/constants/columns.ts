@@ -1,5 +1,7 @@
-import translator from '@/helpers/translator';
 import { GridColDef } from '@mui/x-data-grid/models/colDef';
+
+import isAdmin from '@/helpers/isAdmin';
+import translator from '@/helpers/translator';
 
 const columns: GridColDef[] = [
     {
@@ -19,17 +21,22 @@ const columns: GridColDef[] = [
         headerName: translator('stock'),
     },
     {
-        field: 'price_1',
-        headerName: `${translator('price')} 1`,
-    },
-    {
-        field: 'price_2',
-        headerName: `${translator('price')} 2`,
-    },
-    {
         field: 'category_name',
         headerName: translator('category'),
     },
 ];
+
+if (isAdmin) {
+    columns.push(
+        {
+            field: 'price_1',
+            headerName: `${translator('price')} 1`,
+        },
+        {
+            field: 'price_2',
+            headerName: `${translator('price')} 2`,
+        }
+    );
+}
 
 export default columns;

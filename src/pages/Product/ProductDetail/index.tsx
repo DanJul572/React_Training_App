@@ -16,6 +16,7 @@ import {
     noImageStyle,
     sizeContainerStyle,
 } from './styles';
+import isAdmin from '@/helpers/isAdmin';
 
 const ProductProduct = () => {
     const { product, getProduct, onBack } = useProductDetail();
@@ -64,16 +65,18 @@ const ProductProduct = () => {
                                 {product.category.name}
                             </Typography>
                         </Box>
-                        <Box sx={captionContainerStyle}>
-                            <Typography variant="caption">
-                                {`${translator('price')} 1 : `}
-                                {product.price_1}
-                            </Typography>
-                            <Typography variant="caption">
-                                {`${translator('price')} 2 : `}
-                                {product.price_2}
-                            </Typography>
-                        </Box>
+                        {isAdmin && (
+                            <Box sx={captionContainerStyle}>
+                                <Typography variant="caption">
+                                    {`${translator('price')} 1 : `}
+                                    {product.price_1}
+                                </Typography>
+                                <Typography variant="caption">
+                                    {`${translator('price')} 2 : `}
+                                    {product.price_2}
+                                </Typography>
+                            </Box>
+                        )}
                         <Box sx={buttonContainerStyle}>
                             <Button onClick={getProduct} size="small">
                                 {translator('refresh')}
