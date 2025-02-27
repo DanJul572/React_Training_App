@@ -6,19 +6,19 @@ import translator from '@/helpers/translator';
 import { RenderFieldType } from '../../types';
 
 const Price2 = (props: RenderFieldType) => {
-    return (
-        <Controller
-            name="price_2"
-            control={props.control}
-            render={({ field }) => (
-                <TextField
-                    {...field}
-                    type="number"
-                    label={`${translator('price')} 2`}
-                />
-            )}
+  return (
+    <Controller
+      name="price_2"
+      control={props.control}
+      render={({ field }) => (
+        <TextField
+          {...field}
+          type="number"
+          label={`${translator('price')} 2`}
         />
-    );
+      )}
+    />
+  );
 };
 
 export default Price2;

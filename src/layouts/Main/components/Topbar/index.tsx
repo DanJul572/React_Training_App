@@ -6,12 +6,12 @@ import Logo from './components/Logo';
 import { containerStyle } from './styles';
 
 const Topbar = () => {
-    return (
-        <Box sx={containerStyle}>
-            <Logo />
-            <FadeMenu />
-        </Box>
-    );
+  return (
+    <Box sx={containerStyle}>
+      <Logo />
+      <FadeMenu />
+    </Box>
+  );
 };
 
 export default Topbar;

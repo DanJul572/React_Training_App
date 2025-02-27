@@ -11,46 +11,47 @@ import showErrorAlert from '@/helpers/showErrorAlert';
 import { ParamsType, ProductDetailResponseType } from './types';
 
 const useProductDetail = () => {
-    const params: ParamsType = useParams();
+  const params: ParamsType = useParams();
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { setOpenLoader } = useContext(ZLoaderContext);
-    const { setAlertProps } = useContext(ZAlertContext);
+  const { setOpenLoader } = useContext(ZLoaderContext);
+  const { setAlertProps } = useContext(ZAlertContext);
 
-    const [product, setProduct] =
-        useState<ProductDetailResponseType | null>(null);
+  const [product, setProduct] = useState<ProductDetailResponseType | null>(
+    null
+  );
 
-    const getProduct = () => {
-        setOpenLoader(true);
-        request
-            .get<ProductDetailResponseType>(`/products/${params.id}`)
-            .then((response) => {
-                setProduct(response);
-            })
-            .catch((error: AxiosError) => {
-                showErrorAlert(error, setAlertProps);
-            })
-            .finally(() => {
-                setOpenLoader(false);
-            });
-    };
+  const getProduct = () => {
+    setOpenLoader(true);
+    request
+      .get<ProductDetailResponseType>(`/products/${params.id}`)
+      .then((response) => {
+        setProduct(response);
+      })
+      .catch((error: AxiosError) => {
+        showErrorAlert(error, setAlertProps);
+      })
+      .finally(() => {
+        setOpenLoader(false);
+      });
+  };
 
-    const onBack = () => {
-        navigate('/product');
-    };
+  const onBack = () => {
+    navigate('/product');
+  };
 
-    useEffect(() => {
-        if (params.id) {
-            getProduct();
-        }
-    }, [params.id]);
+  useEffect(() => {
+    if (params.id) {
+      getProduct();
+    }
+  }, [params.id]);
 
-    return {
-        getProduct,
-        onBack,
-        product,
-    };
+  return {
+    getProduct,
+    onBack,
+    product,
+  };
 };
 
 export default useProductDetail;

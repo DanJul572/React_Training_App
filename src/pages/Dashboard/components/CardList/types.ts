@@ -1,4 +1,4 @@
 export type ResponseType = {
-    userCount: number;
-    productCount: number;
+  userCount: number;
+  productCount: number;
 };

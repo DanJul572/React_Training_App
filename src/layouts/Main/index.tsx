@@ -11,28 +11,28 @@ import Topbar from './components/Topbar';
 import { PropsType } from './types';
 
 import {
-    containerStyle,
-    contentStyle,
-    sidebarAndContentStyle,
+  containerStyle,
+  contentStyle,
+  sidebarAndContentStyle,
 } from './styles';
 
 const Main = (props: PropsType) => {
-    return (
-        <Box sx={containerStyle}>
-            <ZLoader>
-                <ZConfirmationDialog>
-                    <Topbar />
-                    <Box sx={sidebarAndContentStyle}>
-                        <Sidebar />
-                        <Box sx={contentStyle}>
-                            <ZAlert>{props.children}</ZAlert>
-                        </Box>
-                    </Box>
-                    <SimpleBottomNavigation />
-                </ZConfirmationDialog>
-            </ZLoader>
-        </Box>
-    );
+  return (
+    <Box sx={containerStyle}>
+      <ZLoader>
+        <ZConfirmationDialog>
+          <Topbar />
+          <Box sx={sidebarAndContentStyle}>
+            <Sidebar />
+            <Box sx={contentStyle}>
+              <ZAlert>{props.children}</ZAlert>
+            </Box>
+          </Box>
+          <SimpleBottomNavigation />
+        </ZConfirmationDialog>
+      </ZLoader>
+    </Box>
+  );
 };
 
 export default Main;

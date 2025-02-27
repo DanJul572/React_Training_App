@@ -6,15 +6,15 @@ import translator from '@/helpers/translator';
 import { RenderFieldType } from '../../types';
 
 const NameField = (props: RenderFieldType) => {
-    return (
-        <Controller
-            name="name"
-            control={props.control}
-            render={({ field }) => (
-                <TextField {...field} label={translator('name')} />
-            )}
-        />
-    );
+  return (
+    <Controller
+      name="name"
+      control={props.control}
+      render={({ field }) => (
+        <TextField {...field} label={translator('name')} />
+      )}
+    />
+  );
 };
 
 export default NameField;

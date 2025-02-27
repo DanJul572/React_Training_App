@@ -10,30 +10,30 @@ import { PropsType, ZLoaderContextType } from './types';
 import { containerStyle } from './styles';
 
 const ZLoaderContext = createContext<ZLoaderContextType>({
-    openLoader: false,
-    setOpenLoader: () => {},
+  openLoader: false,
+  setOpenLoader: () => {},
 });
 
 const ZLoader = (props: PropsType) => {
-    const [openLoader, setOpenLoader] = useState<boolean>(false);
+  const [openLoader, setOpenLoader] = useState<boolean>(false);
 
-    const handleClose = () => {
-        setOpenLoader(false);
-    };
+  const handleClose = () => {
+    setOpenLoader(false);
+  };
 
-    return (
-        <ZLoaderContext.Provider value={{ openLoader, setOpenLoader }}>
-            <Backdrop
-                sx={containerStyle}
-                open={openLoader}
-                onClick={handleClose}
-            >
-                <CircularProgress color="inherit" size={15} />
-                <Typography>{translator('loading')}...</Typography>
-            </Backdrop>
-            {props.children}
-        </ZLoaderContext.Provider>
-    );
+  return (
+    <ZLoaderContext.Provider value={{ openLoader, setOpenLoader }}>
+      <Backdrop
+        sx={containerStyle}
+        open={openLoader}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" size={15} />
+        <Typography>{translator('loading')}...</Typography>
+      </Backdrop>
+      {props.children}
+    </ZLoaderContext.Provider>
+  );
 };
 
 export { ZLoader, ZLoaderContext };

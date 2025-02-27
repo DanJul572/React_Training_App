@@ -6,22 +6,22 @@ import logo from '/logo.svg';
 import { containerStyle } from './styles';
 
 const Logo = () => {
-    const name = import.meta.env.VITE_APP_NAME || 'ZApp';
+  const name = import.meta.env.VITE_APP_NAME || 'ZApp';
 
-    return (
-        <Box sx={containerStyle}>
-            <img src={logo} height="25px" />
-            <Typography
-                sx={{
-                    fontSize: '25px',
-                    fontWeight: 'bold',
-                }}
-                data-testid="logo"
-            >
-                {name}
-            </Typography>
-        </Box>
-    );
+  return (
+    <Box sx={containerStyle}>
+      <img src={logo} height="25px" />
+      <Typography
+        sx={{
+          fontSize: '25px',
+          fontWeight: 'bold',
+        }}
+        data-testid="logo"
+      >
+        {name}
+      </Typography>
+    </Box>
+  );
 };
 
 export default Logo;

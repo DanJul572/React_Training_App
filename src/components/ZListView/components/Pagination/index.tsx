@@ -10,24 +10,24 @@ import { PropsType } from './types';
 import { paginationStyle } from './styles';
 
 const PaginationComponent = (props: PropsType) => {
-    const { page, setPage } = usePaginationComponent();
+  const { page, setPage } = usePaginationComponent();
 
-    return (
-        <Pagination
-            count={Math.ceil(props.count / table.pageSize)}
-            page={page}
-            onChange={(_, value) => {
-                const pageValue: GridPaginationModel = {
-                    pageSize: table.pageSize,
-                    page: value - 1,
-                };
-                props.onChangePage(pageValue);
-                setPage(value);
-            }}
-            color="primary"
-            style={paginationStyle}
-        />
-    );
+  return (
+    <Pagination
+      count={Math.ceil(props.count / table.pageSize)}
+      page={page}
+      onChange={(_, value) => {
+        const pageValue: GridPaginationModel = {
+          pageSize: table.pageSize,
+          page: value - 1,
+        };
+        props.onChangePage(pageValue);
+        setPage(value);
+      }}
+      color="primary"
+      style={paginationStyle}
+    />
+  );
 };
 
 export default PaginationComponent;

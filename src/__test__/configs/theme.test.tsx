@@ -5,12 +5,12 @@ import { expect, describe, it } from 'vitest';
 import theme from '@/configs/theme';
 
 describe('theme', () => {
-    it('render', () => {
-        render(
-            <ThemeProvider theme={theme}>
-                <Typography>Hello</Typography>
-            </ThemeProvider>
-        );
-        expect(screen.getByText('Hello')).toBeInTheDocument();
-    });
+  it('render', () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <Typography>Hello</Typography>
+      </ThemeProvider>
+    );
+    expect(screen.getByText('Hello')).toBeInTheDocument();
+  });
 });

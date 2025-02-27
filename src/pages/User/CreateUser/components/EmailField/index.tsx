@@ -6,19 +6,15 @@ import translator from '@/helpers/translator';
 import { RenderFieldType } from '../../types';
 
 const EmailField = (props: RenderFieldType) => {
-    return (
-        <Controller
-            name="email"
-            control={props.control}
-            render={({ field }) => (
-                <TextField
-                    {...field}
-                    type="text"
-                    label={translator('email')}
-                />
-            )}
-        />
-    );
+  return (
+    <Controller
+      name="email"
+      control={props.control}
+      render={({ field }) => (
+        <TextField {...field} type="text" label={translator('email')} />
+      )}
+    />
+  );
 };
 
 export default EmailField;

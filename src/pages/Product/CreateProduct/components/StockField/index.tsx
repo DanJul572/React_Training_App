@@ -6,19 +6,15 @@ import translator from '@/helpers/translator';
 import { RenderFieldType } from '../../types';
 
 const StockField = (props: RenderFieldType) => {
-    return (
-        <Controller
-            name="stock"
-            control={props.control}
-            render={({ field }) => (
-                <TextField
-                    {...field}
-                    type="number"
-                    label={translator('stock')}
-                />
-            )}
-        />
-    );
+  return (
+    <Controller
+      name="stock"
+      control={props.control}
+      render={({ field }) => (
+        <TextField {...field} type="number" label={translator('stock')} />
+      )}
+    />
+  );
 };
 
 export default StockField;

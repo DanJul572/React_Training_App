@@ -1,10 +1,10 @@
 import { ReactNode, Dispatch, SetStateAction } from 'react';
 
 export type PropsType = {
-    children: ReactNode;
+  children: ReactNode;
 };
 
 export type ZLoaderContextType = {
-    openLoader: boolean;
-    setOpenLoader: Dispatch<SetStateAction<boolean>>;
+  openLoader: boolean;
+  setOpenLoader: Dispatch<SetStateAction<boolean>>;
 };

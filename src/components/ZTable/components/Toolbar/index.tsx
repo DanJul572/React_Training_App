@@ -5,9 +5,9 @@ import Tooltip from '@mui/material/Tooltip';
 import Add from '@mui/icons-material/Add';
 
 import {
-    GridToolbarColumnsButton,
-    GridToolbarFilterButton,
-    GridToolbarQuickFilter,
+  GridToolbarColumnsButton,
+  GridToolbarFilterButton,
+  GridToolbarQuickFilter,
 } from '@mui/x-data-grid/components';
 
 import translator from '@/helpers/translator';
@@ -16,27 +16,27 @@ import { PropsType } from './types';
 import { containerStyle, subContainerStyle } from './styles';
 
 const ToolBar = (props: PropsType) => {
-    return (
-        <Box sx={containerStyle}>
-            <Box sx={subContainerStyle}>
-                {props.enableAddButton && (
-                    <Tooltip title={translator('add_record')}>
-                        <Button
-                            color="primary"
-                            startIcon={<Add />}
-                            size="small"
-                            onClick={props.onAdd}
-                        >
-                            {translator('add_record')}
-                        </Button>
-                    </Tooltip>
-                )}
-                <GridToolbarColumnsButton />
-                {props.enableFilterButton && <GridToolbarFilterButton />}
-            </Box>
-            <GridToolbarQuickFilter />
-        </Box>
-    );
+  return (
+    <Box sx={containerStyle}>
+      <Box sx={subContainerStyle}>
+        {props.enableAddButton && (
+          <Tooltip title={translator('add_record')}>
+            <Button
+              color="primary"
+              startIcon={<Add />}
+              size="small"
+              onClick={props.onAdd}
+            >
+              {translator('add_record')}
+            </Button>
+          </Tooltip>
+        )}
+        <GridToolbarColumnsButton />
+        {props.enableFilterButton && <GridToolbarFilterButton />}
+      </Box>
+      <GridToolbarQuickFilter />
+    </Box>
+  );
 };
 
 export default ToolBar;

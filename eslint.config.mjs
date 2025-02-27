@@ -11,55 +11,55 @@ import { FlatCompat } from '@eslint/eslintrc';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all,
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
 export default [
-    {
-        ignores: [
-            '**/dist',
-            '**/node_modules',
-            '**/coverage',
-            '**/.husky',
-            '**/.eslintrc.cjs',
-            '**/vite.config.ts',
-            '**/vitest.setup.ts',
-        ],
+  {
+    ignores: [
+      '**/dist',
+      '**/node_modules',
+      '**/coverage',
+      '**/.husky',
+      '**/.eslintrc.cjs',
+      '**/vite.config.ts',
+      '**/vitest.setup.ts',
+    ],
+  },
+  ...fixupConfigRules(
+    compat.extends(
+      'eslint:recommended',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:react-hooks/recommended',
+      'plugin:prettier/recommended'
+    )
+  ),
+  {
+    plugins: {
+      'react-refresh': reactRefresh,
+      prettier: fixupPluginRules(prettier),
     },
-    ...fixupConfigRules(
-        compat.extends(
-            'eslint:recommended',
-            'plugin:@typescript-eslint/recommended',
-            'plugin:react-hooks/recommended',
-            'plugin:prettier/recommended'
-        )
-    ),
-    {
-        plugins: {
-            'react-refresh': reactRefresh,
-            prettier: fixupPluginRules(prettier),
-        },
 
-        languageOptions: {
-            globals: {
-                ...globals.browser,
-            },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
 
-            parser: tsParser,
-        },
-
-        rules: {
-            'react-refresh/only-export-components': [
-                'warn',
-                {
-                    allowConstantExport: true,
-                },
-            ],
-            'react-hooks/exhaustive-deps': 0,
-            '@typescript-eslint/no-explicit-any': 0,
-            'prettier/prettier': ['error'],
-        },
+      parser: tsParser,
     },
+
+    rules: {
+      'react-refresh/only-export-components': [
+        'warn',
+        {
+          allowConstantExport: true,
+        },
+      ],
+      'react-hooks/exhaustive-deps': 0,
+      '@typescript-eslint/no-explicit-any': 0,
+      'prettier/prettier': ['error'],
+    },
+  },
 ];

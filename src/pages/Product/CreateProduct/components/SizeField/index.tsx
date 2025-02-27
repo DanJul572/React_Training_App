@@ -6,19 +6,15 @@ import translator from '@/helpers/translator';
 import { RenderFieldType } from '../../types';
 
 const SizeField = (props: RenderFieldType) => {
-    return (
-        <Controller
-            name="size"
-            control={props.control}
-            render={({ field }) => (
-                <TextField
-                    {...field}
-                    type="text"
-                    label={translator('size')}
-                />
-            )}
-        />
-    );
+  return (
+    <Controller
+      name="size"
+      control={props.control}
+      render={({ field }) => (
+        <TextField {...field} type="text" label={translator('size')} />
+      )}
+    />
+  );
 };
 
 export default SizeField;

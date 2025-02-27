@@ -12,63 +12,56 @@ import logo from '/logo.svg';
 
 import useLogin from './hooks';
 import {
-    cardDekstopStyle,
-    cardStyle,
-    containerStyle,
-    fieldContainerStyle,
-    headStyle,
+  cardDekstopStyle,
+  cardStyle,
+  containerStyle,
+  fieldContainerStyle,
+  headStyle,
 } from './styles';
 
 const appName = import.meta.env.VITE_APP_NAME;
 
 const Login = () => {
-    const { handleSubmit, onSubmit, control, alert, isMobile } =
-        useLogin();
+  const { handleSubmit, onSubmit, control, alert, isMobile } = useLogin();
 
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Box sx={containerStyle}>
-                <Box sx={headStyle}>
-                    <img src={logo} height="25px" />
-                    <Typography variant="h6">{appName}</Typography>
-                </Box>
-                <Card
-                    sx={isMobile ? cardStyle : cardDekstopStyle}
-                    variant="outlined"
-                    className="login"
-                >
-                    {alert.open && (
-                        <Alert severity={alert.type}>
-                            {alert.message}
-                        </Alert>
-                    )}
-                    <Box sx={fieldContainerStyle}>
-                        <Controller
-                            name="email"
-                            control={control}
-                            render={({ field }) => (
-                                <TextField {...field} label="Email" />
-                            )}
-                        />
-                        <Controller
-                            name="password"
-                            control={control}
-                            render={({ field }) => (
-                                <TextField
-                                    {...field}
-                                    label="Password"
-                                    type="password"
-                                />
-                            )}
-                        />
-                    </Box>
-                    <Button type="submit" fullWidth>
-                        {translator('login')}
-                    </Button>
-                </Card>
-            </Box>
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Box sx={containerStyle}>
+        <Box sx={headStyle}>
+          <img src={logo} height="25px" />
+          <Typography variant="h6">{appName}</Typography>
+        </Box>
+        <Card
+          sx={isMobile ? cardStyle : cardDekstopStyle}
+          variant="outlined"
+          className="login"
+        >
+          {alert.open && (
+            <Alert severity={alert.type}>{alert.message}</Alert>
+          )}
+          <Box sx={fieldContainerStyle}>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <TextField {...field} label="Email" />
+              )}
+            />
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <TextField {...field} label="Password" type="password" />
+              )}
+            />
+          </Box>
+          <Button type="submit" fullWidth>
+            {translator('login')}
+          </Button>
+        </Card>
+      </Box>
+    </form>
+  );
 };
 
 export default Login;

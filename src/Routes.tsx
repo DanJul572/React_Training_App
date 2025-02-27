@@ -20,136 +20,136 @@ import ProtectedRoute from './middleware/ProtectedRoute';
 import UnProtectedRoute from './middleware/UnProtectedRoute';
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <Dashboard />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/login',
-        element: (
-            <UnProtectedRoute>
-                <Empty>
-                    <Login />
-                </Empty>
-            </UnProtectedRoute>
-        ),
-    },
-    {
-        path: '/product',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <ProductList />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/product/create',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CreateProduct />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/product/create/:id',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CreateProduct />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/product/detail/:id',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <ProductDetail />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/transaction',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CreateTransaction />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/user',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <UserList />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/user/create',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CreateUser />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/user/create/:id',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CreateUser />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/category',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CategoryList />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/category/create',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CreateCategory />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
-    {
-        path: '/category/create/:id',
-        element: (
-            <ProtectedRoute>
-                <Main>
-                    <CreateCategory />
-                </Main>
-            </ProtectedRoute>
-        ),
-    },
+  {
+    path: '/',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <Dashboard />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/login',
+    element: (
+      <UnProtectedRoute>
+        <Empty>
+          <Login />
+        </Empty>
+      </UnProtectedRoute>
+    ),
+  },
+  {
+    path: '/product',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <ProductList />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/product/create',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CreateProduct />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/product/create/:id',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CreateProduct />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/product/detail/:id',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <ProductDetail />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/transaction',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CreateTransaction />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/user',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <UserList />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/user/create',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CreateUser />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/user/create/:id',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CreateUser />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/category',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CategoryList />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/category/create',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CreateCategory />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/category/create/:id',
+    element: (
+      <ProtectedRoute>
+        <Main>
+          <CreateCategory />
+        </Main>
+      </ProtectedRoute>
+    ),
+  },
 ]);
 
 export default router;

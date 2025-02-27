@@ -18,53 +18,53 @@ import isAdmin from '@/helpers/isAdmin';
 import { containerStyle, subContainerStyle } from './styles';
 
 export default function SimpleBottomNavigation() {
-    const { navigate, getActivePath } = useSimpleBottomNavigation();
+  const { navigate, getActivePath } = useSimpleBottomNavigation();
 
-    const isMobileOrTab = useMediaQuery({ maxWidth: 1024 });
+  const isMobileOrTab = useMediaQuery({ maxWidth: 1024 });
 
-    if (!isMobileOrTab) {
-        return false;
-    }
+  if (!isMobileOrTab) {
+    return false;
+  }
 
-    return (
-        <Box sx={containerStyle} className="SimpleBottomNavigation">
-            <BottomNavigation
-                showLabels
-                value={getActivePath()}
-                sx={subContainerStyle}
-            >
-                <BottomNavigationAction
-                    onClick={() => navigate('/')}
-                    label={translator('dashboard')}
-                    icon={<DashboardIcon />}
-                />
-                <BottomNavigationAction
-                    onClick={() => navigate('/product')}
-                    label={translator('product')}
-                    icon={<Inventory2 />}
-                />
-                {isAdmin && (
-                    <BottomNavigationAction
-                        onClick={() => navigate('/category')}
-                        label={translator('category')}
-                        icon={<Category />}
-                    />
-                )}
-                {isAdmin && (
-                    <BottomNavigationAction
-                        onClick={() => navigate('/transaction')}
-                        label={translator('transaction')}
-                        icon={<PointOfSale />}
-                    />
-                )}
-                {isAdmin && (
-                    <BottomNavigationAction
-                        onClick={() => navigate('/user')}
-                        label={translator('user')}
-                        icon={<Person />}
-                    />
-                )}
-            </BottomNavigation>
-        </Box>
-    );
+  return (
+    <Box sx={containerStyle} className="SimpleBottomNavigation">
+      <BottomNavigation
+        showLabels
+        value={getActivePath()}
+        sx={subContainerStyle}
+      >
+        <BottomNavigationAction
+          onClick={() => navigate('/')}
+          label={translator('dashboard')}
+          icon={<DashboardIcon />}
+        />
+        <BottomNavigationAction
+          onClick={() => navigate('/product')}
+          label={translator('product')}
+          icon={<Inventory2 />}
+        />
+        {isAdmin && (
+          <BottomNavigationAction
+            onClick={() => navigate('/category')}
+            label={translator('category')}
+            icon={<Category />}
+          />
+        )}
+        {isAdmin && (
+          <BottomNavigationAction
+            onClick={() => navigate('/transaction')}
+            label={translator('transaction')}
+            icon={<PointOfSale />}
+          />
+        )}
+        {isAdmin && (
+          <BottomNavigationAction
+            onClick={() => navigate('/user')}
+            label={translator('user')}
+            icon={<Person />}
+          />
+        )}
+      </BottomNavigation>
+    </Box>
+  );
 }

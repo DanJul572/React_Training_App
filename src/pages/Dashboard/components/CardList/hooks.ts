@@ -10,36 +10,36 @@ import { ZAlertContext } from '@/context/ZAlert';
 import { ResponseType } from './types';
 
 const useCardList = () => {
-    const { setOpenLoader } = useContext(ZLoaderContext);
-    const { setAlertProps } = useContext(ZAlertContext);
+  const { setOpenLoader } = useContext(ZLoaderContext);
+  const { setAlertProps } = useContext(ZAlertContext);
 
-    const [dataCount, setDataCount] = useState<ResponseType>({
-        userCount: 0,
-        productCount: 0,
-    });
+  const [dataCount, setDataCount] = useState<ResponseType>({
+    userCount: 0,
+    productCount: 0,
+  });
 
-    const onLoad = () => {
-        setOpenLoader(true);
-        request
-            .get<ResponseType>('/dashboard')
-            .then((response) => {
-                setDataCount(response);
-            })
-            .catch((error: AxiosError) => {
-                showErrorAlert(error, setAlertProps);
-            })
-            .finally(() => {
-                setOpenLoader(false);
-            });
-    };
+  const onLoad = () => {
+    setOpenLoader(true);
+    request
+      .get<ResponseType>('/dashboard')
+      .then((response) => {
+        setDataCount(response);
+      })
+      .catch((error: AxiosError) => {
+        showErrorAlert(error, setAlertProps);
+      })
+      .finally(() => {
+        setOpenLoader(false);
+      });
+  };
 
-    useEffect(() => {
-        onLoad();
-    }, []);
+  useEffect(() => {
+    onLoad();
+  }, []);
 
-    return {
-        dataCount,
-    };
+  return {
+    dataCount,
+  };
 };
 
 export default useCardList;

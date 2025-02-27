@@ -1,4 +1,4 @@
 export type PropsType = {
-    onBack: () => void;
-    onClear: () => void;
+  onBack: () => void;
+  onClear: () => void;
 };

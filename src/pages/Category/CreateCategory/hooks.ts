@@ -13,117 +13,117 @@ import { ZAlertContext } from '@/context/ZAlert';
 import { ParamType, CategoryFormType } from './types';
 
 const useCreateCategory = () => {
-    const params: ParamType = useParams();
-    const navigate = useNavigate();
+  const params: ParamType = useParams();
+  const navigate = useNavigate();
 
-    const { setAlertProps } = useContext(ZAlertContext);
-    const { setOpenLoader } = useContext(ZLoaderContext);
+  const { setAlertProps } = useContext(ZAlertContext);
+  const { setOpenLoader } = useContext(ZLoaderContext);
 
-    const { control, handleSubmit, reset } = useForm<CategoryFormType>({
-        defaultValues: {
-            name: '',
-        },
+  const { control, handleSubmit, reset } = useForm<CategoryFormType>({
+    defaultValues: {
+      name: '',
+    },
+  });
+
+  const clearAlert = () => {
+    setAlertProps({
+      open: false,
+      message: null,
+      type: 'success',
     });
+  };
 
-    const clearAlert = () => {
-        setAlertProps({
-            open: false,
-            message: null,
-            type: 'success',
-        });
-    };
+  const showSuccessAlert = (message: string): void => {
+    setAlertProps({
+      open: true,
+      message: message,
+      type: 'success',
+    });
+  };
 
-    const showSuccessAlert = (message: string): void => {
-        setAlertProps({
-            open: true,
-            message: message,
-            type: 'success',
-        });
-    };
-
-    const insertCategory = (data: CategoryFormType) => {
-        request
-            .post<CategoryFormType, CategoryFormType>('/categories', data)
-            .then(() => {
-                showSuccessAlert(translator('data_is_created'));
-                reset();
-            })
-            .catch((error: AxiosError) => {
-                if (error.response) {
-                    showErrorAlert(error, setAlertProps);
-                }
-            })
-            .finally(() => {
-                setOpenLoader(false);
-            });
-    };
-
-    const updateCategory = (data: CategoryFormType) => {
-        request
-            .put<CategoryFormType>(`/categories/${params.id}`, data)
-            .then((response) => {
-                showSuccessAlert(translator('data_is_updated'));
-                reset(response);
-            })
-            .catch((error: AxiosError) => {
-                if (error.response) {
-                    showErrorAlert(error, setAlertProps);
-                }
-            })
-            .finally(() => {
-                setOpenLoader(false);
-            });
-    };
-
-    const getCategory = () => {
-        setOpenLoader(true);
-        const categoryId = params.id;
-        request
-            .get<CategoryFormType>(`/categories/${categoryId}`)
-            .then((response) => {
-                reset(response);
-            })
-            .catch((error: AxiosError) => {
-                if (error.response) {
-                    showErrorAlert(error, setAlertProps);
-                }
-            })
-            .finally(() => {
-                setOpenLoader(false);
-            });
-    };
-
-    const onSubmit: SubmitHandler<CategoryFormType> = (data) => {
-        clearAlert();
-        setOpenLoader(true);
-        if (params.id) {
-            updateCategory(data);
-        } else {
-            insertCategory(data);
-        }
-    };
-
-    const onClear = () => {
+  const insertCategory = (data: CategoryFormType) => {
+    request
+      .post<CategoryFormType, CategoryFormType>('/categories', data)
+      .then(() => {
+        showSuccessAlert(translator('data_is_created'));
         reset();
-    };
-
-    const onBack = () => {
-        navigate('/category');
-    };
-
-    useEffect(() => {
-        if (params.id) {
-            getCategory();
+      })
+      .catch((error: AxiosError) => {
+        if (error.response) {
+          showErrorAlert(error, setAlertProps);
         }
-    }, [params]);
+      })
+      .finally(() => {
+        setOpenLoader(false);
+      });
+  };
 
-    return {
-        control,
-        handleSubmit,
-        onBack,
-        onClear,
-        onSubmit,
-    };
+  const updateCategory = (data: CategoryFormType) => {
+    request
+      .put<CategoryFormType>(`/categories/${params.id}`, data)
+      .then((response) => {
+        showSuccessAlert(translator('data_is_updated'));
+        reset(response);
+      })
+      .catch((error: AxiosError) => {
+        if (error.response) {
+          showErrorAlert(error, setAlertProps);
+        }
+      })
+      .finally(() => {
+        setOpenLoader(false);
+      });
+  };
+
+  const getCategory = () => {
+    setOpenLoader(true);
+    const categoryId = params.id;
+    request
+      .get<CategoryFormType>(`/categories/${categoryId}`)
+      .then((response) => {
+        reset(response);
+      })
+      .catch((error: AxiosError) => {
+        if (error.response) {
+          showErrorAlert(error, setAlertProps);
+        }
+      })
+      .finally(() => {
+        setOpenLoader(false);
+      });
+  };
+
+  const onSubmit: SubmitHandler<CategoryFormType> = (data) => {
+    clearAlert();
+    setOpenLoader(true);
+    if (params.id) {
+      updateCategory(data);
+    } else {
+      insertCategory(data);
+    }
+  };
+
+  const onClear = () => {
+    reset();
+  };
+
+  const onBack = () => {
+    navigate('/category');
+  };
+
+  useEffect(() => {
+    if (params.id) {
+      getCategory();
+    }
+  }, [params]);
+
+  return {
+    control,
+    handleSubmit,
+    onBack,
+    onClear,
+    onSubmit,
+  };
 };
 
 export default useCreateCategory;

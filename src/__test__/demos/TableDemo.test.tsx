@@ -4,47 +4,47 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import ZTableDemo from '@/demos/ZTableDemo';
 
 describe('Table Demo', () => {
-    it('render component', async () => {
-        render(<ZTableDemo />);
+  it('render component', async () => {
+    render(<ZTableDemo />);
 
-        const tableContainer = screen.getByTestId('ztable');
-        expect(tableContainer).toBeInTheDocument();
-    });
+    const tableContainer = screen.getByTestId('ztable');
+    expect(tableContainer).toBeInTheDocument();
+  });
 
-    it('click row action', async () => {
-        render(<ZTableDemo />);
+  it('click row action', async () => {
+    render(<ZTableDemo />);
 
-        const editButton = screen.getAllByTestId('EditIcon');
-        const deleteButton = screen.getAllByTestId('DeleteIcon');
+    const editButton = screen.getAllByTestId('EditIcon');
+    const deleteButton = screen.getAllByTestId('DeleteIcon');
 
-        expect(editButton).toBeDefined();
-        expect(deleteButton).toBeDefined();
+    expect(editButton).toBeDefined();
+    expect(deleteButton).toBeDefined();
 
-        fireEvent.click(editButton[0]);
-        fireEvent.click(deleteButton[0]);
-    });
+    fireEvent.click(editButton[0]);
+    fireEvent.click(deleteButton[0]);
+  });
 
-    it('click add action', async () => {
-        render(<ZTableDemo />);
+  it('click add action', async () => {
+    render(<ZTableDemo />);
 
-        const addButton = screen.getByTestId('AddIcon');
-        expect(addButton).toBeInTheDocument();
+    const addButton = screen.getByTestId('AddIcon');
+    expect(addButton).toBeInTheDocument();
 
-        fireEvent.click(addButton);
-    });
+    fireEvent.click(addButton);
+  });
 
-    it('change page action', async () => {
-        render(<ZTableDemo />);
+  it('change page action', async () => {
+    render(<ZTableDemo />);
 
-        const pageButton = screen.getByTestId('KeyboardArrowRightIcon');
-        expect(pageButton).toBeInTheDocument();
+    const pageButton = screen.getByTestId('KeyboardArrowRightIcon');
+    expect(pageButton).toBeInTheDocument();
 
-        fireEvent.click(pageButton);
-        expect(pageButton.parentElement).toBeDisabled();
-    });
+    fireEvent.click(pageButton);
+    expect(pageButton.parentElement).toBeDisabled();
+  });
 
-    /* uncomment when filter is enabled */
-    /*
+  /* uncomment when filter is enabled */
+  /*
     it('filter action', async () => {
         render(<ZTableDemo />);
 
@@ -76,8 +76,8 @@ describe('Table Demo', () => {
     });
     */
 
-    /* uncomment when selected row is enabled */
-    /*
+  /* uncomment when selected row is enabled */
+  /*
     it('selection row', async () => {
         render(<ZTableDemo />);
 
@@ -114,14 +114,14 @@ describe('Table Demo', () => {
     });
     */
 
-    it('soting action', async () => {
-        render(<ZTableDemo />);
+  it('soting action', async () => {
+    render(<ZTableDemo />);
 
-        const sortButton = screen.getAllByTestId('ArrowUpwardIcon');
-        expect(sortButton).toBeDefined();
+    const sortButton = screen.getAllByTestId('ArrowUpwardIcon');
+    expect(sortButton).toBeDefined();
 
-        const firtSort = sortButton[0];
-        fireEvent.click(firtSort);
-        expect(firtSort).not.toBeInTheDocument();
-    });
+    const firtSort = sortButton[0];
+    fireEvent.click(firtSort);
+    expect(firtSort).not.toBeInTheDocument();
+  });
 });

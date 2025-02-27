@@ -8,35 +8,35 @@ import TextField from '@mui/material/TextField';
 import { PropsType } from './types';
 
 const ZUpload = (props: PropsType) => {
-    return (
-        <TextField
-            data-testid="zupload"
-            variant="outlined"
-            label={props.label}
-            value={props.value ? props.value.name : ''}
-            InputProps={{
-                readOnly: true,
-                endAdornment: (
-                    <InputAdornment position="end">
-                        <IconButton component="label">
-                            <Upload />
-                            <input
-                                type="file"
-                                hidden={true}
-                                name={props.name}
-                                onChange={props.onChange}
-                            />
-                        </IconButton>
-                        {props.value?.name && (
-                            <IconButton onClick={props.onClear}>
-                                <Clear />
-                            </IconButton>
-                        )}
-                    </InputAdornment>
-                ),
-            }}
-        />
-    );
+  return (
+    <TextField
+      data-testid="zupload"
+      variant="outlined"
+      label={props.label}
+      value={props.value ? props.value.name : ''}
+      InputProps={{
+        readOnly: true,
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton component="label">
+              <Upload />
+              <input
+                type="file"
+                hidden={true}
+                name={props.name}
+                onChange={props.onChange}
+              />
+            </IconButton>
+            {props.value?.name && (
+              <IconButton onClick={props.onClear}>
+                <Clear />
+              </IconButton>
+            )}
+          </InputAdornment>
+        ),
+      }}
+    />
+  );
 };
 
 export default ZUpload;

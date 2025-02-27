@@ -9,39 +9,39 @@ vi.mock('axios');
 const mockedAxios = axios as Mocked<typeof axios>;
 
 describe('Dashboard Page', () => {
-    beforeEach(() => {
-        mockedAxios.get.mockResolvedValueOnce({
-            data: {
-                userCount: 10,
-                productCount: 5,
-            },
-        });
-
-        mockedAxios.get.mockResolvedValueOnce({
-            data: {
-                count: 0,
-                rows: [],
-            },
-        });
+  beforeEach(() => {
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        userCount: 10,
+        productCount: 5,
+      },
     });
 
-    it('renders component', () => {
-        render(<Dashboard />);
-        const cardUser = screen.getAllByText(translator('user'));
-        expect(cardUser[0]).toBeInTheDocument();
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        count: 0,
+        rows: [],
+      },
     });
+  });
 
-    it('renders CardList component', () => {
-        render(<Dashboard />);
-        const cardProduct = screen.getAllByText(translator('product'));
-        expect(cardProduct[0]).toBeInTheDocument();
-    });
+  it('renders component', () => {
+    render(<Dashboard />);
+    const cardUser = screen.getAllByText(translator('user'));
+    expect(cardUser[0]).toBeInTheDocument();
+  });
 
-    it('renders TransactionList component', () => {
-        render(<Dashboard />);
-        const transactionListTitle = screen.getByText(
-            translator('transaction_list')
-        );
-        expect(transactionListTitle).toBeInTheDocument();
-    });
+  it('renders CardList component', () => {
+    render(<Dashboard />);
+    const cardProduct = screen.getAllByText(translator('product'));
+    expect(cardProduct[0]).toBeInTheDocument();
+  });
+
+  it('renders TransactionList component', () => {
+    render(<Dashboard />);
+    const transactionListTitle = screen.getByText(
+      translator('transaction_list')
+    );
+    expect(transactionListTitle).toBeInTheDocument();
+  });
 });

@@ -2,28 +2,28 @@ import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 const useSidebar = () => {
-    const isMobileOrTab = useMediaQuery({ maxWidth: 1024 });
-    const location = useLocation();
-    const firstPath = location.pathname.split('/').filter(Boolean)[0];
+  const isMobileOrTab = useMediaQuery({ maxWidth: 1024 });
+  const location = useLocation();
+  const firstPath = location.pathname.split('/').filter(Boolean)[0];
 
-    const getActivePath = (): string => {
-        if (!firstPath) {
-            return '1';
-        } else if (firstPath === 'product') {
-            return '2';
-        } else if (firstPath === 'category') {
-            return '3';
-        } else if (firstPath === 'transaction') {
-            return '4';
-        } else {
-            return '5';
-        }
-    };
+  const getActivePath = (): string => {
+    if (!firstPath) {
+      return '1';
+    } else if (firstPath === 'product') {
+      return '2';
+    } else if (firstPath === 'category') {
+      return '3';
+    } else if (firstPath === 'transaction') {
+      return '4';
+    } else {
+      return '5';
+    }
+  };
 
-    return {
-        isMobileOrTab,
-        getActivePath,
-    };
+  return {
+    isMobileOrTab,
+    getActivePath,
+  };
 };
 
 export default useSidebar;

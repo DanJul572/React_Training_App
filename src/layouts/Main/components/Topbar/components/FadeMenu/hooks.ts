@@ -11,52 +11,52 @@ import { ZAlertContext } from '@/context/ZAlert';
 import { OnCloseType } from './types';
 
 const useFadeMenu = () => {
-    const username = localStorage.getItem('name') || '';
-    let avatar = 'A';
-    if (username) {
-        avatar = username.trim().charAt(0).toUpperCase();
-    }
+  const username = localStorage.getItem('name') || '';
+  let avatar = 'A';
+  if (username) {
+    avatar = username.trim().charAt(0).toUpperCase();
+  }
 
-    const { setOpenLoader } = useContext(ZLoaderContext);
-    const { setAlertProps } = useContext(ZAlertContext);
+  const { setOpenLoader } = useContext(ZLoaderContext);
+  const { setAlertProps } = useContext(ZAlertContext);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-    const handleClick: MouseEventHandler<HTMLDivElement> = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+  const handleClick: MouseEventHandler<HTMLDivElement> = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    const handleClose: OnCloseType = () => {
-        setAnchorEl(null);
-    };
+  const handleClose: OnCloseType = () => {
+    setAnchorEl(null);
+  };
 
-    const handleLogout = () => {
-        setOpenLoader(true);
-        request
-            .get('/logout')
-            .then(() => {
-                localStorage.removeItem('token');
-                localStorage.removeItem('role_id');
-                navigate('/login');
-            })
-            .catch((error: AxiosError) => {
-                showErrorAlert(error, setAlertProps);
-            })
-            .catch(() => {
-                setOpenLoader(false);
-            });
-    };
+  const handleLogout = () => {
+    setOpenLoader(true);
+    request
+      .get('/logout')
+      .then(() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('role_id');
+        navigate('/login');
+      })
+      .catch((error: AxiosError) => {
+        showErrorAlert(error, setAlertProps);
+      })
+      .catch(() => {
+        setOpenLoader(false);
+      });
+  };
 
-    return {
-        anchorEl,
-        avatar,
-        handleClick,
-        handleClose,
-        handleLogout,
-        username,
-    };
+  return {
+    anchorEl,
+    avatar,
+    handleClick,
+    handleClose,
+    handleLogout,
+    username,
+  };
 };
 
 export default useFadeMenu;

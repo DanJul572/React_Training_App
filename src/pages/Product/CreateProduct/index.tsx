@@ -18,49 +18,47 @@ import { formStyle } from './styles';
 import useCreateProduct from './hooks';
 
 const CreateProduct = () => {
-    const {
-        categoryOptions,
-        control,
-        handleChangeCategory,
-        handleSubmit,
-        onBack,
-        onClear,
-        onSubmit,
-        resetField,
-        setValue,
-    } = useCreateProduct();
+  const {
+    categoryOptions,
+    control,
+    handleChangeCategory,
+    handleSubmit,
+    onBack,
+    onClear,
+    onSubmit,
+    resetField,
+    setValue,
+  } = useCreateProduct();
 
-    const labelProps = {
-        control,
-        resetField,
-        setValue,
-    };
+  const labelProps = {
+    control,
+    resetField,
+    setValue,
+  };
 
-    return (
-        <Box>
-            <Typography variant="h6">
-                {translator('create_product')}
-            </Typography>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Box sx={formStyle}>
-                    <NameField {...labelProps} />
-                    <TypeField {...labelProps} />
-                    <SizeField {...labelProps} />
-                    <SurfaceField {...labelProps} />
-                    <StockField {...labelProps} />
-                    <Price1 {...labelProps} />
-                    <Price2 {...labelProps} />
-                    <CategoryField
-                        {...labelProps}
-                        categoryOptions={categoryOptions}
-                        handleChangeCategory={handleChangeCategory}
-                    />
-                    <ImageField {...labelProps} />
-                </Box>
-                <ActionButton onBack={onBack} onClear={onClear} />
-            </form>
+  return (
+    <Box>
+      <Typography variant="h6">{translator('create_product')}</Typography>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Box sx={formStyle}>
+          <NameField {...labelProps} />
+          <TypeField {...labelProps} />
+          <SizeField {...labelProps} />
+          <SurfaceField {...labelProps} />
+          <StockField {...labelProps} />
+          <Price1 {...labelProps} />
+          <Price2 {...labelProps} />
+          <CategoryField
+            {...labelProps}
+            categoryOptions={categoryOptions}
+            handleChangeCategory={handleChangeCategory}
+          />
+          <ImageField {...labelProps} />
         </Box>
-    );
+        <ActionButton onBack={onBack} onClear={onClear} />
+      </form>
+    </Box>
+  );
 };
 
 export default CreateProduct;

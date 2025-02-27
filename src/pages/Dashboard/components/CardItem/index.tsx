@@ -6,14 +6,14 @@ import { PropsType } from './types';
 import { containerStyle } from './styles';
 
 const CardItem = (props: PropsType) => {
-    return (
-        <Card sx={containerStyle}>
-            <Typography variant="subtitle2" color="primary">
-                {props.title}
-            </Typography>
-            <Typography variant="h4">{props.content}</Typography>
-        </Card>
-    );
+  return (
+    <Card sx={containerStyle}>
+      <Typography variant="subtitle2" color="primary">
+        {props.title}
+      </Typography>
+      <Typography variant="h4">{props.content}</Typography>
+    </Card>
+  );
 };
 
 export default CardItem;

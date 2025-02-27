@@ -1,5 +1,5 @@
 export type PropsType = {
-    enableAddButton?: boolean;
-    enableFilterButton?: boolean;
-    onAdd?: () => void;
+  enableAddButton?: boolean;
+  enableFilterButton?: boolean;
+  onAdd?: () => void;
 };
