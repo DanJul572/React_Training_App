@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
+import isAdmin from '@/helpers/isAdmin';
 import translator from '@/helpers/translator';
 
 import useProductDetail from './hooks';
@@ -16,7 +17,6 @@ import {
     noImageStyle,
     sizeContainerStyle,
 } from './styles';
-import isAdmin from '@/helpers/isAdmin';
 
 const ProductProduct = () => {
     const { product, getProduct, onBack } = useProductDetail();
