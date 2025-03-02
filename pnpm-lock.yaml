@@ -15,8 +15,8 @@ importers:
         specifier: ^11.14.0
         version: 11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0)
       '@fontsource/roboto':
-        specifier: ^5.2.0
-        version: 5.2.0
+        specifier: ^5.2.1
+        version: 5.2.1
       '@mui/icons-material':
         specifier: ^6.4.6
         version: 6.4.6(@mui/material@6.4.6(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@types/react@19.0.10)(react@19.0.0)
@@ -45,8 +45,8 @@ importers:
         specifier: ^7.54.2
         version: 7.54.2(react@19.0.0)
       react-responsive:
-        specifier: ^10.0.0
-        version: 10.0.0(react@19.0.0)
+        specifier: ^10.0.1
+        version: 10.0.1(react@19.0.0)
       react-router-dom:
         specifier: ^7.2.0
         version: 7.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -465,8 +465,8 @@ packages:
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource/roboto@5.2.0':
-    resolution: {integrity: sha512-RgDVfXtRZlMRBkzcVMETP0m5Xy8VaKAEnqTD2NFe34B6Qc2Xvn01Hxu3mdrF2My0YM0n4Iae5XWM7yzEsm4OZg==}
+  '@fontsource/roboto@5.2.1':
+    resolution: {integrity: sha512-9fRnNLrNN1mksWUDuQNkFBFNgTLEAIs7Mglb3fPkHDRPvbAfafaVz49Vz74+nItAZ1ovZr4H7MXrYAkTwvH9iA==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1813,8 +1813,8 @@ packages:
   react-is@19.0.0:
     resolution: {integrity: sha512-H91OHcwjZsbq3ClIDHMzBShc1rotbfACdWENsmEf0IFvZ3FgGPtdHMcsv45bQ1hAbgdfiA8SnxTKfDS+x/8m2g==}
 
-  react-responsive@10.0.0:
-    resolution: {integrity: sha512-N6/UiRLGQyGUqrarhBZmrSmHi2FXSD++N5VbSKsBBvWfG0ZV7asvUBluSv5lSzdMyEVjzZ6Y8DL4OHABiztDOg==}
+  react-responsive@10.0.1:
+    resolution: {integrity: sha512-OM5/cRvbtUWEX8le8RCT8scA8y2OPtb0Q/IViEyCEM5FBN8lRrkUOZnu87I88A6njxDldvxG+rLBxWiA7/UM9g==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8.0'
@@ -2501,7 +2501,7 @@ snapshots:
       '@eslint/core': 0.12.0
       levn: 0.4.1
 
-  '@fontsource/roboto@5.2.0': {}
+  '@fontsource/roboto@5.2.1': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -3816,7 +3816,7 @@ snapshots:
 
   react-is@19.0.0: {}
 
-  react-responsive@10.0.0(react@19.0.0):
+  react-responsive@10.0.1(react@19.0.0):
     dependencies:
       hyphenate-style-name: 1.1.0
       matchmediaquery: 0.4.2
