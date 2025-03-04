@@ -8,8 +8,8 @@ import {
 
 export type ProductFormType = {
   category_id: string | null;
-  image: string | ArrayBuffer | null;
-  imageDisplay: File | null;
+  image?: string | ArrayBuffer | null;
+  imageDisplay?: File | null;
   name: string;
   price_1: number;
   price_2: number;

@@ -17,7 +17,7 @@ const ImageField = (props: RenderFieldType) => {
         <ZUpload
           label={translator('image')}
           name="imageDisplay"
-          value={field.value}
+          value={field.value || null}
           onChange={(e) => handleChange(e, field)}
           onClear={hanldeClear}
         />

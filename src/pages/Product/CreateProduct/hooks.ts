@@ -55,6 +55,9 @@ const useCreateProduct = () => {
     }
     if (data.image && data.imageDisplay) {
       data.imageDisplay = null;
+    } else {
+      delete data.image;
+      delete data.imageDisplay;
     }
     return data;
   };
