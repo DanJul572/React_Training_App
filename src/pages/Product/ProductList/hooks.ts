@@ -27,6 +27,7 @@ import {
   DisplayDataType,
   GetUrlType,
   OnLoadType,
+  OnWithoutImageChangeType,
   TablePropertyType,
 } from './types';
 
@@ -43,20 +44,39 @@ const ProductList = () => {
   const [tableProperty, setTableProperty] = useState<TablePropertyType>({
     page: 1,
     quickFilter: null,
+    isWithoutImage: false,
     sort: {
       field: 'product_name',
       sort: 'asc',
     },
   });
 
+  const onWithoutImageChange: OnWithoutImageChangeType = (
+    _event,
+    checked
+  ) => {
+    setTableProperty((prevState) => ({
+      ...prevState,
+      isWithoutImage: checked,
+    }));
+  };
+
   const getUrl: GetUrlType = (prop) => {
     let url = `/products?page=${prop.page}`;
     if (prop.quickFilter) {
       url += `&quickFilter=${prop.quickFilter}`;
     }
+
     if (prop.sort.field && prop.sort.sort) {
       url += `&orderBy=${prop.sort.field}&order=${prop.sort.sort}`;
     }
+
+    if (prop.isWithoutImage) {
+      url += `&isWithoutImage=${prop.isWithoutImage}`;
+    } else {
+      url += `&isWithoutImage=false`;
+    }
+
     return url;
   };
 
@@ -173,7 +193,9 @@ const ProductList = () => {
     onEdit,
     onFilter,
     onSort,
+    onWithoutImageChange,
     openDialog,
+    tableProperty,
   };
 };
 
