@@ -5,4 +5,5 @@ export const containerButtonStyle: CSSProperties = {
   display: 'flex',
   justifyContent: 'flex-end',
   gap: '10px',
+  marginBottom: '100px',
 };
