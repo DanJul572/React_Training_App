@@ -15,20 +15,23 @@ import {
   contentStyle,
   sidebarAndContentStyle,
 } from './styles';
+import { ProductTableProperty } from '@/context/ProductTableProperty';
 
 const Main = (props: PropsType) => {
   return (
     <Box sx={containerStyle}>
       <ZLoader>
         <ZConfirmationDialog>
-          <Topbar />
-          <Box sx={sidebarAndContentStyle}>
-            <Sidebar />
-            <Box sx={contentStyle}>
-              <ZAlert>{props.children}</ZAlert>
+          <ProductTableProperty>
+            <Topbar />
+            <Box sx={sidebarAndContentStyle}>
+              <Sidebar />
+              <Box sx={contentStyle}>
+                <ZAlert>{props.children}</ZAlert>
+              </Box>
             </Box>
-          </Box>
-          <SimpleBottomNavigation />
+            <SimpleBottomNavigation />
+          </ProductTableProperty>
         </ZConfirmationDialog>
       </ZLoader>
     </Box>

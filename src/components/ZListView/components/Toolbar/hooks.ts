@@ -4,24 +4,27 @@ import { GridFilterModel } from '@mui/x-data-grid';
 import { PropsType } from './types';
 
 const useToolbar = (props: PropsType) => {
-  const [searchTerm, setSearchTerm] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string | null>(
+    props.initialSearch || null
+  );
+  const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
 
   useEffect(() => {
-    if (typeof searchTerm === 'string') {
-      const timerId = setTimeout(() => {
-        const filterFormat: GridFilterModel = {
-          items: [],
-          quickFilterValues: [searchTerm],
-        };
-        if (props.onFilter) {
-          props.onFilter(filterFormat);
-        }
-      }, 1000);
-
-      return () => {
-        clearTimeout(timerId);
+    const timerId = setTimeout(() => {
+      const filterFormat: GridFilterModel = {
+        items: [],
+        quickFilterValues: [searchTerm],
       };
-    }
+      if (props.onFilter && !isFirstRender) {
+        props.onFilter(filterFormat);
+      } else {
+        setIsFirstRender(false);
+      }
+    }, 1000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
   }, [searchTerm]);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {

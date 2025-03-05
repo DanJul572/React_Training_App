@@ -10,12 +10,12 @@ import { PropsType } from './types';
 import { paginationStyle } from './styles';
 
 const PaginationComponent = (props: PropsType) => {
-  const { page, setPage } = usePaginationComponent();
+  const { page, setPage } = usePaginationComponent(props);
 
   return (
     <Pagination
       count={Math.ceil(props.count / table.pageSize)}
-      page={page}
+      page={props.initialPage || page}
       onChange={(_, value) => {
         const pageValue: GridPaginationModel = {
           pageSize: table.pageSize,

@@ -11,6 +11,7 @@ import useProductDetail from './hooks';
 import {
   buttonContainerStyle,
   captionContainerStyle,
+  containerStyle,
   descriptionContainerStyle,
   imageContainerStyle,
   imageStyle,
@@ -26,7 +27,7 @@ const ProductProduct = () => {
   }
 
   return (
-    <Card variant="outlined">
+    <Card variant="outlined" sx={containerStyle}>
       <CardContent>
         <Box>
           <Box sx={imageContainerStyle}>

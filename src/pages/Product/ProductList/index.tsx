@@ -16,6 +16,7 @@ import { containerStyle, tableContainerStyle } from './styles';
 const ProductList = () => {
   const {
     displayData,
+    initialState,
     onAdd,
     onChangePage,
     onDetail,
@@ -47,6 +48,7 @@ const ProductList = () => {
           enableDetailButton={true}
           enableEditButton={isAdmin}
           id="id"
+          initialState={initialState}
           listTitleFormat="product_name - type"
           onAdd={onAdd}
           onChangePage={onChangePage}

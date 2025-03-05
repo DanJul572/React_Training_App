@@ -6,10 +6,14 @@ import {
   GridPaginationModel,
   GridSortModel,
 } from '@mui/x-data-grid';
+import { GridInitialStateCommunity } from '@mui/x-data-grid/models/gridStateCommunity';
+
+import table from '@/configs/table';
 
 import request from '@/helpers/request';
 import showErrorAlert from '@/helpers/showErrorAlert';
 
+import { ProductTablePropertyContext } from '@/context/ProductTableProperty';
 import { ZAlertContext } from '@/context/ZAlert';
 import { ZConfirmationDialogContext } from '@/context/ZConfirmationDialog';
 import { ZLoaderContext } from '@/context/ZLoader';
@@ -28,7 +32,6 @@ import {
   GetUrlType,
   OnLoadType,
   OnWithoutImageChangeType,
-  TablePropertyType,
 } from './types';
 
 const ProductList = () => {
@@ -36,19 +39,28 @@ const ProductList = () => {
   const { setAlertProps } = useContext(ZAlertContext);
   const { setDialogProps } = useContext(ZConfirmationDialogContext);
   const { setOpenLoader } = useContext(ZLoaderContext);
+  const { tableProperty, setTableProperty } = useContext(
+    ProductTablePropertyContext
+  );
+
+  const initialState: GridInitialStateCommunity = {
+    pagination: {
+      paginationModel: {
+        page: tableProperty.page,
+        pageSize: table.pageSize,
+      },
+    },
+    filter: {
+      filterModel: {
+        items: [],
+        quickFilterValues: tableProperty.quickFilter?.split(' '),
+      },
+    },
+  };
 
   const [displayData, setDisplayData] = useState<DisplayDataType>({
     rows: [],
     count: 0,
-  });
-  const [tableProperty, setTableProperty] = useState<TablePropertyType>({
-    page: 1,
-    quickFilter: null,
-    isWithoutImage: false,
-    sort: {
-      field: 'product_name',
-      sort: 'asc',
-    },
   });
 
   const onWithoutImageChange: OnWithoutImageChangeType = (
@@ -58,6 +70,7 @@ const ProductList = () => {
     setTableProperty((prevState) => ({
       ...prevState,
       isWithoutImage: checked,
+      page: 1,
     }));
   };
 
@@ -146,6 +159,7 @@ const ProductList = () => {
     setTableProperty((prevState) => ({
       ...prevState,
       quickFilter: finalValue,
+      page: 1,
     }));
   };
 
@@ -186,6 +200,7 @@ const ProductList = () => {
 
   return {
     displayData,
+    initialState,
     onAdd,
     onChangePage,
     onDelete,

@@ -26,6 +26,9 @@ const ZListView = (props: PropsType) => {
   return (
     <Box sx={containerStyle} data-testid="zlistview">
       <Toolbar
+        initialSearch={props.initialState?.filter?.filterModel?.quickFilterValues?.join(
+          ' '
+        )}
         enableAddButton={props.enableAddButton}
         enableFilterButton={props.enableFilterButton}
         onAdd={props.onAdd}
@@ -65,6 +68,9 @@ const ZListView = (props: PropsType) => {
       ))}
       {props.rows.length > 0 && (
         <PaginationComponent
+          initialPage={
+            props.initialState?.pagination?.paginationModel?.page
+          }
           count={props.count}
           onChangePage={props.onChangePage}
         />

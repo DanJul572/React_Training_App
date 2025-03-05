@@ -1,5 +1,9 @@
 import { CSSProperties } from 'react';
 
+export const containerStyle: CSSProperties = {
+  marginBottom: '100px',
+};
+
 export const imageContainerStyle: CSSProperties = {
   flex: 1,
 };

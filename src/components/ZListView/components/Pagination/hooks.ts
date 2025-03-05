@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
-const usePaginationComponent = () => {
-  const [page, setPage] = useState<number>(1);
+import { PropsType } from './types';
+
+const usePaginationComponent = (props: PropsType) => {
+  const [page, setPage] = useState<number>(props.initialPage || 1);
 
   return {
     page,

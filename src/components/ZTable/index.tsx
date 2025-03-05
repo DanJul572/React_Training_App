@@ -57,7 +57,6 @@ const ZTable = (props: PropsType) => {
   return (
     <Paper sx={containerStyle} data-testid="ztable">
       <DataGrid
-        localeText={table.localeText}
         autosizeOptions={table.autoSizeOption}
         checkboxSelection={props.enableCheckboxSelection}
         columns={columns}
@@ -65,7 +64,8 @@ const ZTable = (props: PropsType) => {
         filterDebounceMs={table.filterDebounceMs}
         filterMode={table.gridMode}
         getRowId={getRowId}
-        initialState={table.initialState}
+        initialState={props.initialState || table.initialState}
+        localeText={table.localeText}
         onFilterModelChange={props.onFilter}
         onPaginationModelChange={props.onChangePage}
         onRowSelectionModelChange={props.onSelect}
@@ -74,8 +74,8 @@ const ZTable = (props: PropsType) => {
         paginationMode={table.gridMode}
         rowCount={props.count}
         rows={props.rows}
-        slots={slots}
         slotProps={slotProps}
+        slots={slots}
         sortingMode={table.gridMode}
       />
     </Paper>
