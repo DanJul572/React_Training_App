@@ -54,6 +54,11 @@ const ZTable = (props: PropsType) => {
 
   const getRowId: GridRowIdGetter<any> = (row) => row[props.id];
 
+  const newInitialState = structuredClone(props.initialState);
+  if (newInitialState?.pagination?.paginationModel?.page) {
+    newInitialState.pagination.paginationModel.page -= 1;
+  }
+
   return (
     <Paper sx={containerStyle} data-testid="ztable">
       <DataGrid
@@ -64,7 +69,7 @@ const ZTable = (props: PropsType) => {
         filterDebounceMs={table.filterDebounceMs}
         filterMode={table.gridMode}
         getRowId={getRowId}
-        initialState={props.initialState || table.initialState}
+        initialState={newInitialState || table.initialState}
         localeText={table.localeText}
         onFilterModelChange={props.onFilter}
         onPaginationModelChange={props.onChangePage}
