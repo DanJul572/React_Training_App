@@ -7,8 +7,8 @@ import ActionButton from './components/ActionButton';
 import CategoryField from './components/CategoryField';
 import ImageField from './components/ImageField';
 import NameField from './components/NameField';
-import Price1 from './components/Price_1';
-import Price2 from './components/Price_2';
+import PriceOneField from './components/PriceOneField';
+import PriceTwoField from './components/PriceTwoField';
 import SizeField from './components/SizeField';
 import StockField from './components/StockField';
 import SurfaceField from './components/Surface';
@@ -30,7 +30,7 @@ const CreateProduct = () => {
     setValue,
   } = useCreateProduct();
 
-  const labelProps = {
+  const fieldProps = {
     control,
     resetField,
     setValue,
@@ -41,19 +41,19 @@ const CreateProduct = () => {
       <Typography variant="h6">{translator('create_product')}</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box sx={formStyle}>
-          <NameField {...labelProps} />
-          <TypeField {...labelProps} />
-          <SizeField {...labelProps} />
-          <SurfaceField {...labelProps} />
-          <StockField {...labelProps} />
-          <Price1 {...labelProps} />
-          <Price2 {...labelProps} />
+          <NameField {...fieldProps} />
+          <TypeField {...fieldProps} />
+          <SizeField {...fieldProps} />
+          <SurfaceField {...fieldProps} />
+          <StockField {...fieldProps} />
+          <PriceOneField {...fieldProps} />
+          <PriceTwoField {...fieldProps} />
           <CategoryField
-            {...labelProps}
+            {...fieldProps}
             categoryOptions={categoryOptions}
             handleChangeCategory={handleChangeCategory}
           />
-          <ImageField {...labelProps} />
+          <ImageField {...fieldProps} />
         </Box>
         <ActionButton onBack={onBack} onClear={onClear} />
       </form>
