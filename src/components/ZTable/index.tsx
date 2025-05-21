@@ -2,9 +2,9 @@ import { useMediaQuery } from 'react-responsive';
 import Paper from '@mui/material/Paper';
 
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
-import { GridSlotsComponent } from '@mui/x-data-grid/models/gridSlotsComponent';
 import {
   GridRowIdGetter,
+  GridSlotsComponent,
   GridSlotsComponentsProps,
 } from '@mui/x-data-grid/models';
 
@@ -79,6 +79,7 @@ const ZTable = (props: PropsType) => {
         paginationMode={table.gridMode}
         rowCount={props.count}
         rows={props.rows}
+        showToolbar={true}
         slotProps={slotProps}
         slots={slots}
         sortingMode={table.gridMode}

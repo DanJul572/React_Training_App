@@ -8,5 +8,6 @@ export const containerStyle: CSSProperties = {
 
 export const subContainerStyle: CSSProperties = {
   display: 'flex',
+  justifyContent: 'flex-end',
   gap: '10px',
 };

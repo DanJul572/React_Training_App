@@ -4,21 +4,21 @@ import Tooltip from '@mui/material/Tooltip';
 
 import Add from '@mui/icons-material/Add';
 
-import {
-  GridToolbarColumnsButton,
-  GridToolbarFilterButton,
-  GridToolbarQuickFilter,
-} from '@mui/x-data-grid/components';
+import { Toolbar as MuiToolbar } from '@mui/x-data-grid';
 
 import translator from '@/helpers/translator';
 
 import { PropsType } from './types';
 import { containerStyle, subContainerStyle } from './styles';
 
+import CustomQuickFilter from './components/CustomQuickFilter';
+import CustomColumnsPanel from './components/CustomColumnsPanel';
+import CustomFilterPanel from './components/CustomFilterPanel';
+
 const ToolBar = (props: PropsType) => {
   return (
-    <Box sx={containerStyle}>
-      <Box sx={subContainerStyle}>
+    <MuiToolbar style={containerStyle}>
+      <Box>
         {props.enableAddButton && (
           <Tooltip title={translator('add_record')}>
             <Button
@@ -31,11 +31,13 @@ const ToolBar = (props: PropsType) => {
             </Button>
           </Tooltip>
         )}
-        <GridToolbarColumnsButton />
-        {props.enableFilterButton && <GridToolbarFilterButton />}
       </Box>
-      <GridToolbarQuickFilter />
-    </Box>
+      <Box sx={subContainerStyle}>
+        {props.enableFilterButton && <CustomFilterPanel />}
+        <CustomColumnsPanel />
+        <CustomQuickFilter />
+      </Box>
+    </MuiToolbar>
   );
 };
 

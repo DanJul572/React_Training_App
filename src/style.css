@@ -5,9 +5,6 @@
 }
 
 /* Remove Clear Button width in Mui Data Grid Filter Form */
-.MuiDataGrid-panelWrapper
-  .MuiDataGrid-panelContent
-  .MuiDataGrid-filterForm
-  .MuiDataGrid-filterFormDeleteIcon {
+.MuiDataGrid-paper .MuiDataGrid-panelWrapper .MuiDataGrid-panelContent .MuiDataGrid-filterForm .MuiDataGrid-filterFormDeleteIcon ~ * {
   width: auto;
 }
