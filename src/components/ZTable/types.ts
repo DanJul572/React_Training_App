@@ -1,9 +1,11 @@
-import { GridColDef } from '@mui/x-data-grid/models/colDef/gridColDef';
-import { GridFilterModel } from '@mui/x-data-grid/models/gridFilterModel';
-import { GridPaginationModel } from '@mui/x-data-grid/models/gridPaginationProps';
-import { GridRowSelectionModel } from '@mui/x-data-grid/models/gridRowSelectionModel';
-import { GridSortModel } from '@mui/x-data-grid/models/gridSortModel';
-import { GridInitialStateCommunity } from '@mui/x-data-grid/models/gridStateCommunity';
+import {
+  GridFilterModel,
+  GridInitialState,
+  GridPaginationModel,
+  GridRowSelectionModel,
+  GridSortModel,
+} from '@mui/x-data-grid';
+import { GridColDef } from '@mui/x-data-grid/models/colDef';
 
 export type PropsType = {
   columns: readonly GridColDef[];
@@ -15,7 +17,7 @@ export type PropsType = {
   enableEditButton?: boolean;
   enableFilterButton?: boolean;
   id: string;
-  initialState?: GridInitialStateCommunity;
+  initialState?: GridInitialState;
   listTitleFormat: string;
   onAdd?: () => void;
   onChangePage: (data: GridPaginationModel) => void;

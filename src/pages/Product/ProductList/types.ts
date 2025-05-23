@@ -1,5 +1,11 @@
 import { SyntheticEvent } from 'react';
 import { ProductType, SortType } from '@/types';
+import {
+  GridFilterModel,
+  GridInitialState,
+  GridPaginationModel,
+  GridSortModel,
+} from '@mui/x-data-grid';
 
 export type TablePropertyType = {
   quickFilter: string | null;
@@ -24,3 +30,18 @@ export type OnWithoutImageChangeType = (
   event: SyntheticEvent,
   checked: boolean
 ) => void;
+
+export type ProductListReturnType = {
+  displayData: DisplayDataType;
+  initialState: GridInitialState;
+  onAdd: () => void;
+  onChangePage: (model: GridPaginationModel) => void;
+  onDelete: (id: number) => void;
+  onDetail: (id: number) => void;
+  onEdit: (id: number) => void;
+  onFilter: (model: GridFilterModel) => void;
+  onSort: (model: GridSortModel) => void;
+  onWithoutImageChange: OnWithoutImageChangeType;
+  openDialog: (id: number) => void;
+  tableProperty: TablePropertyType;
+};

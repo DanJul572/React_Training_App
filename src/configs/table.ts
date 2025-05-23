@@ -1,43 +1,35 @@
 import translator from '@/helpers/translator';
-import { GridAutosizeOptions } from '@mui/x-data-grid/hooks/features/columnResize/gridColumnResizeApi';
-import { GridLocaleText } from '@mui/x-data-grid/models/api';
-import { MuiTablePaginationLocalizedProps } from '@mui/x-data-grid/models/api/gridLocaleTextApi';
-import { GridDensity } from '@mui/x-data-grid/models/gridDensity';
-import { GridFeatureMode } from '@mui/x-data-grid/models/gridFeatureMode';
-import { GridInitialStateCommunity } from '@mui/x-data-grid/models/gridStateCommunity';
+import {
+  GridAutosizeOptions,
+  GridDensity,
+  GridFeatureMode,
+  GridInitialState,
+  GridLocaleText,
+} from '@mui/x-data-grid';
+
+type TableConfig = {
+  autoSizeOption: GridAutosizeOptions;
+  density: GridDensity;
+  filterDebounceMs: number;
+  gridMode: GridFeatureMode;
+  initialState: GridInitialState;
+  localeText: Partial<GridLocaleText>;
+  pageSize: number;
+  pageSizeOptions: number[];
+};
 
 const pageSize: number = 10;
 const density: GridDensity = 'compact';
 const pageSizeOptions: number[] = [10];
 const filterDebounceMs: number = 1000;
 const gridMode: GridFeatureMode = 'server';
-const initialState: GridInitialStateCommunity = {
+const initialState: GridInitialState = {
   pagination: {
     paginationModel: { page: 0, pageSize: pageSize },
   },
 };
 const autoSizeOption: GridAutosizeOptions = {
   includeOutliers: true,
-};
-const paginationLabels: MuiTablePaginationLocalizedProps = {
-  labelDisplayedRows: ({ from, to, count }) => {
-    return `${from}-${to} ${translator('of')} ${count !== -1 ? count : `${translator('more_than')} ${to}`}`;
-  },
-  getItemAriaLabel: (type) => {
-    if (type === 'next') {
-      return translator('next_page');
-    }
-
-    if (type === 'first') {
-      return translator('first_page');
-    }
-
-    if (type === 'last') {
-      return translator('last_page');
-    }
-
-    return translator('prev_page');
-  },
 };
 
 const localeText: Partial<GridLocaleText> = {
@@ -66,16 +58,31 @@ const localeText: Partial<GridLocaleText> = {
   footerRowSelected: (count) => {
     return `${count} ${translator('selected_row')}`;
   },
-  MuiTablePagination: paginationLabels,
   noRowsLabel: translator('no_row'),
   toolbarColumns: translator('columns'),
   toolbarColumnsLabel: translator('select_column'),
   toolbarFilters: translator('filters'),
   toolbarFiltersTooltipShow: translator('show_filer'),
   toolbarQuickFilterPlaceholder: `${translator('search')}...`,
+  paginationRowsPerPage: translator('rows_per_page'), // Label before page size selector
+  paginationItemAriaLabel: (type) => {
+    switch (type) {
+      case 'first':
+        return translator('first_page');
+      case 'last':
+        return translator('last_page');
+      case 'next':
+        return translator('next_page');
+      default:
+        return translator('prev_page');
+    }
+  },
+  paginationDisplayedRows: ({ from, to, count }) => {
+    return `${from}-${to} ${translator('of')} ${count !== -1 ? count : `${translator('more_than')} ${to}`}`;
+  },
 };
 
-const table = {
+const table: TableConfig = {
   autoSizeOption,
   density,
   filterDebounceMs,

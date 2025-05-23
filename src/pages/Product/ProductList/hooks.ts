@@ -3,10 +3,10 @@ import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {
   GridFilterModel,
+  GridInitialState,
   GridPaginationModel,
   GridSortModel,
 } from '@mui/x-data-grid';
-import { GridInitialStateCommunity } from '@mui/x-data-grid/models/gridStateCommunity';
 
 import table from '@/configs/table';
 
@@ -32,9 +32,10 @@ import {
   GetUrlType,
   OnLoadType,
   OnWithoutImageChangeType,
+  ProductListReturnType,
 } from './types';
 
-const ProductList = () => {
+const useProductList = (): ProductListReturnType => {
   const navigate = useNavigate();
   const { setAlertProps } = useContext(ZAlertContext);
   const { setDialogProps } = useContext(ZConfirmationDialogContext);
@@ -43,7 +44,7 @@ const ProductList = () => {
     ProductTablePropertyContext
   );
 
-  const initialState: GridInitialStateCommunity = {
+  const initialState: GridInitialState = {
     pagination: {
       paginationModel: {
         page: tableProperty.page,
@@ -214,4 +215,4 @@ const ProductList = () => {
   };
 };
 
-export default ProductList;
+export default useProductList;
